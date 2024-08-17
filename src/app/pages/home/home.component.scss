@@ -1,4 +1,4 @@
-.background{
+.background {
   background-image: url("/assets/intro.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -6,19 +6,19 @@
   height: 1000px;
 }
 
-.intro-section{
+.intro-section {
   margin-top: 150px;
   margin-bottom: 350px;
-  .intro{
+  .intro {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  h1{
+  h1 {
     font-size: 40px;
   }
-  button{
+  button {
     width: 480px;
     padding: 15px 0;
     margin-top: 60px;
@@ -31,71 +31,71 @@
   }
 }
 
-.education-section{
+.education-section {
   background-image: url("/assets/education-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   // background-position: center;
-  .education{
+  .education {
     padding: 300px 0 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
-  h2{
+  h2 {
     text-align: center;
     font-size: 60px;
     width: 520px;
     margin-bottom: 400px;
   }
-  .education-wrapper{
+  .education-wrapper {
     display: flex;
     gap: 200px;
   }
 
-  .left{
+  .left {
     display: flex;
     align-items: flex-start;
     gap: 40px;
     width: 500px;
-    div{
-      h3{
+    div {
+      h3 {
         font-size: 40px;
         margin-bottom: 20px;
-        span{
+        span {
           color: blue;
         }
       }
-      p{
+      p {
         font-size: 25px;
       }
     }
   }
-  .right{
+  .right {
     width: 500px;
-      h3{
-        font-size: 40px;
-        margin-bottom: 20px;
-        span{
-          color: red;
-        }
-      }
-      p{
-        font-size: 25px;
+    h3 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      span {
+        color: red;
       }
     }
+    p {
+      font-size: 25px;
+    }
+  }
 }
 
-.cards-section{
+.cards-section {
   margin: 150px 0;
-  
-  .cards{
+
+  .cards {
     display: flex;
     justify-content: space-between;
   }
 
-  .card{
+  .card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,23 +110,23 @@
     border-radius: 10px;
     background-color: transparent;
 
-    h2{
+    h2 {
       font-size: 30px;
     }
 
-    img{
+    img {
       padding: 20px 0;
       width: 70px;
       align-self: flex-end;
     }
 
-    p{
+    p {
       width: 140px;
       word-spacing: 5px;
       line-height: 25px;
     }
 
-    button{
+    button {
       width: 150px;
       padding: 10px 0;
       margin-top: 30px;
@@ -136,6 +136,86 @@
       border-radius: 5px;
       font-size: 15px;
       font-weight: 700;
+    }
+  }
+}
+
+.direction-section {
+  background-image: url("/assets/direction-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 200px;
+  margin-bottom: 100px;
+  // background-position: center;
+
+  .direction {
+    .direction-title {
+      margin: 100px 0;
+
+      h2 {
+        margin: 0 auto;
+        font-size: 40px;
+        width: 330px;
+      }
+      span {
+        color: green;
+      }
+    }
+
+    ul{
+      display: flex;
+      justify-content: space-evenly;
+      li{
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+        h3{
+          font-size: 45px;
+          margin-bottom: 30px;
+          color: blue;
+        }
+        
+        .direction-wrapper{
+          display: flex;
+          align-items: flex-end;
+          width: 300px;
+        }
+
+        p{
+          font-size: 25px;
+          letter-spacing: 2px;
+          // margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+.about-section{
+  background-image: url("/assets/about-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 200px;
+
+  h2{
+    padding: 100px 0;
+    font-size: 50px;
+    text-align: center;
+  }
+
+  ul{
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+    li{
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      p{
+        font-size: 30px;
+        width: 700px;
+        font-weight: 400;
+      }
     }
   }
 }
