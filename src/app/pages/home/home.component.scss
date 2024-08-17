@@ -30,3 +30,59 @@
     font-weight: 700;
   }
 }
+
+.education-section{
+  background-image: url("/assets/education-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-position: center;
+  .education{
+    padding: 300px 0 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  h2{
+    text-align: center;
+    font-size: 60px;
+    width: 520px;
+    margin-bottom: 400px;
+  }
+  .education-wrapper{
+    display: flex;
+    gap: 200px;
+  }
+
+  .left{
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    width: 500px;
+    div{
+      h3{
+        font-size: 40px;
+        margin-bottom: 20px;
+        span{
+          color: blue;
+        }
+      }
+      p{
+        font-size: 25px;
+      }
+    }
+  }
+  .right{
+    width: 500px;
+      h3{
+        font-size: 40px;
+        margin-bottom: 20px;
+        span{
+          color: red;
+        }
+      }
+      p{
+        font-size: 25px;
+      }
+    }
+}
