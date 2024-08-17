@@ -1,0 +1,32 @@
+.background{
+  background-image: url("/assets/intro.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 1000px;
+}
+
+.intro-section{
+  margin-top: 150px;
+  margin-bottom: 350px;
+  .intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h1{
+    font-size: 40px;
+  }
+  button{
+    width: 480px;
+    padding: 15px 0;
+    margin-top: 60px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    font-size: 40px;
+    font-weight: 700;
+  }
+}
