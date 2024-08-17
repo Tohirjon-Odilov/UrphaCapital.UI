@@ -18,8 +18,8 @@ export class LessonService {
     return this._httpClinet.get<Lesson>(this.apiUrl + `GetLessonById/${id}`);
   }
 
-  getLessonByCourseId(id:number) : Observable<Lesson> {
-    return this._httpClinet.get<Lesson>(this.apiUrl + `GetLessonsByCourseId/${id}`);
+  getLessonByCourseId(id:number) : Observable<Lesson[]> {
+    return this._httpClinet.get<Lesson[]>(this.apiUrl + `GetLessonsByCourseId/${id}`);
   }
 
 
