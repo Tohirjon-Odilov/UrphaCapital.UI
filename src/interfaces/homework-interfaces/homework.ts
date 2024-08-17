@@ -1,6 +1,6 @@
 import { Lesson } from "../lesson-interfaces/lesson";
 
-export interface Homeworks {
+export interface Homework {
     id: number;
     title: string;
     fILE: string;
