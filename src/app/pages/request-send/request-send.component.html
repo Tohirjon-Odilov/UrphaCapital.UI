@@ -1,0 +1,76 @@
+<div class="background">
+    <section>
+      <h3>So`rov qoldiring</h3>
+      <form (ngSubmit)="sendRequest()">
+        
+        <div class="form-group">
+          <input
+            type="text"
+            id="fish"
+            name="fish"
+            [(ngModel)]="fullName"
+            required
+            placeholder=" "
+          />
+          <label for="fish">F.I.SH</label>
+        </div>
+        
+        <div class="form-group">
+          <input
+            type="text"
+            id="address"
+            name="address"
+            [(ngModel)]="address"
+            required
+            placeholder=" "
+          />
+          <label for="address">Yashash Manzili</label>
+        </div>
+        
+        <div class="form-group">
+          <input
+            id="phone"
+            name="phone"
+            [(ngModel)]="phoneNumber"
+            required
+            placeholder=" "
+          />
+          <label for="phone">Telefon raqam</label>
+        </div>
+        
+        <div class="form-group">
+          <input
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            placeholder=" "
+          />
+          <label for="email">E-mail</label>
+        </div>
+        
+        <div class="form-group">
+          <input
+            type="text"
+            id="course"
+            name="course"
+            [(ngModel)]="courseType"
+            required
+            placeholder=" "
+          />
+          <label for="course">Kurs turi</label>
+        </div>
+        
+        <button
+          type="submit"
+        >
+          Jo'natish
+        </button>
+      </form>
+      <p>
+        Arizani yuborishdan oldin to`gri ma`lumot kiritganizga ishonch hosil
+        qiling.
+      </p>
+    </section>
+  </div>
+  
