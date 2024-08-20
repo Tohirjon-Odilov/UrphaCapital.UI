@@ -28,8 +28,12 @@
     border-radius: 5px;
     font-size: 40px;
     font-weight: 700;
+    transition: all .3s ease;
+    &:hover{
+      background-color: white;
+      color: black;
+    }
   }
-
 }
 
 .education-section {
@@ -226,6 +230,27 @@
         font-size: 30px;
         width: 700px;
         font-weight: 400;
+      }
+    }
+  }
+}
+
+.site-main{
+  @media only screen and (max-width: 650px) {
+    .intro-section{
+      margin: 100px 0;
+      img{
+        width: 350px;
+        margin-bottom: 30px;
+      }
+      h1{
+        font-size: 30px;
+        text-align: center;
+      }
+      button{
+        width: 300px;
+        font-size: 20px;
+        margin-top: 50px;
       }
     }
   }
