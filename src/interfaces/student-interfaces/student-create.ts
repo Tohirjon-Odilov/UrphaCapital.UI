@@ -4,6 +4,5 @@ interface StudentCreate {
     phoneNumber: string;
     email: string;
     passwordHash: string;
-    salt: string;
     courseIds: number[];
   }

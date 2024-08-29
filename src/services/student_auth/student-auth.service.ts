@@ -34,4 +34,8 @@ export class StudentAuthService {
   getStudentById(id: number): Observable<Student> {
     return this._http.get<Student>(this.apiUrl + `${id}`)
   }
+
+  loginStudent(data: LoginModel): Observable<string> {
+    return this._http.post<string>(this.apiUrl + "Login", data);
+  }
 }
