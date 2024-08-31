@@ -66,6 +66,7 @@ export class HomeComponent implements OnInit{
     this._courseService.getCourses().subscribe(
       (data) => {
         console.log(data);
+        this.courses = data
       }
     )
   }
