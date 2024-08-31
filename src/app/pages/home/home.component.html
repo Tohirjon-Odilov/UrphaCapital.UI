@@ -47,6 +47,19 @@
     </section>
     <section class="cards-section">
       <div class="container">
+        <ngx-slick-carousel class="carousel cards" [config]="slideConfig">
+          <div ngxSlickItem *ngFor="let card of cards" class="card">
+            <h2 class="card-title">{{card.title}}</h2>
+            <img src="{{card.img}}" alt="Card image" />
+            <p>{{card.description}}</p>
+            <button>{{card.price}}</button>
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </section>
+    
+    <!-- <section class="cards-section">
+      <div class="container">
         <div class="cards">
           <div class="card">
             <h2 class="card-title">15+ ONLINE</h2>
@@ -95,7 +108,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <section class="direction-section">
       <!-- <img src="/assets/statistika.png" width="100%" alt=""> -->
       <div class="video-background" width="100%">

@@ -10,6 +10,7 @@ import { RequestSendComponent } from './pages/request-send/request-send.componen
 import { FormsModule } from '@angular/forms';
 import { CountyComponent } from './pages/county/county.component';
 import { CourseInfoComponent } from './pages/course-info/course-info.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 // import { SwiperModule } from 'swiper/angular';
 
 
@@ -26,7 +27,8 @@ import { CourseInfoComponent } from './pages/course-info/course-info.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SlickCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
