@@ -14,20 +14,20 @@ export class LessonService {
   apiUrl = environment.apiUrl + "Lessons/";
 
 
-  getLessonById(id:number) : Observable<Lesson> {
+  getLessonById(id: number): Observable<Lesson> {
     return this._httpClinet.get<Lesson>(this.apiUrl + `GetLessonById/${id}`);
   }
 
-  getLessonByCourseId(id:number) : Observable<Lesson[]> {
-    return this._httpClinet.get<Lesson[]>(this.apiUrl + `GetLessonsByCourseId/${id}`);
+  getLessonByCourseId(id: number, index: number, count: number): Observable<Lesson[]> {
+    return this._httpClinet.get<Lesson[]>(this.apiUrl + `${id}/${index}/${count}`);
   }
 
 
-  deleteLesson(id:number) : Observable<ResponseModel> {
+  deleteLesson(id: number): Observable<ResponseModel> {
     return this._httpClinet.delete<ResponseModel>(this.apiUrl + `${id}`);
   }
 
-  createLesson(data:FormData) : Observable<ResponseModel>{
+  createLesson(data: FormData): Observable<ResponseModel> {
     return this._httpClinet.post<ResponseModel>(`${this.apiUrl}`, data);
   }
 

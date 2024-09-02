@@ -17,8 +17,12 @@ export class CourseService {
     return this._httpClinet.get<Course>(this.apiUrl + `GetById/${id}`);
   }
 
-  getCourses(): Observable<Course[]> {
-    return this._httpClinet.get<Course[]>(this.apiUrl);
+  getCourses(index: number, count: number): Observable<Course[]> {
+    return this._httpClinet.get<Course[]>(`${this.apiUrl}${index}/${count}`);
+  }
+
+  getCoursesByMenthorId(mentorId: number, index: number, count: number): Observable<Course[]> {
+    return this._httpClinet.get<Course[]>(`${this.apiUrl}GetAllByMentorId/${mentorId}/${index}/${count}`);
   }
 
 

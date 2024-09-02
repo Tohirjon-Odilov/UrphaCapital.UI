@@ -12,22 +12,26 @@ export class MentorAuthService {
 
   constructor(private _httpClient: HttpClient) { }
   apiUrl = environment.apiUrl + "Mentors/";
-  getMentorById(id:number) : Observable<Mentor> {
+
+  getMentors(index: number, count: number): Observable<Mentor[]> {
+    return this._httpClient.get<Mentor[]>(`${this.apiUrl}${index}/${count}`)
+  }
+  getMentorById(id: number): Observable<Mentor> {
     return this._httpClient.get<Mentor>(this.apiUrl + `GetMentorsById/${id}`);
   }
 
-  deleteMentor(id:number) : Observable<ResponseModel> {
+  deleteMentor(id: number): Observable<ResponseModel> {
     return this._httpClient.delete<ResponseModel>(this.apiUrl + `${id}`);
   }
 
-  createMentor(data:FormData) : Observable<ResponseModel>{
+  createMentor(data: FormData): Observable<ResponseModel> {
     return this._httpClient.post<ResponseModel>(`${this.apiUrl}`, data);
   }
 
   updateMentor(data: FormData): Observable<ResponseModel> {
     return this._httpClient.put<ResponseModel>(`${this.apiUrl}`, data);
   }
-  loginMentor(data:FormData) : Observable<ResponseModel>{
+  loginMentor(data: FormData): Observable<ResponseModel> {
     return this._httpClient.post<ResponseModel>(`${this.apiUrl}`, data);
-}
+  }
 }

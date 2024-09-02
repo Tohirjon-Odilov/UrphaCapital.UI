@@ -15,23 +15,23 @@ export class AdminAuthService {
   constructor(private _httpClient: HttpClient) { }
   apiUrl = environment.apiUrl + "Admins/";
 
-  createAdmin(data: AdminCreate): Observable<ResponseModel>{
-    return this._httpClient.post<ResponseModel>(this.apiUrl,data)
+  createAdmin(data: AdminCreate): Observable<ResponseModel> {
+    return this._httpClient.post<ResponseModel>(this.apiUrl, data)
   }
-  getAdminsById(id:number) : Observable<Admin> {
+  getAdminsById(id: number): Observable<Admin> {
     return this._httpClient.get<Admin>(this.apiUrl + `${id}`);
   }
 
-  deleteAdmins(id:number) : Observable<ResponseModel> {
+  deleteAdmins(id: number): Observable<ResponseModel> {
     return this._httpClient.delete<ResponseModel>(this.apiUrl + `${id}`);
   }
   updateAdmin(data: AdminUpdate): Observable<ResponseModel> {
     return this._httpClient.put<ResponseModel>(`${this.apiUrl}`, data);
   }
-  loginAdmin(data:LoginModel) : Observable<string>{
+  loginAdmin(data: LoginModel): Observable<string> {
     return this._httpClient.post<string>(`${this.apiUrl}`, data);
   }
-  getAdmins(): Observable<Admin[]> {
-    return this._httpClient.get<Admin[]>(this.apiUrl);
+  getAdmins(index: number, count: number): Observable<Admin[]> {
+    return this._httpClient.get<Admin[]>(`${this.apiUrl}${index}/${count}`);
   }
 }

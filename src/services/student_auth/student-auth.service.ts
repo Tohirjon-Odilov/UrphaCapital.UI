@@ -27,8 +27,8 @@ export class StudentAuthService {
     return this._http.delete<ResponseModel>(this.apiUrl + `${id}`)
   }
 
-  getStudents(): Observable<Student[]> {
-    return this._http.get<Student[]>(this.apiUrl);
+  getStudents(index: number, count: number): Observable<Student[]> {
+    return this._http.get<Student[]>(`${this.apiUrl}${index}/${count}`);
   }
 
   getStudentById(id: number): Observable<Student> {

@@ -13,9 +13,17 @@ export class HomeworkService {
   constructor(private _httpClinet: HttpClient) { }
   apiUrl = environment.apiUrl + "Homeworks/";
 
-  getAllHomeworks(): Observable<Homework[]> {
-    return this._httpClinet.get<Homework[]>(this.apiUrl);
+  getAllHomeworks(index: number, count: number): Observable<Homework[]> {
+    return this._httpClinet.get<Homework[]>(`${this.apiUrl}${index}/${count}`);
   }
+  getAllHomeworksbyMentorId(mentorId: number, index: number, count: number): Observable<Homework[]> {
+    return this._httpClinet.get<Homework[]>(`${this.apiUrl}${mentorId}/${index}/${count}`);
+  }
+
+  getAllHomeworksbyLessonId(lessonId: number, index: number, count: number): Observable<Homework[]> {
+    return this._httpClinet.get<Homework[]>(`${this.apiUrl}bylesson/${lessonId}/${index}/${count}`);
+  }
+
 
   deleteHomework(id: number): Observable<ResponseModel> {
     return this._httpClinet.delete<ResponseModel>(this.apiUrl + `${id}`);
