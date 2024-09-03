@@ -11,7 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { CountyComponent } from './pages/county/county.component';
 import { CourseInfoComponent } from './pages/course-info/course-info.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { LessonsComponent } from './pages/lessons/lessons.component';
+import { LessonViewComponent } from './pages/lesson-view/lesson-view.component';
 // import { SwiperModule } from 'swiper/angular';
+
 
 
 @NgModule({
@@ -21,14 +24,16 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     HomeComponent,
     RequestSendComponent,
     CountyComponent,
-    CourseInfoComponent
+    CourseInfoComponent,
+    LessonsComponent,
+    LessonViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    SlickCarouselModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
