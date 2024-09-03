@@ -49,15 +49,15 @@
       <div class="container">
         <ngx-slick-carousel class="carousel cards" [config]="slideConfig">
           <div ngxSlickItem *ngFor="let card of cards" class="card">
-            <h2 class="card-title">{{card.title}}</h2>
-            <img src="{{card.img}}" alt="Card image" />
-            <p>{{card.description}}</p>
-            <button>{{card.price}}</button>
+            <h2 class="card-title">{{ card.title }}</h2>
+            <img src="{{ card.img }}" alt="Card image" />
+            <p>{{ card.description }}</p>
+            <button>{{ card.price }}</button>
           </div>
         </ngx-slick-carousel>
       </div>
     </section>
-    
+
     <!-- <section class="cards-section">
       <div class="container">
         <div class="cards">
@@ -162,25 +162,22 @@
         <div class="about">
           <h2>Kompaniya haqida</h2>
           <ul>
+            @for(mentor of mentors;track mentor.id){
             <li>
-              <img src="/assets/about-img.png" width="400" alt="" />
+              <img [src]="'https://api.urphacapital.uz/' + mentor.picture" width="400" alt="" />
               <p>
-                Urpha capital kompaniyasi 2023 yil 20 sentyabrdan rasman Azamat
-                Komilov tomonidan asos solingan . Hozirda Urpha capital
-                kompaniyasida 3 ta asosiy trader mentorlar mavjud. 10 ta
-                yordamchi o’qutuvchi. Kompaniyaning asosiy maqsadi ,trading
-                sohasiga qiziqqan yoshlarga to’g’ri va sifatli ta’lim berish .
-                Yuridik manzili Toshkent shahar, Mirobod tumani, Afrasiyob 2.
+                {{ mentor.description }}
               </p>
             </li>
-            <li>
+            }
+            <!-- <li>
               <p>
                 Mentor Nodirbek Mamasidiqov 2 yillik tajribaga ega . Hozirgi
                 kunda 100 000 $ prop hisob boshqaradi asosan valyuta birjasida
                 savdo qiladi
               </p>
               <img src="/assets/about-img.png" width="400" alt="" />
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
