@@ -258,6 +258,8 @@
 
     ul {
       display: flex;
+      flex-wrap: wrap;
+      gap: 100px 45px;
       justify-content: space-evenly;
       li {
         display: flex;

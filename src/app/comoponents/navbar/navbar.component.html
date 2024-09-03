@@ -1,13 +1,32 @@
 <header class="site-header">
-    <div class="header">
-      <div class="container">
-        <div class="site-logo">
-          <img src="/assets/navbar-logo.png" width="270" alt="">
-          <div>
-            <p>login in</p>
-            <img src="/assets/menu-bar.png" width="50" alt="">
-          </div>
-          </div>
+  <div class="header">
+    <div class="container">
+      <div class="site-logo">
+        <img src="/assets/navbar-logo.png" width="270" alt="" />
+        <div>
+          <p>login</p>
+          <!-- <img src="/assets/menu-bar.png" width="50" alt=""> -->
+          <button (click)="toggleMenu()" class="menu-toggle">
+            <img
+              [src]="
+                !menuVisible ? '/assets/menu-bar.png' : '/assets/menu-icon.png'
+              "
+              alt="Menu Icon"
+            />
+          </button>
+        </div>
       </div>
     </div>
+    <div (click)="closeMenuIfOpen($event)">
+      <div *ngIf="menuVisible" class="menu" (click)="$event.stopPropagation()">
+        <ul>
+          <li><a href="javascript:void(0)" (click)="scrollToElement('courses')">Kurslar</a></li>
+          <li><a href="javascript:void(0)" (click)="scrollToElement('about')">Kompaniya haqida</a></li>
+          <li><a href="javascript:void(0)" (click)="scrollToElement('contact')">Kontaktlar</a></li>
+          <li><a href="javascript:void(0)" (click)="scrollToElement('login')">Akkauntga kirish</a></li>
+        </ul>
+        <button class="call-button">Qo'ng'iroq qilish</button>
+      </div>
+    </div>
+  </div>
 </header>
