@@ -15,7 +15,7 @@ export class LessonService {
 
 
   getLessonById(id: number): Observable<Lesson> {
-    return this._httpClinet.get<Lesson>(this.apiUrl + `GetLessonById/${id}`);
+    return this._httpClinet.get<Lesson>(this.apiUrl + `${id}`);
   }
 
   getLessonByCourseId(id: number, index: number, count: number): Observable<Lesson[]> {

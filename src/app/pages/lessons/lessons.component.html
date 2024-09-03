@@ -1,0 +1,10 @@
+<h2>{{ course?.name }}</h2>
+<ul>
+  @for(lesson of lessons;track lesson.id){
+  <li>
+    <div class="lesson-box" (click)="forwardToLessonDetails(lesson.id)">
+      <h4>{{ lesson.name }}</h4>
+    </div>
+  </li>
+  }
+</ul>
