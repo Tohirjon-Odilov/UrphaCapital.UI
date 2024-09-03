@@ -1,4 +1,4 @@
-<div class="background">
+<div class="background" >
   <div class="video-background-intro">
     <div class="bg">
       <video autoplay loop muted playsinline>
@@ -123,32 +123,19 @@
             <h2>BIZNING <span>TA`LIM</span> TURLARIMIZ</h2>
           </div>
           <ul>
-            <li>
+            <li *ngFor="let course of courses">
               <img src="/assets/direction-1.png" width="100" alt="" />
               <div>
-                <h3>ONLINE 199</h3>
+                <h3>{{course.name}}</h3>
                 <div class="direction-wrapper">
                   <p>
-                    Urpha Capital Akademiyasining online 199 dasturida ta’lim
-                    oling . Trederlik sohasini noldan o’rganing
+                    {{course.description}}
                   </p>
-                  <a href="/course-info"
-                    ><img src="/assets/direction-right.png" width="50" />
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li>
-              <img src="/assets/direction-1.png" width="100" alt="" />
-              <div>
-                <h3>ONLINE 199</h3>
-                <div class="direction-wrapper">
-                  <p>
-                    Urpha Capital Akademiyasining online 199 dasturida ta’lim
-                    oling . Trederlik sohasini noldan o’rganing
-                  </p>
-                  <a href="/course-info"
-                    ><img src="/assets/direction-right.png" width="50" />
+                  <a href="/course-info/{{course.id}}">
+                    <img
+                      src="/assets/direction-right.png"
+                      width="50"
+                    />
                   </a>
                 </div>
               </div>
@@ -157,7 +144,7 @@
         </div>
       </div>
     </section>
-    <section class="about-section">
+    <section class="about-section" id="about">
       <div class="container">
         <div class="about">
           <h2>Kompaniya haqida</h2>

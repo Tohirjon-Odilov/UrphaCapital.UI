@@ -5,13 +5,27 @@ import { MentorAuthService } from '../../../services/mentor-services/mentor-auth
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit{
-  constructor(private _courseService: CourseService, private _mentorService: MentorAuthService) { }
+export class HomeComponent {
+  constructor(
+    private _courseService: CourseService,
+    private _mentorService: MentorAuthService
+  ){
+    this._courseService.getCourses(1, 10).subscribe({
+      next: (data) => {
+        this.courses = data;
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
 
   courses: any[] = [];
-  teachers: any
+  teachers: any;
 
   slideConfig = {
     slidesToShow: 5,
@@ -26,52 +40,45 @@ export class HomeComponent implements OnInit{
     {
       title: '15+ ONLINE',
       img: '/assets/card.png',
-      description: '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy'
-    },{
+      description:
+        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
+      price: '399 000 so’m/oy',
+    },
+    {
       title: '15+ ONLINE',
       img: '/assets/card.png',
-      description: '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy'
-    },{
+      description:
+        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
+      price: '399 000 so’m/oy',
+    },
+    {
       title: '15+ ONLINE',
       img: '/assets/card.png',
-      description: '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy'
-    },{
+      description:
+        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
+      price: '399 000 so’m/oy',
+    },
+    {
       title: '15+ ONLINE',
       img: '/assets/card.png',
-      description: '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy'
-    },{
+      description:
+        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
+      price: '399 000 so’m/oy',
+    },
+    {
       title: '15+ ONLINE',
       img: '/assets/card.png',
-      description: '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy'
-    },{
+      description:
+        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
+      price: '399 000 so’m/oy',
+    },
+    {
       title: '15+ ONLINE',
       img: '/assets/card.png',
-      description: '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy'
+      description:
+        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
+      price: '399 000 so’m/oy',
     },
     // Boshqa kartalar...
   ];
-  
-  ngOnInit(): void {
-    this.getAllCourses();
-    this.getAllMentors();
-  }
-
-  getAllCourses() {
-    this._courseService.getCourses().subscribe(
-      (data) => {
-        console.log(data);
-        this.courses = data
-      }
-    )
-  }
-
-  getAllMentors(){
-    this._mentorService.getMentorById
-  }
 }
