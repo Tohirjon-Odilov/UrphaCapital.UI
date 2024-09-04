@@ -20,7 +20,6 @@ export class LessonViewComponent implements OnInit {
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer
   ) {}
-
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.lessonId = params.get('lessonId');
