@@ -25,6 +25,7 @@ export class LessonViewComponent implements OnInit {
   lessonId?: string | number | null = 0;
   lesson?: Lesson;
   videoUrl: any;
+
   getLessonById() {
     this._lessonService.getLessonById(+this.lessonId!).subscribe(
       (data) => {
@@ -38,13 +39,29 @@ export class LessonViewComponent implements OnInit {
     this._lessonService.getLessonVideo(1).subscribe(
       (videoStream) => {
         const url = window.URL.createObjectURL(videoStream);
+        
+        //const hashedUrl = this.hash(url, 123);
+  
         this.videoUrl = this.santizier.bypassSecurityTrustUrl(url);
-
+  
         setTimeout(() => {
           const videoElement = document.querySelector('video');
           videoElement?.addEventListener('contextmenu', (e) => e.preventDefault());
         }, 1000);
       }
     )
+  }
+  
+
+  hash(input: string, key: number): string {
+    let chars: string[] = input.split('');
+    for (let i = 0; i < chars.length; i++) {
+      chars[i] = String.fromCharCode(chars[i].charCodeAt(0) ^ key);
+    }
+    return chars.join('');
+  }
+
+  unhash(hashed: string, key: number): string {
+    return this.hash(hashed, key);
   }
 }
