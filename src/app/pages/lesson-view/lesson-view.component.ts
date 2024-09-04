@@ -13,6 +13,7 @@ export class LessonViewComponent implements OnInit {
 
 
   constructor(private _lessonService: LessonService, private _router: Router, private route: ActivatedRoute, private santizier: DomSanitizer) {
+    
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
