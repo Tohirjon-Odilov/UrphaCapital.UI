@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  
+
   courses: any[] = [];
   teachers: any;
 
@@ -88,7 +90,7 @@ export class HomeComponent implements OnInit {
   }
 
   getAllMentors() {
-    this._mentorService.getMentors(1, 2).subscribe(
+    this._mentorService.getMentors(1, 10).subscribe(
       (data) => {
         this.mentors = data;
       }
