@@ -24,8 +24,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  
-
   courses: any[] = [];
   teachers: any;
 
@@ -76,7 +74,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCourses();
     this.getAllMentors();
-  }
+  } 
 
   mentors?: Mentor[]
 
@@ -95,5 +93,13 @@ export class HomeComponent implements OnInit {
         this.mentors = data;
       }
     )
+  }
+
+  scrollToElement(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      // this.menuVisible = false; // IDga o'tgandan so'ng menyuni yopish
+    }
   }
 }
