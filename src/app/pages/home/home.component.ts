@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCourses();
     this.getAllMentors();
-  }
+  } 
 
   mentors?: Mentor[]
 
@@ -88,10 +88,18 @@ export class HomeComponent implements OnInit {
   }
 
   getAllMentors() {
-    this._mentorService.getMentors(1, 2).subscribe(
+    this._mentorService.getMentors(1, 10).subscribe(
       (data) => {
         this.mentors = data;
       }
     )
+  }
+
+  scrollToElement(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      // this.menuVisible = false; // IDga o'tgandan so'ng menyuni yopish
+    }
   }
 }

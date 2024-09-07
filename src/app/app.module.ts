@@ -13,6 +13,11 @@ import { CourseInfoComponent } from './pages/course-info/course-info.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { LessonsComponent } from './pages/lessons/lessons.component';
 import { LessonViewComponent } from './pages/lesson-view/lesson-view.component';
+import { VgCoreModule } from '@videogular/ngx-videogular/core';
+import { VgControlsModule } from '@videogular/ngx-videogular/controls';
+import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
+import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
+
 // import { SwiperModule } from 'swiper/angular';
 
 
@@ -33,7 +38,11 @@ import { LessonViewComponent } from './pages/lesson-view/lesson-view.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

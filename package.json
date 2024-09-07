@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "@videogular/ngx-videogular": "^10.0.0",
     "jquery": "^3.7.1",
     "ngx-slick-carousel": "^17.0.0",
     "rxjs": "~7.8.0",
