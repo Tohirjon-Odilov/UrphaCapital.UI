@@ -123,7 +123,7 @@
           Your browser does not support the video tag.
         </video>
       </div>
-      <div class="container">
+      <!-- <div class="container">
         <div class="direction">
           <div class="direction-title">
             <h2>BIZNING <span>TA`LIM</span> TURLARIMIZ</h2>
@@ -148,16 +148,17 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
     </section>
     <section class="about-section" id="about">
       <div class="container">
         <div class="about">
-          <h2>Kompaniya haqida</h2>
+          <h2>Mentorlar</h2>
           <ul>
             @for(mentor of mentors;track mentor.id){
-            <li>
+            <li class="mentor-card">
               <img [src]="'https://api.urphacapital.uz/' + mentor.picture" width="400" alt="" />
+              <h3>{{ mentor.name }}</h3>
               <p>
                 {{ mentor.description }}
               </p>
