@@ -91,6 +91,7 @@ export class HomeComponent implements OnInit {
     this._mentorService.getMentors(1, 10).subscribe(
       (data) => {
         this.mentors = data;
+        console.log(data)
       }
     )
   }
