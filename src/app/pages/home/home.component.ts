@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     }, {
       title: '15+ ONLINE',
       img: '/assets/card.png',
-      description: '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
+      description: '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajribaoyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajribaoyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajribaoyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
       price: '399 000 so’m/oy'
     }, {
       title: '15+ ONLINE',

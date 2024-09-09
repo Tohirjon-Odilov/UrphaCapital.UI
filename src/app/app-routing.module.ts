@@ -13,9 +13,10 @@ const routes: Routes = [
     path: '',
     title: 'OverView',
     component: HomeComponent,
-    canActivate: [],
-    canActivateChild: [],
-    children: [
+    // canActivate: [],
+    // canActivateChild: [],
+    // children: [
+  },
       {
         path: 'request',
         title: 'Send Request',
@@ -23,7 +24,7 @@ const routes: Routes = [
       },
       { path: 'county', title: 'County', component: CountyComponent },
       {
-        path: 'course-info',
+        path: 'course-info/:courseId',
         title: 'Course Info',
         component: CourseInfoComponent,
       },
@@ -37,11 +38,11 @@ const routes: Routes = [
         title: 'Lessons',
         component: LessonsComponent,
       },
-    ],
-  },
+    // ],
+  // },
 
   { path: 'login', title: 'Login', component: LoginComponent },
-  { path: '**', title: 'OverView', component: HomeComponent },
+  { path: '**', title: 'NotFound', component: LoginComponent },
 ];
 
 @NgModule({
