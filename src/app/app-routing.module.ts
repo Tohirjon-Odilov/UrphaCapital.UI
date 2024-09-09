@@ -23,7 +23,7 @@ const routes: Routes = [
       },
       { path: 'county', title: 'County', component: CountyComponent },
       {
-        path: 'course-info',
+        path: 'course-info/:courseId',
         title: 'Course Info',
         component: CourseInfoComponent,
       },

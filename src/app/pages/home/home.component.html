@@ -56,11 +56,11 @@
     <section class="cards-section" id="cards">
       <div class="container">
         <ngx-slick-carousel class="carousel cards" [config]="slideConfig">
-          <div ngxSlickItem *ngFor="let card of cards" class="card">
+          <div ngxSlickItem *ngFor="let card of courses" class="card">
             <h2 class="card-title">{{ card.title }}</h2>
-            <img src="{{ card.img }}" alt="Card image" />
+            <img src="{{ 'https://api.urphacapital.uz/' +card.picture }}" alt="Card image" />
             <p>{{ card.description }}</p>
-            <button>{{ card.price }}</button>
+            <button [routerLink]="['/course-info', card.id]">{{ card.price }}</button>  
           </div>
         </ngx-slick-carousel>
       </div>
