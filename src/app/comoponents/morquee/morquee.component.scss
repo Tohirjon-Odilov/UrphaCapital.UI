@@ -1,0 +1,29 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 20px 0px;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee-content span {
+  display: inline-block;
+  padding-right: 100px; /* Matnlar orasidagi bo'shliq */
+  color: green;
+  font-size: 26px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

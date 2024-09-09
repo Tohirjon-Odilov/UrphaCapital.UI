@@ -7,7 +7,7 @@ import { NavbarComponent } from './comoponents/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RequestSendComponent } from './pages/request-send/request-send.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CountyComponent } from './pages/county/county.component';
 import { CourseInfoComponent } from './pages/course-info/course-info.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
@@ -17,10 +17,11 @@ import { VgCoreModule } from '@videogular/ngx-videogular/core';
 import { VgControlsModule } from '@videogular/ngx-videogular/controls';
 import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
-
+import { LoginComponent } from './auth/login/login.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MorqueeComponent } from './comoponents/morquee/morquee.component'; // Animatsiyalar uchun
 // import { SwiperModule } from 'swiper/angular';
-
-
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
     CountyComponent,
     CourseInfoComponent,
     LessonsComponent,
-    LessonViewComponent
+    LessonViewComponent,
+    LoginComponent,
+    MorqueeComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +45,17 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule
+    VgBufferingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-left',
+      closeButton: true,
+      progressBar: true,
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

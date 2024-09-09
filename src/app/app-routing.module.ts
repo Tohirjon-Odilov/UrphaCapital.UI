@@ -6,19 +6,46 @@ import { CountyComponent } from './pages/county/county.component';
 import { CourseInfoComponent } from './pages/course-info/course-info.component';
 import { LessonViewComponent } from './pages/lesson-view/lesson-view.component';
 import { LessonsComponent } from './pages/lessons/lessons.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
-  { path: '', title: 'OverView', component: HomeComponent },
-  { path: 'request', title: 'Send Request', component: RequestSendComponent },
-  { path: 'county', title: 'County', component: CountyComponent },
-  { path: "course-info", title: "Course Info", component: CourseInfoComponent },
-  { path: 'lessons/:courseId/:lessonId', title: 'Lesson view', component: LessonViewComponent },
-  { path: 'lessons/:courseId', title: 'Lessons', component: LessonsComponent },
+  {
+    path: '',
+    title: 'OverView',
+    component: HomeComponent,
+    canActivate: [],
+    canActivateChild: [],
+    children: [
+      {
+        path: 'request',
+        title: 'Send Request',
+        component: RequestSendComponent,
+      },
+      { path: 'county', title: 'County', component: CountyComponent },
+      {
+        path: 'course-info',
+        title: 'Course Info',
+        component: CourseInfoComponent,
+      },
+      {
+        path: 'lessons/:courseId/:lessonId',
+        title: 'Lesson view',
+        component: LessonViewComponent,
+      },
+      {
+        path: 'lessons/:courseId',
+        title: 'Lessons',
+        component: LessonsComponent,
+      },
+    ],
+  },
+
+  { path: 'login', title: 'Login', component: LoginComponent },
   { path: '**', title: 'OverView', component: HomeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
