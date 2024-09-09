@@ -4,7 +4,7 @@
       <div class="site-logo">
         <img src="/assets/navbar-logo.png" width="270" alt="" />
         <div>
-          <p>login</p>
+          <!-- <p>login</p> -->
           <!-- <img src="/assets/menu-bar.png" width="50" alt=""> -->
           <button (click)="toggleMenu()" class="menu-toggle">
             <img
@@ -23,7 +23,7 @@
           <li><a href="javascript:void(0)" (click)="scrollToElement('courses')">Kurslar</a></li>
           <li><a href="javascript:void(0)" (click)="scrollToElement('about')">Kompaniya haqida</a></li>
           <li><a href="javascript:void(0)" (click)="scrollToElement('contact')">Kontaktlar</a></li>
-          <li><a href="javascript:void(0)" (click)="scrollToElement('login')">Akkauntga kirish</a></li>
+          <li><a href="javascript:void(0)" [routerLink]="['/login']">Akkauntga kirish</a></li>
         </ul>
         <button class="call-button">Qo'ng'iroq qilish</button>
       </div>

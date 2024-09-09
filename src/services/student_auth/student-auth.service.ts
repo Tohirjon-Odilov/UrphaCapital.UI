@@ -15,13 +15,13 @@ export class StudentAuthService {
   apiUrl = environment.apiUrl + "Student/";
 
 
-  registerStudent(stc: StudentCreate): Observable<ResponseModel> {
-    return this._http.post<ResponseModel>(this.apiUrl, stc);
-  }
+  // registerStudent(stc: StudentCreate): Observable<ResponseModel> {
+  //   return this._http.post<ResponseModel>(this.apiUrl, stc);
+  // }
 
-  updateStudent(stu: StudentUpdate): Observable<ResponseModel> {
-    return this._http.put<ResponseModel>(this.apiUrl, stu)
-  }
+  // updateStudent(stu: StudentUpdate): Observable<ResponseModel> {
+  //   return this._http.put<ResponseModel>(this.apiUrl, stu)
+  // }
 
   deleteStudent(id: number): Observable<ResponseModel> {
     return this._http.delete<ResponseModel>(this.apiUrl + `${id}`)
@@ -35,7 +35,7 @@ export class StudentAuthService {
     return this._http.get<Student>(this.apiUrl + `${id}`)
   }
 
-  loginStudent(data: LoginModel): Observable<string> {
+  loginStudent(data: FormData): Observable<string> {
     return this._http.post<string>(this.apiUrl + "Login", data);
   }
 }
