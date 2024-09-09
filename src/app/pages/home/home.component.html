@@ -60,7 +60,7 @@
             <h2 class="card-title">{{ card.title }}</h2>
             <img src="{{ 'https://api.urphacapital.uz/' +card.picture }}" alt="Card image" />
             <p>{{ card.description }}</p>
-            <button [routerLink]="['/course-info', card.id]">{{ card.price }}</button>  
+            <button [routerLink]="['course-info', card.id]">{{ card.price }}</button>  
           </div>
         </ngx-slick-carousel>
       </div>

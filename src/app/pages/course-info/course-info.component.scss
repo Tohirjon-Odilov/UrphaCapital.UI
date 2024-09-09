@@ -3,7 +3,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 50px;
 }
 
 .course-info-section{

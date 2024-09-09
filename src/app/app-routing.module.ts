@@ -13,9 +13,10 @@ const routes: Routes = [
     path: '',
     title: 'OverView',
     component: HomeComponent,
-    canActivate: [],
-    canActivateChild: [],
-    children: [
+    // canActivate: [],
+    // canActivateChild: [],
+    // children: [
+  },
       {
         path: 'request',
         title: 'Send Request',
@@ -37,11 +38,11 @@ const routes: Routes = [
         title: 'Lessons',
         component: LessonsComponent,
       },
-    ],
-  },
+    // ],
+  // },
 
   { path: 'login', title: 'Login', component: LoginComponent },
-  { path: '**', title: 'OverView', component: HomeComponent },
+  { path: '**', title: 'NotFound', component: LoginComponent },
 ];
 
 @NgModule({
