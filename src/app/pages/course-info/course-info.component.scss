@@ -1,79 +1,122 @@
-.background{
-  background-image: url("/assets/course-info-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  min-height: 100vh;
-  padding-bottom: 50px;
+/* Umumiy fon */
+.background {
+  background-color: #1a1a1a; /* To'q fon rangi */
+  padding: 60px 0;
+  min-height: 100vh; /* Butun ekran bo'ylab bo'lsin */
+  color: #ffffff; /* Oq matn rangi */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.course-info-section{
-  // padding: 50px 0;
+/* Kurs ma'lumotlari bo'limi */
+.course-info-section .container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Kurs ma'lumotlari qutisi */
+.course-info {
+  background-color: #333333; /* To'q kulrang blok */
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Quti soyasi */
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  .course-info{
-    display: flex;
+  gap: 20px;
+}
+
+/* Logotip */
+.logo img {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+/* Kurs ma'lumotlari va rasmni yonma-yon qilish */
+.course-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  width: 100%;
+}
+
+/* Kurs rasmi */
+.course-image {
+  width: 50%; /* Rasmning yon tomoniga joylashishi */
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Yengil quti soyasi */
+}
+
+/* Kurs tavsifi */
+.course-details {
+  width: 50%; /* Yon tomon uchun joy */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Kurs nomi */
+.course-details h2 {
+  font-size: 36px;
+  color: #ffffff; /* Oq matn */
+  margin-bottom: 16px;
+}
+
+/* Kurs tavsifi */
+.course-details p {
+  font-size: 18px;
+  color: #dddddd; /* Oq rang */
+  line-height: 1.6;
+}
+
+/* Sotib olish tugmasi */
+.buy-button {
+  background-color: #ff4500; /* Tugma rangi */
+  color: white;
+  padding: 15px 40px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  align-self: start; /* Tugmani chap tomonda joylashtirish */
+}
+
+.buy-button:hover {
+  background-color: #e63900;
+  transform: translateY(-5px); /* Hoverda tugma ko'tariladi */
+}
+
+/* Responsiv dizayn */
+@media (max-width: 768px) {
+  .course-content {
     flex-direction: column;
-    align-items: center;    
-    width: 100%;
-    max-width: 600px;
-
-    a{
-      img{
-        width: 100%;
-        max-width: 250px;
-      }
-    }
-    
-    *{
-      transition: all .3s ease;
-    }
-
-    div{
-      width: 100%;
-      max-width: 500px;
-    }
   }
 
-  h2{
-    font-size: 30px;
+  .course-image,
+  .course-details {
+    width: 100%; /* Ekran kichik bo'lganda elementlar vertikal joylashadi */
   }
 
-  a{
-    align-self: flex-end;
+  .course-details h2 {
+    font-size: 28px;
   }
 
-  p{
-    padding: 50px 0;
-    width: 100%;
-    max-width: 300px;
+  .course-details p {
+    font-size: 16px;
   }
 
-  button{
-    background-color: transparent;
-    border: 1px solid white;
-    padding: 20px 150px;
-    font-size: 20px;
-    border-radius: 50px;
-    &:hover{
-      background-color: white;
-      color: black;
-    }
+  .buy-button {
+    font-size: 16px;
+    padding: 12px 30px;
   }
-
-  img{
-    padding-bottom: 50px;
-    width: 100%;
-    max-width: 500px;
-  }
-
-  @media only screen and (max-width: 550px) {
-    button{
-      padding: 20px 50px;
-    }
-  }
-  
 }

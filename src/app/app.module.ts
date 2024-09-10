@@ -20,7 +20,9 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 import { LoginComponent } from './auth/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MorqueeComponent } from './comoponents/morquee/morquee.component'; // Animatsiyalar uchun
+import { MorqueeComponent } from './comoponents/morquee/morquee.component';
+import { PaymentComponent } from './pages/payment/payment.component'; // Animatsiyalar uchun
+import { GoBackComponent } from './comoponents/go-back/go-back.component';
 // import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
@@ -35,6 +37,8 @@ import { MorqueeComponent } from './comoponents/morquee/morquee.component'; // A
     LessonViewComponent,
     LoginComponent,
     MorqueeComponent,
+    PaymentComponent,
+    GoBackComponent
   ],
   imports: [
     BrowserModule,

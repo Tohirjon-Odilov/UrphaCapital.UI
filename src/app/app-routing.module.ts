@@ -7,6 +7,7 @@ import { CourseInfoComponent } from './pages/course-info/course-info.component';
 import { LessonViewComponent } from './pages/lesson-view/lesson-view.component';
 import { LessonsComponent } from './pages/lessons/lessons.component';
 import { LoginComponent } from './auth/login/login.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -17,30 +18,32 @@ const routes: Routes = [
     // canActivateChild: [],
     // children: [
   },
-      {
-        path: 'request',
-        title: 'Send Request',
-        component: RequestSendComponent,
-      },
-      { path: 'county', title: 'County', component: CountyComponent },
-      {
-        path: 'course-info/:courseId',
-        title: 'Course Info',
-        component: CourseInfoComponent,
-      },
-      {
-        path: 'lessons/:courseId/:lessonId',
-        title: 'Lesson view',
-        component: LessonViewComponent,
-      },
-      {
-        path: 'lessons/:courseId',
-        title: 'Lessons',
-        component: LessonsComponent,
-      },
-    // ],
-  // },
-
+  {
+    path: 'request',
+    title: 'Send Request',
+    component: RequestSendComponent,
+  },
+  { path: 'county', title: 'County', component: CountyComponent },
+  {
+    path: 'course-info/:courseId',
+    title: 'Course Info',
+    component: CourseInfoComponent,
+  },
+  {
+    path: 'lessons/:courseId/:lessonId',
+    title: 'Lesson view',
+    component: LessonViewComponent,
+  },
+  {
+    path: 'lessons/:courseId',
+    title: 'Lessons',
+    component: LessonsComponent,
+  },
+  {
+    path: 'payment',
+    title: 'Payment',
+    component: PaymentComponent,
+  },
   { path: 'login', title: 'Login', component: LoginComponent },
   { path: '**', title: 'NotFound', component: LoginComponent },
 ];

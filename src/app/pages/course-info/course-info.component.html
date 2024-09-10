@@ -1,17 +1,24 @@
 <div class="background">
   <section class="course-info-section">
-    <div class="container">
+    <app-go-back></app-go-back>
+    <div class="">
       <div class="course-info">
-        <a href="/"><img src="/assets/navbar-logo.png" width="250" alt="">
+        <a href="/" class="logo">
+          <img src="/assets/navbar-logo.png" alt="Kompaniya logotipi">
         </a>
-        <div>
-          <h2>{{course?.title}}</h2>
-        <p>
-          {{course?.description}}
-        </p>
+        <div class="course-content">
+          <!-- Kurs rasmi -->
+          <img src="{{'https://api.urphacapital.uz' + course?.picture}}" class="course-image" alt="Kurs rasmi">
+
+          <!-- Kurs tavsifi -->
+          <div class="course-details">
+            <h2>{{ course?.name }}</h2>
+            <p>{{ course?.description }}</p>
+            <p>{{ course?.subtitle }}</p>
+            <p><strong>Narxi:</strong> {{ course?.price }}</p>
+            <button class="buy-button" routerLink="/payment">Sotib olish</button>
+          </div>
         </div>
-        <img src="{{'https://api.urphacapital.uz'+course?.picture}}" width="500" alt="">
-        <button>Sotib olish</button>
       </div>
     </div>
   </section>

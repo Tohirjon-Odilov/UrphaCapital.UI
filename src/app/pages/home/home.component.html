@@ -60,6 +60,7 @@
             <h2 class="card-title">{{ card.title }}</h2>
             <img src="{{ 'https://api.urphacapital.uz/' +card.picture }}" alt="Card image" />
             <p>{{ card.description }}</p>
+            <p>{{card.subtitle}}</p>
             <button [routerLink]="['course-info', card.id]">{{ card.price }}</button>  
           </div>
         </ngx-slick-carousel>
@@ -158,19 +159,26 @@
         <div class="about">
           <h2>Mentorlar</h2>
           <ul>
-            @for(mentor of mentors;track mentor.id){
-            <li class="mentor-card">
-              <img [src]="'https://api.urphacapital.uz/' + mentor.picture" width="400" alt="" />
-              <h3>{{ mentor.name }}</h3>
-              <p>
-                {{ mentor.description }}
-              </p>
+            <li *ngFor="let mentor of mentors; trackBy: trackByMentorId" class="mentor-card">
+              <div class="mentor-content">
+                <!-- Rasm va sarlavha blokini hoverda yashiramiz -->
+                <div class="mentor-info">
+                  <img [src]="'https://api.urphacapital.uz/' + mentor.picture" width="400" alt="" />
+                  <h3>{{ mentor.name }}</h3>
+                </div>
+    
+                <!-- Description hover paytida ko'rinadi -->
+                <div class="mentor-description">
+                  <p>{{ mentor.description }}</p>
+                </div>
+              </div>
             </li>
-            }
           </ul>
         </div>
       </div>
     </section>
+    
+    
     <app-morquee></app-morquee>
   </main>
 </div>

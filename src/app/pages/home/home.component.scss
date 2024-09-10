@@ -339,7 +339,10 @@
   }
 
   .mentor-card {
-    width: 400px;
+    width: 300px;
+    height: 345px;
+    overflow: hidden;
+    padding: 10px;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
@@ -354,13 +357,15 @@
     );
     border: 1px solid black;
 
-    &:hover {
-      transform: scale(1.1);
-    }
+    // &:hover {
+    //   transform: scale(1.1);
+    // }
   }
 
   img {
+    margin-bottom: 20px;
     width: 100%;
+    // max-width: 200px;
     height: auto;
     border-radius: 5px;
   }
@@ -385,6 +390,88 @@
   //     }
   //   }
   // }
+
+
+
+  /* Mentor kartalari ro'yxati */
+// .about ul {
+//   list-style-type: none;
+//   padding: 0;
+//   display: flex;
+//   gap: 20px;
+//   flex-wrap: wrap;
+// }
+
+// .mentor-card {
+//   background-color: transparent;
+//   padding: 20px;
+//   border-radius: 12px;
+//   width: 300px;
+//   text-align: center;
+//   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+//   transition: box-shadow 0.3s ease;
+//   position: relative;
+// }
+
+.mentor-card:hover {
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.mentor-content {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mentor rasm va sarlavha */
+.mentor-info {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mentor-info img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+// .mentor-info h3 {
+//   font-size: 20px;
+//   margin-top: 15px;
+//   color: #333;
+// }
+
+/* Hover bo'lganda rasm va sarlavhani yashirish */
+.mentor-card:hover .mentor-info {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Description uchun stil */
+.mentor-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  color: #333;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 12px;
+}
+
+/* Hover bo'lganda description ko'rsatish */
+.mentor-card:hover .mentor-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  
 }
 
 .site-main {
