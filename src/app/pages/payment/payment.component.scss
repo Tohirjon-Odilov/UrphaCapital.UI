@@ -1,0 +1,98 @@
+/* Umumiy konteyner */
+.payment-container {
+  background-color: #121212; /* Qora fon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* To'lov qutisi */
+.payment-box {
+  background-color: #1e1e1e; /* To'q kulrang quti */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Qoraroq quti soyasi */
+  max-width: 400px;
+  width: 100%;
+}
+
+.payment-box h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #ffffff; /* Oq matn */
+  margin-bottom: 20px;
+}
+
+/* Form elementlari */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #dddddd; /* Oq rangga yaqin matn */
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #2e2e2e; /* To'qroq input maydonlar */
+  color: #ffffff; /* Oq matn */
+  border: 1px solid #555555;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Amal qilish muddati va CVV uchun ikkiga bo'lingan maydonlar */
+.double {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-half {
+  width: 48%;
+}
+
+/* To'lov tugmasi */
+.pay-button {
+  width: 100%;
+  background-color: #ff5722; /* To'q to'q qizil tugma */
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pay-button:hover {
+  background-color: #e64a19; /* Tugma hover holatida quyuqroq bo'ladi */
+}
+
+/* Responsiv dizayn */
+@media (max-width: 480px) {
+  .payment-box {
+    padding: 20px;
+  }
+
+  .form-group input {
+    font-size: 14px;
+  }
+
+  .pay-button {
+    font-size: 16px;
+    padding: 12px;
+  }
+}

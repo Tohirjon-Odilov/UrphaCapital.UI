@@ -20,7 +20,12 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 import { LoginComponent } from './auth/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MorqueeComponent } from './comoponents/morquee/morquee.component'; // Animatsiyalar uchun
+import { MorqueeComponent } from './comoponents/morquee/morquee.component';
+import { PaymentComponent } from './pages/payment/payment.component'; // Animatsiyalar uchun
+import { GoBackComponent } from './comoponents/go-back/go-back.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { WrapperComponent } from './pages/wrapper/wrapper.component';
+
 // import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
@@ -35,6 +40,10 @@ import { MorqueeComponent } from './comoponents/morquee/morquee.component'; // A
     LessonViewComponent,
     LoginComponent,
     MorqueeComponent,
+    PaymentComponent,
+    GoBackComponent,
+    NotFoundComponent,
+    WrapperComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,7 @@ import { MorqueeComponent } from './comoponents/morquee/morquee.component'; // A
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 5000,
-      positionClass: 'toast-bottom-left',
+      positionClass: 'toast-top-right',
       closeButton: true,
       progressBar: true,
     }),

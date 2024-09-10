@@ -4,16 +4,16 @@ import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
 import { ResponseModel } from '../../interfaces/common-models/responseModel';
 import { Student } from '../../interfaces/student-interfaces/student';
+import { jwtDecode } from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StudentAuthService {
+  constructor(private _http: HttpClient, private toastr: ToastrService) {}
 
-  constructor(private _http: HttpClient) { }
-
-  apiUrl = environment.apiUrl + "Student/";
-
+  apiUrl = environment.apiUrl + 'Student/';
 
   // registerStudent(stc: StudentCreate): Observable<ResponseModel> {
   //   return this._http.post<ResponseModel>(this.apiUrl, stc);
@@ -24,7 +24,7 @@ export class StudentAuthService {
   // }
 
   deleteStudent(id: number): Observable<ResponseModel> {
-    return this._http.delete<ResponseModel>(this.apiUrl + `${id}`)
+    return this._http.delete<ResponseModel>(this.apiUrl + `${id}`);
   }
 
   getStudents(index: number, count: number): Observable<Student[]> {
@@ -32,10 +32,39 @@ export class StudentAuthService {
   }
 
   getStudentById(id: number): Observable<Student> {
-    return this._http.get<Student>(this.apiUrl + `${id}`)
+    return this._http.get<Student>(this.apiUrl + `${id}`);
   }
 
   loginStudent(data: FormData): Observable<string> {
-    return this._http.post<string>(this.apiUrl + "Login", data);
+    return this._http.post<string>(this.apiUrl + 'Login', data);
+  }
+
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('accessToken');
+
+    if (!token) {
+      this.toastr.error('Token mavjud emas', 'Xatolik');
+      return false; // Token mavjud emas
+    }
+
+    // const user = JSON.parse(token);
+    // const token = user.access; // Tokenni olish
+
+    try {
+      const decodedToken: any = jwtDecode(token);
+      const currentTime = Date.now() / 1000; // Sekundlarda hozirgi vaqt
+
+      if (decodedToken.exp < currentTime) {
+        this.toastr.error('Token muddati tugagan', 'Xatolik');
+        console.log('Token muddati tugagan');
+        return false; // Token muddati tugagan
+      }
+
+      return true; // Token amal qilmoqda
+    } catch (error) {
+      this.toastr.error('Token dekodlashda xatolik', 'Xatolik');
+      console.error('Token dekodlashda xatolik:', error);
+      return false;
+    }
   }
 }
