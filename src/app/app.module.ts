@@ -23,6 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MorqueeComponent } from './comoponents/morquee/morquee.component';
 import { PaymentComponent } from './pages/payment/payment.component'; // Animatsiyalar uchun
 import { GoBackComponent } from './comoponents/go-back/go-back.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { WrapperComponent } from './pages/wrapper/wrapper.component';
+
 // import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
@@ -38,7 +41,9 @@ import { GoBackComponent } from './comoponents/go-back/go-back.component';
     LoginComponent,
     MorqueeComponent,
     PaymentComponent,
-    GoBackComponent
+    GoBackComponent,
+    NotFoundComponent,
+    WrapperComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,7 @@ import { GoBackComponent } from './comoponents/go-back/go-back.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 5000,
-      positionClass: 'toast-bottom-left',
+      positionClass: 'toast-top-right',
       closeButton: true,
       progressBar: true,
     }),

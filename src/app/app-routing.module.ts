@@ -8,44 +8,52 @@ import { LessonViewComponent } from './pages/lesson-view/lesson-view.component';
 import { LessonsComponent } from './pages/lessons/lessons.component';
 import { LoginComponent } from './auth/login/login.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { AuthGuard } from '../guards/auth.guard';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { WrapperComponent } from './pages/wrapper/wrapper.component';
 
 const routes: Routes = [
+  { path: 'login', title: 'Login', component: LoginComponent },
   {
     path: '',
     title: 'OverView',
     component: HomeComponent,
-    // canActivate: [],
-    // canActivateChild: [],
+    // canActivateChild: [AuthGuard],
     // children: [
   },
+  { path: '', title: 'OverView', component: WrapperComponent },
   {
     path: 'request',
     title: 'Send Request',
     component: RequestSendComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'county', title: 'County', component: CountyComponent },
+  { path: 'county', title: 'County', component: CountyComponent, canActivate: [AuthGuard] },
   {
     path: 'course-info/:courseId',
     title: 'Course Info',
     component: CourseInfoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'lessons/:courseId/:lessonId',
     title: 'Lesson view',
     component: LessonViewComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'lessons/:courseId',
     title: 'Lessons',
     component: LessonsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'payment',
     title: 'Payment',
     component: PaymentComponent,
+    canActivate: [AuthGuard]
   },
-  { path: 'login', title: 'Login', component: LoginComponent },
-  { path: '**', title: 'NotFound', component: LoginComponent },
+  { path: '**', title: 'NotFound', component: NotFoundComponent },
 ];
 
 @NgModule({

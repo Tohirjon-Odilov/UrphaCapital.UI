@@ -29,13 +29,37 @@ export class HomeComponent implements OnInit {
   teachers: any;
 
   slideConfig = {
-    slidesToShow: 5,
+    slidesToShow: 5,  // Desktopda 5 ta slayd ko'rsatiladi
     slidesToScroll: 1,
     dots: true,
     infinite: true,
     autoplay: false,
     autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1024,  // 1024px va kichik ekranlarda 3 ta slayd
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,  // 768px va kichik ekranlarda 2 ta slayd
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 450,  // 450px va kichik ekranlarda 1 ta slayd
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
+  
 
   cards = [
     {

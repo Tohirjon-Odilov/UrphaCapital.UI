@@ -5,18 +5,18 @@
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="username"><span style="color: red;">*</span> Foydalanuvchi nomi</label>
+          <label for="username"><span style="color: red;">*</span> Email</label>
           <div class="input-icon">
             <i class="fa fa-user"></i>
             <input
-              id="username"
+              id="email"
               type="text"
-              formControlName="username"
-              placeholder="Foydalanuvchi nomi"
+              formControlName="email"
+              placeholder="Email kiring"
             />
           </div>
-          <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error">
-            Foydalanuvchi nomi kiritilishi shart
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error">
+            Email kiritilishi shart
           </div>
         </div>
 
@@ -39,6 +39,7 @@
         <button type="submit" [disabled]="loginForm.invalid" class="submit-btn">
           Kirish
         </button>
+        <p style="color: black; cursor: pointer; margin-top: 10px; text-align: center;" class="forgot-password" routerLink="/">Bosh sahifaga qaytish</p>
       </form>
     </div>
   </div>
