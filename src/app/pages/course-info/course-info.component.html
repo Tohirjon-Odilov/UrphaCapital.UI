@@ -16,7 +16,7 @@
             <p>{{ course?.description }}</p>
             <p>{{ course?.subtitle }}</p>
             <p><strong>Narxi:</strong> {{ course?.price }}</p>
-            <button class="buy-button" routerLink="/payment">Sotib olish</button>
+            <button class="buy-button" routerLink="{{'/payment/'+course?.id}}">Sotib olish</button>
           </div>
         </div>
       </div>

@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   menuVisible: boolean = false;
+  token: any
+  constructor() { 
+    this.token = localStorage.getItem('accessToken')
+   }
 
   toggleMenu() {
     this.menuVisible = !this.menuVisible;

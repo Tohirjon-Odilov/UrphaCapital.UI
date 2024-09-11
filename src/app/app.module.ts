@@ -25,6 +25,8 @@ import { PaymentComponent } from './pages/payment/payment.component'; // Animats
 import { GoBackComponent } from './comoponents/go-back/go-back.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { WrapperComponent } from './pages/wrapper/wrapper.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 // import { SwiperModule } from 'swiper/angular';
 
@@ -43,7 +45,9 @@ import { WrapperComponent } from './pages/wrapper/wrapper.component';
     PaymentComponent,
     GoBackComponent,
     NotFoundComponent,
-    WrapperComponent
+    WrapperComponent,
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

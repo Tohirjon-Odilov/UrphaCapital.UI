@@ -1,0 +1,123 @@
+.profile-section {
+  background-color: #1e1e2f; /* To'q rangli fon */
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-card {
+    background-color: #2c2f3f; /* To'q kul rangli profil kartasi */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    color: #f5f5f5; /* Oq rangli matn */
+
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 3px solid #00bfa6; /* Yorqin chegarasi */
+      }
+
+      h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        color: #b3b3b3; /* Pastroq yorqinlikdagi matn */
+        margin-bottom: 20px;
+      }
+
+      .edit-btn {
+        background-color: #00bfa6;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #009f8d;
+        }
+      }
+    }
+
+    .profile-details {
+      h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #e0e0e0;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+
+        li {
+          font-size: 16px;
+          margin-bottom: 10px;
+          color: #cfcfcf;
+
+          strong {
+            font-weight: 600;
+            color: #f5f5f5;
+          }
+        }
+      }
+    }
+  }
+  .btn-back{
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .profile-header {
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+

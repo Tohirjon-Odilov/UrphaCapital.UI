@@ -1,4 +1,4 @@
-interface StudentUpdate {
+export interface StudentUpdate {
     id: number;
     fullName: string;
     address: string;

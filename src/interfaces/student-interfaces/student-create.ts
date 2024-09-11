@@ -1,4 +1,4 @@
-interface StudentCreate {
+export interface StudentCreate {
     fullName: string;
     address: string;
     phoneNumber: string;

@@ -9,3 +9,4 @@ export interface Student {
     courseIds: number[];
     role: string;
 }
+
