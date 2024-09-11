@@ -11,9 +11,12 @@ import { PaymentComponent } from './pages/payment/payment.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { WrapperComponent } from './pages/wrapper/wrapper.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   { path: 'login', title: 'Login', component: LoginComponent },
+  { path: 'register', title: 'Register', component: RegisterComponent },
   {
     path: '',
     title: 'OverView',
@@ -28,31 +31,37 @@ const routes: Routes = [
     component: RequestSendComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'county', title: 'County', component: CountyComponent, canActivate: [AuthGuard] },
+  {
+    path: 'county',
+    title: 'County',
+    component: CountyComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'course-info/:courseId',
     title: 'Course Info',
     component: CourseInfoComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'lessons/:courseId/:lessonId',
     title: 'Lesson view',
     component: LessonViewComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'lessons/:courseId',
     title: 'Lessons',
     component: LessonsComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
-    path: 'payment',
+    path: 'payment/:courseId',
     title: 'Payment',
     component: PaymentComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
+  { path: 'profile', title: 'Profile', component: ProfileComponent },
   { path: '**', title: 'NotFound', component: NotFoundComponent },
 ];
 

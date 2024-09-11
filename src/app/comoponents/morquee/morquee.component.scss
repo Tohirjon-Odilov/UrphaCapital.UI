@@ -5,6 +5,7 @@
   white-space: nowrap;
   box-sizing: border-box;
   padding: 20px 0px;
+  background-color: #4d731269;
 }
 
 .marquee-content {
@@ -15,7 +16,7 @@
 .marquee-content span {
   display: inline-block;
   padding-right: 100px; /* Matnlar orasidagi bo'shliq */
-  color: green;
+  color: rgb(2, 245, 2);
   font-size: 26px;
 }
 

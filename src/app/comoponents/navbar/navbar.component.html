@@ -23,7 +23,9 @@
           <li><a href="javascript:void(0)" (click)="scrollToElement('courses')">Kurslar</a></li>
           <li><a href="javascript:void(0)" (click)="scrollToElement('about')">Kompaniya haqida</a></li>
           <li><a href="javascript:void(0)" (click)="scrollToElement('contact')">Kontaktlar</a></li>
-          <li><a href="javascript:void(0)" [routerLink]="['/login']">Akkauntga kirish</a></li>
+          <li *ngIf="!token"><a href="javascript:void(0)"  [routerLink]="['/login']">Akkauntga kirish</a></li>
+          <li *ngIf="token"><a href="javascript:void(0)"  [routerLink]="['/profile']">Profile</a></li>
+          <li *ngIf="token"><a href="javascript:void(0)"  routerLink="/login">Chiqish</a></li>
         </ul>
         <button class="call-button">Qo'ng'iroq qilish</button>
       </div>

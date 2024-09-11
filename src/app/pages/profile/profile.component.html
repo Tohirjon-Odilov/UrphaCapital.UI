@@ -1,0 +1,25 @@
+<section class="profile-section">
+  <div>
+    <app-go-back></app-go-back>
+  <div class="container">
+    <div class="profile-card">
+      <div class="profile-header">
+        <img src="/assets/profile-placeholder.png" alt="Profile Avatar" class="profile-avatar" />
+        <h2>{{ user.fullName }}</h2>
+        <p>{{ user.email }}</p>
+        <button (click)="editProfile()" class="edit-btn">Profildagi ma'lumotlarni o'zgartirish</button>
+      </div>
+
+      <div class="profile-details">
+        <h3>Shaxsiy ma'lumotlar</h3>
+        <ul>
+          <li><strong>Ism:</strong> {{ user.fullName }}</li>
+          <li><strong>Email:</strong> {{ user.email }}</li>
+          <li><strong>Telefon:</strong> {{ user.phoneNumber }}</li>
+          <li><strong>Manzil:</strong> {{ user.address }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>

@@ -6,6 +6,8 @@ import { ResponseModel } from '../../interfaces/common-models/responseModel';
 import { Student } from '../../interfaces/student-interfaces/student';
 import { jwtDecode } from 'jwt-decode';
 import { ToastrService } from 'ngx-toastr';
+import { StudentUpdate } from '../../interfaces/student-interfaces/student-update';
+import { StudentCreate } from '../../interfaces/student-interfaces/student-create';
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +17,9 @@ export class StudentAuthService {
 
   apiUrl = environment.apiUrl + 'Student/';
 
-  // registerStudent(stc: StudentCreate): Observable<ResponseModel> {
-  //   return this._http.post<ResponseModel>(this.apiUrl, stc);
-  // }
-
-  // updateStudent(stu: StudentUpdate): Observable<ResponseModel> {
-  //   return this._http.put<ResponseModel>(this.apiUrl, stu)
-  // }
+  registerStudent(stc: StudentCreate): Observable<ResponseModel> {
+    return this._http.post<ResponseModel>(this.apiUrl, stc);
+  }
 
   deleteStudent(id: number): Observable<ResponseModel> {
     return this._http.delete<ResponseModel>(this.apiUrl + `${id}`);
@@ -55,7 +53,7 @@ export class StudentAuthService {
       const currentTime = Date.now() / 1000; // Sekundlarda hozirgi vaqt
 
       if (decodedToken.exp < currentTime) {
-        this.toastr.error('Token muddati tugagan', 'Xatolik');
+        this.toastr.error('Token yaroqsiz', 'Xatolik');
         console.log('Token muddati tugagan');
         return false; // Token muddati tugagan
       }
@@ -66,5 +64,9 @@ export class StudentAuthService {
       console.error('Token dekodlashda xatolik:', error);
       return false;
     }
+  }
+
+  updateStudent(data: StudentUpdate):Observable<ResponseModel>{
+    return this._http.put<ResponseModel>(this.apiUrl, data);
   }
 }

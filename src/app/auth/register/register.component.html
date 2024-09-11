@@ -1,0 +1,77 @@
+<section class="register-section">
+  <div class="container">
+    <div class="register">
+      <h2>Ro'yxatdan o'tish</h2>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="fullName"><span style="color: red;">*</span> F.I.O</label>
+          <div class="input-icon">
+            <i class="fa fa-user"></i>
+            <input
+              id="fullName"
+              type="text"
+              formControlName="fullName"
+              placeholder="To'liq ismingizni kiriting"
+            />
+          </div>
+          <div *ngIf="registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched" class="error">
+            Ismingiz kiritilishi shart
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email"><span style="color: red;">*</span> Email</label>
+          <div class="input-icon">
+            <i class="fa fa-envelope"></i>
+            <input
+              id="email"
+              type="text"
+              formControlName="email"
+              placeholder="Emailingizni kiriting"
+            />
+          </div>
+          <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error">
+            Email kiritilishi shart
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password"><span style="color: red;">*</span> Parol</label>
+          <div class="input-icon">
+            <i class="fa fa-lock"></i>
+            <input
+              id="password"
+              type="password"
+              formControlName="password"
+              placeholder="Parol"
+            />
+          </div>
+          <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error">
+            Parol kiritilishi shart
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword"><span style="color: red;">*</span> Parolni tasdiqlash</label>
+          <div class="input-icon">
+            <i class="fa fa-lock"></i>
+            <input
+              id="confirmPassword"
+              type="password"
+              placeholder="Parolni qayta kiriting"
+            />
+          </div>
+          <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="error">
+            Parolni tasdiqlang
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="registerForm.invalid" class="submit-btn">
+          Ro'yxatdan o'tish
+        </button>
+        <p style="color: black; cursor: pointer; margin-top: 10px; text-align: center;" class="forgot-password" routerLink="/login">Kirish sahifasiga qaytish</p>
+      </form>
+    </div>
+  </div>
+</section>
