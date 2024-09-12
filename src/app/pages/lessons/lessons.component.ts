@@ -24,12 +24,12 @@ export class LessonsComponent implements OnInit {
   }
 
 
-  courseId?: string | number | null = 0;
+  courseId?: string | null = "";
   course?: Course;
   lessons?: Lesson[];
 
   getCourse() {
-    this._courseSerivice.getCourseById(+this.courseId!).subscribe(
+    this._courseSerivice.getCourseById(this.courseId!).subscribe(
       (data) => {
         this.course = data;
         console.log(data);
@@ -38,7 +38,7 @@ export class LessonsComponent implements OnInit {
   }
 
   getLessons() {
-    this._lessonService.getLessonByCourseId(+this.courseId!, 1, 10).subscribe(
+    this._lessonService.getLessonByCourseId(this.courseId!, 1, 10).subscribe(
       (data) => {
         this.lessons = data
         console.log(data)
@@ -46,7 +46,7 @@ export class LessonsComponent implements OnInit {
     )
   }
 
-  forwardToLessonDetails(id: number) {
+  forwardToLessonDetails(id: string) {
     this._router.navigateByUrl(`/lessons/${this.courseId}/${id}`);
   }
 }

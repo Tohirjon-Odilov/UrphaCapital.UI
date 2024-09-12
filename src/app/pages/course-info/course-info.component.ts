@@ -16,7 +16,7 @@ export class CourseInfoComponent implements OnInit {
   }
 
   course: any;
-  courseParamId: number = +this.route.snapshot.paramMap.get('courseId')!;
+  courseParamId: string = this.route.snapshot.paramMap.get('courseId')!;
 
   ngOnInit() {
     console.log(this.courseParamId)

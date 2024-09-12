@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrl: './lesson-view.component.scss'
 })
 export class LessonViewComponent implements OnInit {
-  lessonId?: string | number | null = 0;
+  lessonId?: string | null = "";
   lesson?: Lesson;
   videoUrl: any;
 
@@ -30,7 +30,7 @@ export class LessonViewComponent implements OnInit {
 
   getLessonById() {
     if (this.lessonId) {
-      this._lessonService.getLessonById(+this.lessonId).subscribe((data) => {
+      this._lessonService.getLessonById(this.lessonId).subscribe((data) => {
         this.lesson = data;
         console.log(data);
       });
@@ -39,7 +39,7 @@ export class LessonViewComponent implements OnInit {
 
   getVideo() {
     if (this.lessonId) {
-      this._lessonService.getLessonVideo(+this.lessonId).subscribe(
+      this._lessonService.getLessonVideo(this.lessonId).subscribe(
         (videoStream) => {
           const url = window.URL.createObjectURL(videoStream);
           this.videoUrl = this.sanitizer.bypassSecurityTrustUrl(url);
