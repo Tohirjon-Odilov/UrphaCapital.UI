@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
       this.student.passwordHash = this.registerForm.value.password;
       this.student.address = '';
       this.student.phoneNumber = '';
-      this.student.courseIds = [0];
+      this.student.courseIds = [];
       // return
       this.studentService.registerStudent(this.student).subscribe({
         next: (data) => {
