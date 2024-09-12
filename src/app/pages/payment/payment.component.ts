@@ -32,6 +32,7 @@ export class PaymentComponent{
         this.userDataSend.phoneNumber = data.phoneNumber;
         this.userDataSend.email = data.email;
         this.userDataSend.passwordHash = data.passwordHash;
+        this.userDataSend.courseIds = data.courseIds;
         console.log(this.userDataSend);
       },
       error: (err) => {
@@ -42,10 +43,19 @@ export class PaymentComponent{
   }
 
   pay() {
-    this.userDataSend.courseIds = [+this.route.snapshot.paramMap.get('courseId')!];
+    const courseIds = this.route.snapshot.paramMap.get('courseId')!;
+    // if(courseIds != null){
+    if(this.userDataSend.courseIds != null)
+      if(this.userDataSend.courseIds.find((id: string) => id !== courseIds)) {
+        // console.log(courseIds);
+        this.userDataSend.courseIds.push(courseIds);
+      }
+
+    console.log(this.userDataSend);
     this.studentService.updateStudent(this.userDataSend).subscribe({
       next: (data) => {
         this.toastr.success('Xarid amalga oshirildi', 'Tabriklaymiz!');
+        this.router.navigate(['/courses']);
         console.log(data);
       },
       error: (err) => {

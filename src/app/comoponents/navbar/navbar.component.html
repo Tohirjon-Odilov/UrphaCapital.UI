@@ -20,7 +20,7 @@
     <div (click)="closeMenuIfOpen($event)">
       <div *ngIf="menuVisible" class="menu" (click)="$event.stopPropagation()">
         <ul>
-          <li><a href="javascript:void(0)" (click)="scrollToElement('courses')">Kurslar</a></li>
+          <li><a routerLink="/my-courses">Kurslar</a></li>
           <li><a href="javascript:void(0)" (click)="scrollToElement('about')">Kompaniya haqida</a></li>
           <li><a href="javascript:void(0)" (click)="scrollToElement('contact')">Kontaktlar</a></li>
           <li *ngIf="!token"><a href="javascript:void(0)"  [routerLink]="['/login']">Akkauntga kirish</a></li>

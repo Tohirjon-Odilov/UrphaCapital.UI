@@ -29,12 +29,12 @@ export class StudentAuthService {
     return this._http.get<Student[]>(`${this.apiUrl}${index}/${count}`);
   }
 
-  getStudentById(id: number): Observable<Student> {
+  getStudentById(id: string): Observable<Student> {
     return this._http.get<Student>(this.apiUrl + `${id}`);
   }
 
-  loginStudent(data: FormData): Observable<string> {
-    return this._http.post<string>(this.apiUrl + 'Login', data);
+  loginStudent(data: FormData): Observable<any> {
+    return this._http.post<any>(this.apiUrl + 'Login', data);
   }
 
   isAuthenticated(): boolean {

@@ -1,0 +1,44 @@
+<app-go-back></app-go-back>
+
+<div class="course-list" *ngIf="myCourses.length ">
+  <h2>Mening Kurslarim</h2>
+  <mat-grid-list cols="3" rowHeight="450px" gutterSize="10px">
+    <mat-grid-tile *ngFor="let course of courses" class="course-card">
+      <mat-card>
+        <img mat-card-image [src]="'https://api.urphacapital.uz' + course.picture" alt="{{course.name}}">
+        <mat-card-header>
+          <mat-card-title>{{ course.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="description">{{ course.subtitle }}</p>
+          <p>Price: {{ course.price | currency }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">View Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
+<div class="course-list">
+  <h2>Barcha Kurslar</h2>
+  <mat-grid-list cols="3" rowHeight="450px" gutterSize="10px">
+    <mat-grid-tile *ngFor="let course of courses" class="course-card">
+      <mat-card>
+        <img mat-card-image [src]="'https://api.urphacapital.uz' + course.picture" alt="{{course.name}}">
+        <mat-card-header>
+          <mat-card-title>{{ course.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="description">{{ course.subtitle }}</p>
+          <p>Price: {{ course.price | currency }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">View Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

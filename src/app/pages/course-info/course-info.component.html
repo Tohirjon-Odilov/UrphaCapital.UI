@@ -8,7 +8,7 @@
         </a>
         <div class="course-content">
           <!-- Kurs rasmi -->
-          <img src="{{'https://api.urphacapital.uz' + course?.picture}}" class="course-image" alt="Kurs rasmi">
+          <img *ngIf="course?.picture" src="{{'https://api.urphacapital.uz' + course?.picture}}" class="course-image" alt="Kurs rasmi">
 
           <!-- Kurs tavsifi -->
           <div class="course-details">

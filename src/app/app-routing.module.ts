@@ -13,6 +13,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { WrapperComponent } from './pages/wrapper/wrapper.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { CoursesComponent } from './pages/courses/courses.component';
 
 const routes: Routes = [
   { path: 'login', title: 'Login', component: LoginComponent },
@@ -61,6 +62,7 @@ const routes: Routes = [
     component: PaymentComponent,
     canActivate: [AuthGuard],
   },
+  {path: 'my-courses', title: 'Courses', component: CoursesComponent, canActivate: [AuthGuard]},
   { path: 'profile', title: 'Profile', component: ProfileComponent },
   { path: '**', title: 'NotFound', component: NotFoundComponent },
 ];
