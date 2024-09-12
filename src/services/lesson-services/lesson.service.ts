@@ -14,20 +14,20 @@ export class LessonService {
   apiUrl = environment.apiUrl + "Lessons/";
 
 
-  getLessonVideo(id: number): Observable<Blob> {
+  getLessonVideo(id: string): Observable<Blob> {
     return this._httpClinet.get(`https://api.urphacapital.uz/api/Lessons/getvideo?lessonId=${id}`, { responseType: 'blob' });
   }
 
-  getLessonById(id: number): Observable<Lesson> {
+  getLessonById(id: string): Observable<Lesson> {
     return this._httpClinet.get<Lesson>(this.apiUrl + `${id}`);
   }
 
-  getLessonByCourseId(id: number, index: number, count: number): Observable<Lesson[]> {
+  getLessonByCourseId(id: string, index: number, count: number): Observable<Lesson[]> {
     return this._httpClinet.get<Lesson[]>(this.apiUrl + `${id}/${index}/${count}`);
   }
 
 
-  deleteLesson(id: number): Observable<ResponseModel> {
+  deleteLesson(id: string): Observable<ResponseModel> {
     return this._httpClinet.delete<ResponseModel>(this.apiUrl + `${id}`);
   }
 

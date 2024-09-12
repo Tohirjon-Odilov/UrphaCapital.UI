@@ -20,7 +20,7 @@ export class HomeworkService {
     return this._httpClinet.get<Homework[]>(`${this.apiUrl}${mentorId}/${index}/${count}`);
   }
 
-  getAllHomeworksbyLessonId(lessonId: number, index: number, count: number): Observable<Homework[]> {
+  getAllHomeworksbyLessonId(lessonId: string, index: number, count: number): Observable<Homework[]> {
     return this._httpClinet.get<Homework[]>(`${this.apiUrl}bylesson/${lessonId}/${index}/${count}`);
   }
 

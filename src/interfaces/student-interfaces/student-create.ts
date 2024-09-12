@@ -4,5 +4,5 @@ export interface StudentCreate {
     phoneNumber: string;
     email: string;
     passwordHash: string;
-    courseIds: number[];
+    courseIds: string[];
   }

@@ -13,7 +13,7 @@ export class CourseService {
   constructor(private _httpClinet: HttpClient) { }
   apiUrl = environment.apiUrl + "Courses/";
 
-  getCourseById(id: number): Observable<Course> {
+  getCourseById(id: string): Observable<Course> {
     return this._httpClinet.get<Course>(this.apiUrl + `GetById/${id}`);
   }
 
@@ -26,7 +26,7 @@ export class CourseService {
   }
 
 
-  deleteCourse(id: number): Observable<ResponseModel> {
+  deleteCourse(id: string): Observable<ResponseModel> {
     return this._httpClinet.delete<ResponseModel>(this.apiUrl + `${id}`);
   }
 

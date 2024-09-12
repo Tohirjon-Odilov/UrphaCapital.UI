@@ -5,6 +5,6 @@ export interface Homework {
     title: string;
     fILE: string;
     description: string;
-    lessonId: number;
+    lessonId: string;
     lesson: Lesson;
 }

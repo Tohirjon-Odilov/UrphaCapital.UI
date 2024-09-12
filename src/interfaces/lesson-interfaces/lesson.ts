@@ -1,9 +1,9 @@
 import { Course } from "../course-interfaces/course"
 
 export interface Lesson {
-    id: number
+    id: string
     name: string
-    courseId: number
+    courseId: string
     course: Course
     video: string
   }
