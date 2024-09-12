@@ -55,6 +55,7 @@ export class PaymentComponent{
     this.studentService.updateStudent(this.userDataSend).subscribe({
       next: (data) => {
         this.toastr.success('Xarid amalga oshirildi', 'Tabriklaymiz!');
+        this.router.navigate(['/courses']);
         console.log(data);
       },
       error: (err) => {
