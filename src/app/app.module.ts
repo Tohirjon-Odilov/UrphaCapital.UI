@@ -27,6 +27,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { WrapperComponent } from './pages/wrapper/wrapper.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { CoursesComponent } from './pages/courses/courses.component';
 
 // import { SwiperModule } from 'swiper/angular';
 
@@ -47,7 +48,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     NotFoundComponent,
     WrapperComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
