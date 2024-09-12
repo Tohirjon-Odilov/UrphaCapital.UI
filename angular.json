@@ -32,11 +32,12 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.scss",
               "node_modules/slick-carousel/slick/slick.css",
               "node_modules/slick-carousel/slick/slick-theme.css",
-              "node_modules/ngx-toastr/toastr.css" ,
-               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": ["node_modules/jquery/dist/jquery.min.js",
             "node_modules/slick-carousel/slick/slick.min.js"]
@@ -96,7 +97,10 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "@angular/material/prebuilt-themes/purple-green.css",
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         }

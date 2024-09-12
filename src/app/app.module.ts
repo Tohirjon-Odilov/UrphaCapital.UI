@@ -28,6 +28,11 @@ import { WrapperComponent } from './pages/wrapper/wrapper.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CoursesComponent } from './pages/courses/courses.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+
 
 // import { SwiperModule } from 'swiper/angular';
 
@@ -69,8 +74,13 @@ import { CoursesComponent } from './pages/courses/courses.component';
       closeButton: true,
       progressBar: true,
     }),
+    MatCardModule,
+    MatGridListModule,
+    MatButtonModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
