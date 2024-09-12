@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit {
       console.log('Foydalanuvchi ma’lumotlari:', formData);
       this.studetnAuthService.loginStudent(formData).subscribe({
         next: (data) => {
-          localStorage.setItem('accessToken', data);
+          localStorage.setItem('accessToken', data.token);
           this.toastr.success('Xush kelibsiz!', 'Muvaffaqiyatli kirdingiz!' );
+          console.log(data);
           this.router.navigate(['/']);
           this.loginForm.reset();
-          console.log(data);
         },
         error: (err) => {
           if(err.status == 200){

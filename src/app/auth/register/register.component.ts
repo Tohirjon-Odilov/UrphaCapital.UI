@@ -36,8 +36,8 @@ export class RegisterComponent implements OnInit {
       this.student.fullName = this.registerForm.value.fullName;
       this.student.email = this.registerForm.value.email;
       this.student.passwordHash = this.registerForm.value.password;
-      this.student.address = '';
-      this.student.phoneNumber = '';
+      this.student.address = 'null';
+      this.student.phoneNumber = '+998916800819';
       this.student.courseIds = [];
       // return
       this.studentService.registerStudent(this.student).subscribe({

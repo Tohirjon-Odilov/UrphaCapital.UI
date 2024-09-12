@@ -1,12 +1,12 @@
 export interface Student {
-    id: number;
+    id: string;
     fullName: string;
     address: string;
     phoneNumber: string;
     email: string;
     passwordHash: string;
     salt: string;
-    courseIds: number[];
+    courseIds: string[];
     role: string;
 }
 

@@ -1,9 +1,9 @@
 export interface StudentUpdate {
-    id: number;
+    id: string;
     fullName: string;
     address: string;
     phoneNumber: string;
     email: string;
     passwordHash: string;
-    courseIds: number[];
+    courseIds: string[];
   }
