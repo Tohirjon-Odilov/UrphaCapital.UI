@@ -5,7 +5,7 @@
         <source src="assets/video11.mp4">
         Your browser does not support the video tag.
       </video>
-      
+
     </div>
   </div>
   <app-navbar></app-navbar>
@@ -52,7 +52,7 @@
       <div class="container">
         <ngx-slick-carousel class="carousel cards" [config]="slideConfig">
           <div ngxSlickItem *ngFor="let card of courses" class="card">
-            <h2 class="card-title">{{ card.title }}</h2>
+            <h2 class="card-title">{{ card.name }}</h2>
             <img src="{{ 'https://api.urphacapital.uz/' +card.picture }}" alt="Card image" />
             <p>{{ card.description }}</p>
             <p>{{card.subtitle}}</p>
