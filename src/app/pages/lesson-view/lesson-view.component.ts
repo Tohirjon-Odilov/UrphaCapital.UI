@@ -11,7 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class LessonViewComponent implements OnInit {
   lessonId?: string | null = "";
-  lesson?: Lesson;
+  lesson?: any;
   videoUrl: any;
 
   constructor(

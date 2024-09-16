@@ -3,7 +3,7 @@
   @for(lesson of lessons;track lesson.id){
   <li>
     <div class="lesson-box" (click)="forwardToLessonDetails(lesson.id)">
-      <h4>{{ lesson.name }}</h4>
+      <h4>{{ lesson.title }}</h4>
     </div>
   </li>
   }
