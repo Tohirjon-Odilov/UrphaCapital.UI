@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../../../services/course-services/course.service';
 import { MentorAuthService } from '../../../services/mentor-services/mentor-auth.service';
 import { Mentor } from '../../../interfaces/mentor-interfaces/mentor';
+import { Course } from '../../../interfaces/course-interfaces/course';
 
 @Component({
   selector: 'app-home',
@@ -12,20 +13,10 @@ export class HomeComponent implements OnInit {
   constructor(
     private _courseService: CourseService,
     private _mentorService: MentorAuthService,
-  ) {
-    this._courseService.getCourses(1, 10).subscribe({
-      next: (data) => {
-        this.courses = data;
-        console.log(data);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
+  ) { }
 
   hoveredMentor: number | null = null;
-  courses: any[] = [];
+  courses!: Course[];
   teachers: any;
 
   slideConfig = {
