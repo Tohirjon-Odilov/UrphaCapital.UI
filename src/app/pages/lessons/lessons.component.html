@@ -1,10 +1,22 @@
-<h2>{{ course?.name }}</h2>
-<ul>
-  @for(lesson of lessons;track lesson.id){
-  <li>
-    <div class="lesson-box" (click)="forwardToLessonDetails(lesson.id)">
-      <h4>{{ lesson.title }}</h4>
+<app-navbar></app-navbar>
+
+<section class="lesson-section">
+  <div class="container">
+    <div class="lesson">
+      <h2>{{ course?.name }}</h2>
+      <p>Barcha darslar:</p>
+      <br>
+      <ul>
+        <li *ngFor="let lesson of lessons; trackBy: trackLesson">
+          <div class="lesson-box" (click)="forwardToLessonDetails(lesson.id)">
+            <div class="lesson-header">
+              <h4>{{ lesson.title }}</h4>
+            </div>
+            <p>{{ lesson.homeworkDescription }}</p>
+          </div>
+        </li>
+      </ul>
     </div>
-  </li>
-  }
-</ul>
+  </div>
+</section>
+
