@@ -50,67 +50,20 @@ export class HomeComponent implements OnInit {
       }
     ]
   };
-  
-
-  // cards = [
-  //   {
-  //     title: '15+ ONLINE',
-  //     img: '/assets/card.png',
-  //     description:
-  //       '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-  //     price: '399 000 so’m/oy',
-  //   },
-  //   {
-  //     title: '15+ ONLINE',
-  //     img: '/assets/card.png',
-  //     description:
-  //       '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajribaoyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajribaoyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajribaoyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-  //     price: '399 000 so’m/oy',
-  //   },
-  //   {
-  //     title: '15+ ONLINE',
-  //     img: '/assets/card.png',
-  //     description:
-  //       '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-  //     price: '399 000 so’m/oy',
-  //   },
-  //   {
-  //     title: '15+ ONLINE',
-  //     img: '/assets/card.png',
-  //     description:
-  //       '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-  //     price: '399 000 so’m/oy',
-  //   },
-  //   {
-  //     title: '15+ ONLINE',
-  //     img: '/assets/card.png',
-  //     description:
-  //       '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-  //     price: '399 000 so’m/oy',
-  //   },
-  //   {
-  //     title: '15+ ONLINE',
-  //     img: '/assets/card.png',
-  //     description:
-  //       '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-  //     price: '399 000 so’m/oy',
-  //   },
-  //   // Boshqa kartalar...
-  // ];
 
   ngOnInit(): void {
-    // this.getAllCourses();
+    this.getAllCourses();
     this.getAllMentors();
   }
 
   mentors?: Mentor[];
 
-  // getAllCourses() {
-  //   this._courseService.getCourses(1, 10).subscribe((data) => {
-  //     console.log(data);
-  //     this.courses = data;
-  //   });
-  // }
+  getAllCourses() {
+    this._courseService.getCourses(1, 10).subscribe((data) => {
+      console.log(data);
+      this.courses = data;
+    });
+  }
 
   getAllMentors() {
     this._mentorService.getMentors(1, 10).subscribe((data) => {
