@@ -37,4 +37,12 @@ export class CourseService {
   updateCourse(data: FormData): Observable<ResponseModel> {
     return this._httpClinet.put<ResponseModel>(`${this.apiUrl}`, data);
   }
+  
+  getCourseByUserId(userId: string): Observable<Course[]> {
+    return this._httpClinet.get<Course[]>(`${this.apiUrl}GetById/${userId}`);
+  }
+
+  getMyCourse(userId: string): Observable<Course[]> {
+    return this._httpClinet.get<Course[]>(`${this.apiUrl}GetMyCourse/${userId}`);
+  }
 }

@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private studetnAuthService: StudentAuthService,
     private toastr: ToastrService,
-    // private userService: UserService,
     private router: Router
   ) {}
 
@@ -36,6 +35,7 @@ export class LoginComponent implements OnInit {
       this.studetnAuthService.loginStudent(formData).subscribe({
         next: (data) => {
           localStorage.setItem('accessToken', data.token);
+          // console.log(data)
           this.toastr.success('Xush kelibsiz!', 'Muvaffaqiyatli kirdingiz!' );
           console.log(data);
           this.router.navigate(['/']);

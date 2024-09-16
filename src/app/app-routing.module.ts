@@ -62,7 +62,7 @@ const routes: Routes = [
     component: PaymentComponent,
     canActivate: [AuthGuard],
   },
-  {path: 'my-courses', title: 'Courses', component: CoursesComponent, canActivate: [AuthGuard]},
+  {path: 'courses', title: 'Courses', component: CoursesComponent, canActivate: [AuthGuard]},
   { path: 'profile', title: 'Profile', component: ProfileComponent },
   { path: '**', title: 'NotFound', component: NotFoundComponent },
 ];
