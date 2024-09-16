@@ -186,19 +186,21 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       max-width: 240px;
+      margin-bottom: 10px;
     }
 
     img {
-      padding: 20px 0;
-      width: 70px;
-      align-self: flex-end;
+      // padding: 20px 0;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 170px;
     }
 
     p {
       width: 140px;
       word-spacing: 5px;
       line-height: 25px;
-      height: 150px;
+      // height: 150px;
       overflow: hidden;
       text-overflow: ellipsis;
     }

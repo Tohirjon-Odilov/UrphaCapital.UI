@@ -54,7 +54,7 @@
           <div ngxSlickItem *ngFor="let card of courses" class="card">
             <h2 class="card-title">{{ card.name }}</h2>
             <img src="{{ 'https://api.urphacapital.uz/' +card.picture }}" alt="Card image" />
-            <p>{{ card.description }}</p>
+            <!-- <p>{{ card.description }}</p> -->
             <p>{{card.subtitle}}</p>
             <button [routerLink]="['course-info', card.id]">{{ card.price }}</button>  
           </div>
