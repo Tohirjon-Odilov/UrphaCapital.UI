@@ -1,5 +1,17 @@
-<h2>{{ lesson?.title }}</h2>
+<app-navbar></app-navbar>
 
-<video [src]="videoUrl" width="600" height="350" controls autoplay controlsList="nodownload" oncontextmenu="return false;">
-    
-</video>
+<section class="lesson-view-section">
+  <div class="container">
+    <div class="lesson-view">
+      <h2>{{ lesson?.title }}</h2>
+      <video
+        [src]="'https://api.urphacapital.uz/'+lesson?.video"
+        width="600"
+        height="350"
+        controls
+        controlsList="nodownload"
+        oncontextmenu="return false;"
+      ></video>
+    </div>
+  </div>
+</section>

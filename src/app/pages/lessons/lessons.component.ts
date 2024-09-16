@@ -60,4 +60,9 @@ export class LessonsComponent implements OnInit {
   forwardToLessonDetails(id: string) {
     this._router.navigateByUrl(`/lessons/${this.courseId}/${id}`);
   }
+
+  trackLesson(index: any, lesson: any) {
+    return lesson.id;
+  }
+  
 }

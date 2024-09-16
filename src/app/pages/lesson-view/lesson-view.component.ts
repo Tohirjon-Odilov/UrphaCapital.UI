@@ -25,7 +25,7 @@ export class LessonViewComponent implements OnInit {
       this.lessonId = params.get('lessonId');
     });
     this.getLessonById();
-    this.getVideo();
+    // this.getVideo();
   }
 
   getLessonById() {

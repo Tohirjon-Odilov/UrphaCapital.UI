@@ -1,0 +1,57 @@
+.lesson-section {
+  background-color: transparent; /* Dark background for the whole section */
+  color: #fff; /* White text color for better readability */
+  padding: 20px 0;
+}
+
+// .container {
+//   max-width: 1200px;
+//   margin: 0 auto;
+//   padding: 0 15px;
+// }
+
+.lesson h2 {
+  font-size: 40px;
+  color: #ffffff; /* Ensuring the title is clearly visible */
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+.lesson-box {
+  background-color: #333333; /* Darker shade for the box */
+  border: 1px solid #444444; /* Slightly lighter border for some depth */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Enhanced shadow for 3D effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.lesson-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.5); /* Stronger shadow on hover */
+}
+
+.lesson-header h4 {
+  font-size: 18px;
+  color: #4CAF50; /* Light green color for titles to stand out */
+}
+
+p {
+  font-size: 16px;
+  color: #BBBBBB; /* Light gray for regular text to reduce harshness */
+  margin-top: 5px;
+}
+
+.lesson-box p {
+  border-top: 1px solid #555555; /* Add a subtle line to separate text for better structuring */
+  padding-top: 10px;
+}
