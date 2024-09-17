@@ -130,6 +130,8 @@ body {
   height: calc(100% - 30px);
   overflow-y: auto;
   position: relative;
+  scrollbar-width: none;
+
 }
 
 .sidebar-content.desktop {
