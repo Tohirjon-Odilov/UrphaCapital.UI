@@ -66,7 +66,7 @@ export class StudentAuthService {
     }
   }
 
-  updateStudent(data: StudentUpdate):Observable<ResponseModel>{
+  updateStudent(data: any):Observable<ResponseModel>{
     return this._http.put<ResponseModel>(this.apiUrl, data);
   }
 }

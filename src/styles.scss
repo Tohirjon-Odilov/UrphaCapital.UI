@@ -6,7 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
+  // color: white;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
   
@@ -14,10 +14,23 @@
   
 }
 
+html {
+  scrollbar-width: thin; /* Firefox brauzeri uchun yupqa skroll bar */
+  scrollbar-width: none;
+
+}
+
 body{
   scroll-behavior: smooth;
   background-color: black;
+  // overflow-y: visible;
+  scrollbar-gutter: stable;
 }
+
+// html::-webkit-search-results-decoration{
+//   // display: none;
+// }
+
 
 .container{
   max-width: 1440px;
