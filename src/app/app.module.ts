@@ -32,6 +32,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+// import { ButtonModule } from 'primeng/button';
+// import { DialogModule } from 'primeng/dialog';
 
 
 // import { SwiperModule } from 'swiper/angular';
@@ -67,6 +72,8 @@ import { MatButtonModule } from '@angular/material/button';
     VgOverlayPlayModule,
     VgBufferingModule,
     ReactiveFormsModule,
+    DialogModule,
+    ButtonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 5000,

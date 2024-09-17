@@ -8,5 +8,6 @@ export interface Student {
     salt: string;
     courseIds: string[];
     role: string;
+    img: string;
 }
 
