@@ -10,7 +10,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { WrapperComponent } from './pages/wrapper/wrapper.component';
+// import { WrapperComponent } from './pages/wrapper/wrapper.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CoursesComponent } from './pages/courses/courses.component';
@@ -25,7 +25,7 @@ const routes: Routes = [
     // canActivateChild: [AuthGuard],
     // children: [
   },
-  { path: '', title: 'OverView', component: WrapperComponent },
+  // { path: '', title: 'OverView', component: WrapperComponent },
   {
     path: 'request',
     title: 'Send Request',

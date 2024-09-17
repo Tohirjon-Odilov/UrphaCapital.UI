@@ -35,6 +35,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { DashboardComponent } from './admin-pages/dashboard/dashboard.component';
 // import { ButtonModule } from 'primeng/button';
 // import { DialogModule } from 'primeng/dialog';
 
@@ -59,7 +60,8 @@ import { InputTextModule } from 'primeng/inputtext';
     WrapperComponent,
     RegisterComponent,
     ProfileComponent,
-    CoursesComponent
+    CoursesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
