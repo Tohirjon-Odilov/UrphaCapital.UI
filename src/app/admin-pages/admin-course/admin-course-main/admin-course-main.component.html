@@ -1,0 +1,28 @@
+<div *ngIf="isLoading" class="loading-container">Loading courses...</div>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<h2 class="course-table-heading">Courses List</h2>
+<table *ngIf="!isLoading && courses.length > 0" class="styled-table">
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Description</th>
+      <th>Mentor ID</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courses">
+      <td>{{ course.name }}</td>
+      <td>{{ course.description }}</td>
+      <td>{{ course.mentorId }}</td>
+      <td>
+        <button class="edit-button" (click)="selectCourse(course)">Edit</button>
+        <button class="delete-button" (click)="deleteCourse(course.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="!isLoading && courses.length === 0" class="no-data-message">
+  No courses available.
+</div>
