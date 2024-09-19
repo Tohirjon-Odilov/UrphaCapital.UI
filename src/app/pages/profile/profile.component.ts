@@ -57,9 +57,9 @@ export class ProfileComponent implements OnInit {
   };
 
   userForm = new FormGroup({
-    name: new FormControl(''),
+    fullName: new FormControl(''),
     address: new FormControl(''),
-    phone: new FormControl(''),
+    phoneNumber: new FormControl(''),
     email: new FormControl(''),
     img: new FormControl(''),
     passwordHash: new FormControl(''),
@@ -70,9 +70,9 @@ export class ProfileComponent implements OnInit {
 
   loadUserData() {
     this.userForm.setValue({
-      name: this.user.fullName,
+      fullName: this.user.fullName,
       address: this.user.address,
-      phone: this.user.phoneNumber,
+      phoneNumber: this.user.phoneNumber,
       email: this.user.email,
       img: '/MentorsPictures/834ad32a-0375-4424-9ead-e25d47f1a894.jpg',
       passwordHash: this.user.passwordHash,
@@ -86,9 +86,9 @@ export class ProfileComponent implements OnInit {
   openModal() {
     this.visible = true;
     this.userForm.setValue({
-      name: this.user.fullName,
+      fullName: this.user.fullName,
       address: this.user.address,
-      phone: this.user.phoneNumber,
+      phoneNumber: this.user.phoneNumber,
       email: this.user.email,
       img: '/MentorsPictures/834ad32a-0375-4424-9ead-e25d47f1a894.jpg',
       passwordHash: "",
@@ -111,6 +111,7 @@ export class ProfileComponent implements OnInit {
       this.studentService.updateStudent(this.userForm.value).subscribe({
         next: (res) => {
           console.log(res);
+          location.reload();
           // this.user.fullName = res.fullName;
           // this.user.address = res.address;
           // this.user.phoneNumber = res.phoneNumber;

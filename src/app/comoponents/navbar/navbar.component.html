@@ -2,7 +2,7 @@
   <div class="header">
     <div class="container">
       <div class="site-logo">
-        <img src="/assets/navbar-logo.png" width="270" alt="" />
+        <img routerLink="/" src="/assets/navbar-logo.png" width="270" alt="" />
         <div>
           <!-- <p>login</p> -->
           <!-- <img src="/assets/menu-bar.png" width="50" alt=""> -->
@@ -20,6 +20,7 @@
     <div (click)="closeMenuIfOpen($event)">
       <div *ngIf="menuVisible" class="menu" (click)="$event.stopPropagation()">
         <ul>
+          <li><a routerLink="/">Bosh sahifa</a></li>
           <li><a routerLink="/courses">Kurslar</a></li>
           <li><a href="javascript:void(0)" (click)="scrollToElement('about')">Kompaniya haqida</a></li>
           <li><a href="javascript:void(0)" (click)="scrollToElement('contact')">Kontaktlar</a></li>

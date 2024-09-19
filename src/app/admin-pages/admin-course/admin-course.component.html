@@ -1,0 +1,103 @@
+<!-- <div *ngIf="isLoading">Loading courses...</div>
+<div *ngIf="errorMessage">{{ errorMessage }}</div> -->
+
+<!-- Course Table -->
+<!-- <table *ngIf="!isLoading && courses.length > 0">
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Description</th>
+      <th>Mentor ID</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courses">
+      <td>{{ course.name }}</td>
+      <td>{{ course.description }}</td>
+      <td>{{ course.mentorId }}</td>
+      <td>
+        <button (click)="selectCourse(course)">Edit</button>
+        <button (click)="deleteCourse(course.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+
+<!-- Course Form -->
+
+<form
+  [formGroup]="courseForm"
+  (ngSubmit)="selectedCourse ? updateCourse() : createCourse()"
+>
+  <label for="name">Kurs nomi:</label>
+  <input formControlName="name" id="name" placeholder="Kurs nomini kiriting" />
+
+  <label for="description">Ta'rif:</label>
+  <textarea
+    formControlName="description"
+    id="description"
+    placeholder="Kursning ta'rifini kiriting"
+  ></textarea>
+
+  <label for="password">Price:</label>
+  <input
+    formControlName="price"
+    id="password"
+    type="text"
+    placeholder="Narxni kiriting"
+  />
+
+  <!-- <label for="email">Elektron pochta:</label>
+  <input
+    formControlName="email"
+    id="email"
+    type="email"
+    placeholder="Elektron pochta manzilingizni kiriting"
+  /> -->
+
+  <label for="mentorId">Mentor ID:</label>
+  <input
+    formControlName="mentorId"
+    id="mentorId"
+    type="number"
+    placeholder="Mentor ID raqamini kiriting"
+  />
+
+  <!-- <label for="phone">Telefon raqami:</label>
+  <input
+    formControlName="phone"
+    id="phone"
+    type="tel"
+    placeholder="Telefon raqamingizni kiriting"
+  /> -->
+
+  <label for="subtitle">Mavzu:</label>
+  <input
+    formControlName="subtitle"
+    id="subtitle"
+    type="subtitle"
+    placeholder="Mavzuni kiriting"
+  />
+
+  <div class="file-input-container">
+    <label for="picture">Rasm yuklang:</label>
+    <div class="custom-file-upload">
+      <input
+        formControlName="picture"
+        id="picture"
+        type="file"
+        (change)="onFileSelected($event)"
+      />
+      <button class="upload-button">
+        <i class="fas fa-upload"></i> Rasmni tanlang
+      </button>
+      <span class="file-name">{{ selectedFileName || "Rasm tanlanmagan" }}</span>
+    </div>
+  </div>
+  
+  <button type="submit">
+    {{ selectedCourse ? "Kursni yangilang" : "Yangi kurs qo'shing" }}
+  </button>
+</form>
+
