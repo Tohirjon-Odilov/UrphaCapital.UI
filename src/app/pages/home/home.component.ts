@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
     private _mentorService: MentorAuthService,
   ) { }
 
+
+
   hoveredMentor: number | null = null;
   courses!: Course[];
   teachers: any;
@@ -61,6 +63,9 @@ export class HomeComponent implements OnInit {
   getAllCourses() {
     this._courseService.getCourses(1, 10).subscribe((data) => {
       console.log(data);
+      if(data == null ) {
+        location.reload();
+      }
       this.courses = data;
     });
   }

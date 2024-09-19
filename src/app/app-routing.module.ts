@@ -10,10 +10,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { WrapperComponent } from './pages/wrapper/wrapper.component';
+// import { WrapperComponent } from './pages/wrapper/wrapper.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CoursesComponent } from './pages/courses/courses.component';
+import { DashboardComponent } from './admin-pages/dashboard/dashboard.component';
+import { AdminCourseComponent } from './admin-pages/admin-course/admin-course.component';
 
 const routes: Routes = [
   { path: 'login', title: 'Login', component: LoginComponent },
@@ -25,7 +27,7 @@ const routes: Routes = [
     // canActivateChild: [AuthGuard],
     // children: [
   },
-  { path: '', title: 'OverView', component: WrapperComponent },
+  // { path: '', title: 'OverView', component: WrapperComponent },
   {
     path: 'request',
     title: 'Send Request',
@@ -62,8 +64,19 @@ const routes: Routes = [
     component: PaymentComponent,
     canActivate: [AuthGuard],
   },
-  {path: 'courses', title: 'Courses', component: CoursesComponent, canActivate: [AuthGuard]},
+  {
+    path: 'courses',
+    title: 'Courses',
+    component: CoursesComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'profile', title: 'Profile', component: ProfileComponent },
+
+  // { path: 'course', title: 'Dashboard', component: AdminCourseComponent },
+  { path: 'dashboard', title: 'Dashboard', component: DashboardComponent, children: [
+    { path: 'add-course', title: 'Dashboard', component: AdminCourseComponent },
+  ] },
+
   { path: '**', title: 'NotFound', component: NotFoundComponent },
 ];
 

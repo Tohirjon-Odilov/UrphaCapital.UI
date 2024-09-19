@@ -42,7 +42,5 @@ export class CourseService {
     return this._httpClinet.get<Course[]>(`${this.apiUrl}GetById/${userId}`);
   }
 
-  getMyCourse(userId: string): Observable<Course[]> {
-    return this._httpClinet.get<Course[]>(`${this.apiUrl}GetMyCourse/${userId}`);
-  }
+
 }

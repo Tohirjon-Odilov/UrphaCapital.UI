@@ -1,0 +1,17 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-icon {
+  cursor: pointer;
+  color: #757575;
+}
+
+mat-icon[matSuffix] {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+mat-icon[matSuffix]:hover {
+  color: #ff4081; /* Change color on hover */
+}

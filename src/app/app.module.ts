@@ -35,6 +35,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { DashboardComponent } from './admin-pages/dashboard/dashboard.component';
+import { SearchComponent } from './comoponents/search/search.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AdminCourseComponent } from './admin-pages/admin-course/admin-course.component';
 // import { ButtonModule } from 'primeng/button';
 // import { DialogModule } from 'primeng/dialog';
 
@@ -59,7 +66,10 @@ import { InputTextModule } from 'primeng/inputtext';
     WrapperComponent,
     RegisterComponent,
     ProfileComponent,
-    CoursesComponent
+    CoursesComponent,
+    DashboardComponent,
+    SearchComponent,
+    AdminCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +85,10 @@ import { InputTextModule } from 'primeng/inputtext';
     DialogModule,
     ButtonModule,
     BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatAutocompleteModule,
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-top-right',

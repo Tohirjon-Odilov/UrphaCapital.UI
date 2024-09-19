@@ -14,7 +14,9 @@
             />
             <h2>{{ user.fullName }}</h2>
             <p>{{ user.email }}</p>
-            <button (click)="openModal()">Profile ma'lumotlarini o'zgartirish</button>
+            <button (click)="openModal()">
+              Profile ma'lumotlarini o'zgartirish
+            </button>
           </div>
 
           <div class="profile-details">
@@ -33,46 +35,66 @@
 </section>
 
 <!-- modal -->
-
 <div class="modal-container">
-    <!-- Modal Oynaning HTML ko'rinishi -->
-<div class="modal-backdrop" *ngIf="visible">
-  <div class="modal">
-    <div class="modal-header">
-      <h2>Foydalanuvchi ma'lumotlari</h2>
-      <button class="close-button" (click)="closeModal()">×</button>
-    </div>
-    <div class="modal-body">
-      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="name">Ismingiz</label>
-          <input id="name" formControlName="name" type="text" placeholder="Ismingizni kiriting">
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input id="email" formControlName="email" type="email" placeholder="Emailingizni kiriting">
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Telefon</label>
-          <input id="phone" formControlName="phone" type="text" placeholder="Telefon raqamingizni kiriting">
-        </div>
-
-        <div class="form-group">
-          <label for="address">Manzil</label>
-          <input id="address" formControlName="address" type="text" placeholder="Manzilni to'g'ri kiriting">
-        </div>
-
-        <!-- <div class="form-group">
-          <label for="passwordHash">Parol</label>
-          <input id="passwordHash" formControlName="passwordHash" type="text" placeholder="Parolni to'g'ri kiriting">
-        </div> -->
-
-        <button type="submit" class="submit-button">Saqlash</button>
-      </form>
+  <!-- Modal Backdrop -->
+  <div class="modal-backdrop" *ngIf="visible">
+    <!-- Modal Content -->
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Foydalanuvchi ma'lumotlari</h2>
+        <button class="close-button" (click)="closeModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <!-- Name -->
+          <div class="form-group">
+            <label for="fullName">Ismingiz</label>
+            <input
+              id="fullName"
+              formControlName="fullName"
+              type="text"
+              placeholder="Ismingizni kiriting"
+              class="form-control"
+            />
+          </div>
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              formControlName="email"
+              type="email"
+              placeholder="Emailingizni kiriting"
+              class="form-control"
+            />
+          </div>
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phoneNumber">Telefon</label>
+            <input
+              id="phoneNumber"
+              formControlName="phoneNumber"
+              type="text"
+              placeholder="Telefon raqamingizni kiriting"
+              class="form-control"
+            />
+          </div>
+          <!-- Address -->
+          <div class="form-group">
+            <label for="address">Manzil</label>
+            <input
+              id="address"
+              formControlName="address"
+              type="text"
+              placeholder="Manzilni to'g'ri kiriting"
+              class="form-control"
+            />
+          </div>
+          <!-- Submit Button -->
+          <button type="submit" class="submit-button">Saqlash</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
 
-</div>
