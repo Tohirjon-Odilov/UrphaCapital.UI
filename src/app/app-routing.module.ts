@@ -1,3 +1,4 @@
+import { Admin } from './../interfaces/admin-interfaces/admin';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -70,12 +71,28 @@ const routes: Routes = [
     component: CoursesComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'profile', title: 'Profile', component: ProfileComponent },
-
-  // { path: 'course', title: 'Dashboard', component: AdminCourseComponent },
-  { path: 'dashboard', title: 'Dashboard', component: DashboardComponent, children: [
-    { path: 'add-course', title: 'Dashboard', component: AdminCourseComponent },
-  ] },
+  {
+    path: 'profile',
+    title: 'Profile',
+    component: ProfileComponent,
+  },
+  {
+    path: 'dashboard',
+    title: 'Dashboard',
+    component: DashboardComponent,
+    children: [
+      {
+        path: 'courses',
+        title: 'Dashboard',
+        component: AdminCourseComponent,
+      },
+      {
+        path: 'add-course',
+        title: 'Dashboard',
+        component: AdminCourseComponent,
+      },
+    ],
+  },
 
   { path: '**', title: 'NotFound', component: NotFoundComponent },
 ];
