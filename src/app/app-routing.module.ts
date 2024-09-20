@@ -1,3 +1,4 @@
+import { Admin } from './../interfaces/admin-interfaces/admin';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -15,7 +16,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { DashboardComponent } from './admin-pages/dashboard/dashboard.component';
-import { AdminCourseComponent } from './admin-pages/admin-course/admin-course.component';
+import { CreateCourseComponent } from './admin-pages/admin-course/create-course/create-course.component';
+import { AdminCourseMainComponent } from './admin-pages/admin-course/admin-course-main/admin-course-main.component';
 
 const routes: Routes = [
   { path: 'login', title: 'Login', component: LoginComponent },
@@ -70,12 +72,45 @@ const routes: Routes = [
     component: CoursesComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'profile', title: 'Profile', component: ProfileComponent },
-
-  // { path: 'course', title: 'Dashboard', component: AdminCourseComponent },
-  { path: 'dashboard', title: 'Dashboard', component: DashboardComponent, children: [
-    { path: 'add-course', title: 'Dashboard', component: AdminCourseComponent },
-  ] },
+  {
+    path: 'profile',
+    title: 'Profile',
+    component: ProfileComponent,
+  },
+  {
+    path: 'dashboard',
+    title: 'Dashboard',
+    component: DashboardComponent,
+    children: [
+      //course
+      {
+        path: 'courses',
+        title: 'Admin Lesson',
+        component: AdminCourseMainComponent,
+      },
+      {
+        path: 'mentor-courses/:mentorId',
+        title: 'Dashboard',
+        component: AdminCourseMainComponent,
+      },
+      {
+        path: ':action',
+        title: 'Dashboard',
+        component: CreateCourseComponent,
+      },
+      // lesson
+      {
+        path: 'lessons/:courseId',
+        title: 'Lesson',
+        component: AdminCourseMainComponent,
+      },
+      {
+        path: 'lessons/:courseId/:lessonId',
+        title: 'Admin Lesson',
+        component: AdminCourseMainComponent,
+      },
+    ],
+  },
 
   { path: '**', title: 'NotFound', component: NotFoundComponent },
 ];

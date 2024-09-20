@@ -41,7 +41,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { AdminCourseComponent } from './admin-pages/admin-course/admin-course.component';
+import { CreateCourseComponent } from './admin-pages/admin-course/create-course/create-course.component';
+import { AdminCourseMainComponent } from './admin-pages/admin-course/admin-course-main/admin-course-main.component';
 // import { ButtonModule } from 'primeng/button';
 // import { DialogModule } from 'primeng/dialog';
 
@@ -69,7 +70,8 @@ import { AdminCourseComponent } from './admin-pages/admin-course/admin-course.co
     CoursesComponent,
     DashboardComponent,
     SearchComponent,
-    AdminCourseComponent
+    CreateCourseComponent,
+    AdminCourseMainComponent
   ],
   imports: [
     BrowserModule,
