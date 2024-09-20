@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 // import { Course } from 'src/app/interfaces/course-interfaces/course';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CourseService } from '../../../../services/course-services/course.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
+import { MentorAuthService } from '../../../../services/mentor-services/mentor-auth.service';
 // import { Course } from '../../../interfaces/course-interfaces/course';
 // import { CourseService } from '../../../services/course-services/course.service';
 // import { ResponseModel } from '../../../interfaces/common-models/responseModel';
@@ -11,7 +15,7 @@ import { CourseService } from '../../../../services/course-services/course.servi
 @Component({
   selector: 'app-create-course',
   templateUrl: './create-course.component.html',
-  styleUrl: './create-course.component.scss'
+  styleUrl: './create-course.component.scss',
 })
 export class CreateCourseComponent implements OnInit {
   courseForm: FormGroup;
@@ -19,9 +23,19 @@ export class CreateCourseComponent implements OnInit {
   selectedFile: File | null = null;
   selectedCourse: any = null; // Define selectedCourse type
 
-  ngOnInit(): void {}
+  action: string | null = null;
+  courseId: string | null = null;
+  mentors: any[] = [];
 
-  constructor(private fb: FormBuilder, private courseService: CourseService) {
+  constructor(
+    private fb: FormBuilder,
+    private courseService: CourseService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location,
+    private toastr: ToastrService,
+    private mentorService: MentorAuthService
+  ) {
     this.courseForm = this.fb.group({
       name: [''],
       description: [''],
@@ -31,6 +45,55 @@ export class CreateCourseComponent implements OnInit {
       // password: [''],
       picture: [null], // This will store the file reference
       price: [''],
+    });
+  }
+
+  ngOnInit(): void {
+
+    this.mentorService.getMentorSelectList().subscribe({
+      next: (data) => {
+        this.mentors = data;
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    })
+    
+    // Marshrut parametrlari va query parametrlari bilan ishlash
+    this.route.params.subscribe((params) => {
+      this.action = params['action'];
+    });
+
+    this.route.queryParams.subscribe((queryParams) => {
+      this.courseId = queryParams['courseId'] || null;
+
+      if (this.action === 'create-course') {
+        this.toastr.info('Yangi kurs yaratmoqda', 'Kurs yaratish');
+        // Yaratish uchun logika
+      } else if (this.action === 'update-course' && this.courseId) {
+        // Yangilash uchun logika
+        this.courseService.getCourseById(this.courseId).subscribe({
+          next: (data) => {
+            this.selectedCourse = data;
+            this.courseForm = this.fb.group({
+              name: [data.name],
+              description: [data.description],
+              mentorId: [data.mentorId],
+              subtitle: [data.subtitle],
+              picture: [null],
+              price: [data.price],
+            });
+            console.log(data);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+        this.toastr.info('Kurs yangilamoqda', 'Kurs yangilash');
+      } else {
+        this.router.navigate(['not-found']);
+      }
     });
   }
 
@@ -45,17 +108,19 @@ export class CreateCourseComponent implements OnInit {
   createCourse(): void {
     const formData = new FormData();
 
-    formData.append('name', this.courseForm.get('name')?.value);
-    formData.append('description', this.courseForm.get('description')?.value);
+    formData.append('Name', this.courseForm.get('name')?.value);
+    formData.append('Description', this.courseForm.get('description')?.value);
     // formData.append('email', this.courseForm.get('email')?.value);
-    formData.append('mentorId', this.courseForm.get('mentorId')?.value);
-    formData.append('subtitle', this.courseForm.get('subtitle')?.value);
+    formData.append('MentorId', this.courseForm.get('mentorId')?.value);
+    formData.append('Subtitle', this.courseForm.get('subtitle')?.value);
     // formData.append('password', this.courseForm.get('password')?.value);
-    formData.append('price', this.courseForm.get('price')?.value);
+    formData.append('Price', this.courseForm.get('price')?.value);
 
     if (this.selectedFile) {
-      formData.append('picture', this.selectedFile, this.selectedFile.name);
+      formData.append('Picture', this.selectedFile, this.selectedFile.name);
     }
+
+    console.log(formData);
 
     this.courseService.createCourse(formData).subscribe(
       (response) => {
@@ -73,16 +138,23 @@ export class CreateCourseComponent implements OnInit {
     const formData = new FormData();
 
     formData.append('id', this.selectedCourse.id); // Assume selectedCourse has an ID
-    formData.append('name', this.courseForm.get('name')?.value);
-    formData.append('description', this.courseForm.get('description')?.value);
-    formData.append('email', this.courseForm.get('email')?.value);
-    formData.append('mentorId', this.courseForm.get('mentorId')?.value);
-    formData.append('phone', this.courseForm.get('phone')?.value);
-    formData.append('password', this.courseForm.get('password')?.value);
+
+    formData.append('Name', this.courseForm.get('name')?.value);
+    formData.append('Description', this.courseForm.get('description')?.value);
+    // formData.append('email', this.courseForm.get('email')?.value);
+    formData.append('MentorId', this.courseForm.get('mentorId')?.value);
+    formData.append('Subtitle', this.courseForm.get('subtitle')?.value);
+    // formData.append('password', this.courseForm.get('password')?.value);
+    formData.append('Price', this.courseForm.get('price')?.value);
 
     if (this.selectedFile) {
-      formData.append('picture', this.selectedFile, this.selectedFile.name);
+      formData.append('Picture', this.selectedFile, this.selectedFile.name);
+    }else{
+      console.log('Picturer null', this.selectedCourse.picture);
+      formData.append('Picture', this.selectedCourse.picture);
     }
+
+    console.log(formData);
 
     this.courseService.updateCourse(formData).subscribe(
       (response) => {

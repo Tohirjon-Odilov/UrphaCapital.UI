@@ -22,13 +22,31 @@
         <ul>
           <li><a routerLink="/">Bosh sahifa</a></li>
           <li><a routerLink="/courses">Kurslar</a></li>
-          <li><a href="javascript:void(0)" (click)="scrollToElement('about')">Kompaniya haqida</a></li>
-          <li><a href="javascript:void(0)" (click)="scrollToElement('contact')">Kontaktlar</a></li>
-          <li *ngIf="!token"><a href="javascript:void(0)"  [routerLink]="['/login']">Akkauntga kirish</a></li>
-          <li *ngIf="token"><a href="javascript:void(0)"  [routerLink]="['/profile']">Profile</a></li>
-          <li *ngIf="token"><a href="javascript:void(0)"  routerLink="/login">Chiqish</a></li>
+          <li>
+            <a href="javascript:void(0)" (click)="scrollToElement('about')"
+              >Kompaniya haqida</a
+            >
+          </li>
+          <li>
+            <a href="javascript:void(0)" (click)="scrollToElement('contact')"
+              >Kontaktlar</a
+            >
+          </li>
+          <li *ngIf="!token">
+            <a href="javascript:void(0)" [routerLink]="['/login']"
+              >Akkauntga kirish</a
+            >
+          </li>
+          <li *ngIf="token">
+            <a href="javascript:void(0)" [routerLink]="['/profile']">Profile</a>
+          </li>
+          <li *ngIf="token">
+            <a href="javascript:void(0)" routerLink="/login">Chiqish</a>
+          </li>
         </ul>
-        <button class="call-button"><a href="tel:+998934013443">Qo'ng'iroq qilish</a></button>
+        <button class="call-button">
+          <a href="tel:+998934013443">Qo'ng'iroq qilish</a>
+        </button>
       </div>
     </div>
   </div>

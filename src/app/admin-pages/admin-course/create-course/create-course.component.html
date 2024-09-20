@@ -40,10 +40,10 @@
     placeholder="Kursning ta'rifini kiriting"
   ></textarea>
 
-  <label for="password">Price:</label>
+  <label for="price">Price:</label>
   <input
     formControlName="price"
-    id="password"
+    id="price"
     type="text"
     placeholder="Narxni kiriting"
   />
@@ -56,13 +56,13 @@
     placeholder="Elektron pochta manzilingizni kiriting"
   /> -->
 
-  <label for="mentorId">Mentor ID:</label>
-  <input
-    formControlName="mentorId"
-    id="mentorId"
-    type="number"
-    placeholder="Mentor ID raqamini kiriting"
-  />
+  <label for="mentorId">Mentor:</label>
+  <select formControlName="mentorId" id="mentorId">
+    <option value="">Mentorni tanlang</option>
+    <option *ngFor="let mentor of mentors" [value]="mentor.id">
+      {{ mentor.fullName }}
+    </option>
+  </select>
 
   <!-- <label for="phone">Telefon raqami:</label>
   <input

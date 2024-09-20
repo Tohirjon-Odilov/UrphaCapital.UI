@@ -20,6 +20,10 @@ export class MentorAuthService {
     return this._httpClient.get<Mentor>(this.apiUrl + `GetMentorsById/${id}`);
   }
 
+  getMentorSelectList(): Observable<any[]> {
+    return this._httpClient.get<any[]>(`${environment.apiUrl}Select/get-mentors`);
+  }
+
   deleteMentor(id: number): Observable<ResponseModel> {
     return this._httpClient.delete<ResponseModel>(this.apiUrl + `${id}`);
   }

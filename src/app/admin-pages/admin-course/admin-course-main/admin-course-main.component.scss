@@ -65,6 +65,7 @@ body {
 
 .styled-table td {
   color: #f0f0f0; /* Light text color for table rows */
+  height: auto;
 }
 
 /* Buttons */
@@ -92,4 +93,20 @@ button {
 
 .delete-button:hover {
   background-color: #c0392b;  /* Darker red on hover */
+}
+
+.course-description{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 450px; /* istalgan o'lchamdagi miqdorni o'zgartiring */
+  height: auto;
+}
+
+.course-subtitle{
+  max-width: 120px;
+}
+
+.course-price{
+  max-width: 120px;
 }

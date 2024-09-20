@@ -82,15 +82,32 @@ const routes: Routes = [
     title: 'Dashboard',
     component: DashboardComponent,
     children: [
+      //course
       {
         path: 'courses',
+        title: 'Admin Lesson',
+        component: AdminCourseMainComponent,
+      },
+      {
+        path: 'mentor-courses/:mentorId',
         title: 'Dashboard',
         component: AdminCourseMainComponent,
       },
       {
-        path: 'create-course',
+        path: ':action',
         title: 'Dashboard',
         component: CreateCourseComponent,
+      },
+      // lesson
+      {
+        path: 'lessons/:courseId',
+        title: 'Lesson',
+        component: AdminCourseMainComponent,
+      },
+      {
+        path: 'lessons/:courseId/:lessonId',
+        title: 'Admin Lesson',
+        component: AdminCourseMainComponent,
       },
     ],
   },
