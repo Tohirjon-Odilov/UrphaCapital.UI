@@ -113,6 +113,11 @@ const routes: Routes = [
         title: 'Admin Lesson',
         component: AdminCourseMainComponent,
       },
+      // {
+      //   path: 'lessons',
+      //   title: 'Admin Lesson',
+      //   component: AdminCourseMainComponent,
+      // }
     ],
   },
 

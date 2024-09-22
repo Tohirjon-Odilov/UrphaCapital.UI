@@ -132,6 +132,9 @@ export class CreateCourseComponent implements OnInit {
             console.log(err);
           },
         });
+      } else if (this.action === 'create-lesson') {
+        console.log(this.action);
+        console.log(this.courseId);
       } else {
         this.router.navigate(['not-found']);
       }
