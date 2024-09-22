@@ -32,6 +32,7 @@ export class CreateCourseComponent implements OnInit {
   mentors: any[] = [];
   isLoading: boolean = true;
   errorMessage: string = '';
+  selectCourseData: any = null;
 
   constructor(
     private fb: FormBuilder,
@@ -139,6 +140,18 @@ export class CreateCourseComponent implements OnInit {
         this.router.navigate(['not-found']);
       }
     });
+
+    if(!this.courseId){
+      this.courseService.selectCourse().subscribe({
+        next: (data) => {
+          this.selectCourseData = data;
+          console.log(data);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      })
+    }
   }
 
   onFileSelected(event: Event): void {
@@ -213,13 +226,17 @@ export class CreateCourseComponent implements OnInit {
 
   createLesson(): void {
     const formData = new FormData();
-    formData.append('Id', this.selectedLesson.id);
+
+    if (this.courseId) {
+      formData.append('CourseId', this.courseId.toString());
+    }
+
     formData.append('Name', this.lessonForm.get('name')?.value);
     formData.append(
       'HomeworkDescription',
       this.lessonForm.get('description')?.value
     );
-    formData.append('CourseId', this.selectedLesson.id);
+    // formData.append('CourseId', this.selectedLesson.id);
 
     if (this.selectedFile) {
       formData.append('Video', this.selectedFile, this.selectedFile.name);

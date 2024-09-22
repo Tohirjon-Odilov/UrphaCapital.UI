@@ -85,6 +85,12 @@ export class AdminCourseMainComponent implements OnInit {
 
   //= ============= Lesson ===========
 
+  addLesson() {
+    this.router.navigate(['/dashboard/create-lesson'], {
+      queryParams: { courseId: this.courseId },
+    });
+  }
+
   editLesson(id: string) {
     this.router.navigate(['/dashboard/update-lesson'], {
       queryParams: { lessonId: id },

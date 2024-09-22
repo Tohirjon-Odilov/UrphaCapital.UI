@@ -27,10 +27,12 @@
 <div class="course" *ngIf="action?.includes('course')">
   <!-- Course Form -->
 
-  <h2 class="table-title">{{ selectedCourse ? "Kursni o'zgartirish" : "Kurs yaratish" }}</h2>
+  <h2 class="table-title">
+    {{ selectedCourse ? "Kursni o'zgartirish" : "Kurs yaratish" }}
+  </h2>
 
   <div *ngIf="isLoading && selectedCourse">Loading course...</div>
-  <div *ngIf="errorMessage && selectedCourse">{{ errorMessage }}</div> 
+  <div *ngIf="errorMessage && selectedCourse">{{ errorMessage }}</div>
 
   <form
     [formGroup]="courseForm"
@@ -101,15 +103,25 @@
 <div class="lesson" *ngIf="action?.includes('lesson')">
   <!-- Lesson Form -->
 
-  <h2 class="table-title">{{ selectedLesson ? "Darsni o'zgartirish" : "Dars yaratish" }}</h2>
+  <h2 class="table-title">
+    {{ selectedLesson ? "Darsni o'zgartirish" : "Dars yaratish" }}
+  </h2>
 
   <div *ngIf="isLoading && selectedLesson">Loading lessons...</div>
-  <div *ngIf="errorMessage && selectedLesson">{{ errorMessage }}</div> 
-   
+  <div *ngIf="errorMessage && selectedLesson">{{ errorMessage }}</div>
+
   <form
     [formGroup]="lessonForm"
     (ngSubmit)="selectedLesson ? updateLesson() : createLesson()"
   >
+
+    <select formControlName="courseId" id="courseId">
+      <option value="">Kursni tanlang</option>
+      <option *ngFor="let course of selectCourseData" [value]="course.id">
+        {{ course.title }}
+      </option>
+    </select>
+
     <label for="name">Dars nomi:</label>
     <input
       formControlName="name"
@@ -122,7 +134,7 @@
       formControlName="description"
       id="description"
       placeholder="Darsning ta'rifini kiriting"
-    ></textarea>  
+    ></textarea>
 
     <div class="file-input-container">
       <label for="videoUrl">Video yuklang:</label>
