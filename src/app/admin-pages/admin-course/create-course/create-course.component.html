@@ -24,80 +24,138 @@
   </tbody>
 </table> -->
 
-<!-- Course Form -->
+<div class="course" *ngIf="action?.includes('course')">
+  <!-- Course Form -->
 
-<form
-  [formGroup]="courseForm"
-  (ngSubmit)="selectedCourse ? updateCourse() : createCourse()"
->
-  <label for="name">Kurs nomi:</label>
-  <input formControlName="name" id="name" placeholder="Kurs nomini kiriting" />
+  <h2 class="table-title">
+    {{ selectedCourse ? "Kursni o'zgartirish" : "Kurs yaratish" }}
+  </h2>
 
-  <label for="description">Ta'rif:</label>
-  <textarea
-    formControlName="description"
-    id="description"
-    placeholder="Kursning ta'rifini kiriting"
-  ></textarea>
+  <div *ngIf="isLoading && selectedCourse">Loading course...</div>
+  <div *ngIf="errorMessage && selectedCourse">{{ errorMessage }}</div>
 
-  <label for="price">Price:</label>
-  <input
-    formControlName="price"
-    id="price"
-    type="text"
-    placeholder="Narxni kiriting"
-  />
+  <form
+    [formGroup]="courseForm"
+    (ngSubmit)="selectedCourse ? updateCourse() : createCourse()"
+  >
+    <label for="name">Kurs nomi:</label>
+    <input
+      formControlName="name"
+      id="name"
+      placeholder="Kurs nomini kiriting"
+    />
 
-  <!-- <label for="email">Elektron pochta:</label>
-  <input
-    formControlName="email"
-    id="email"
-    type="email"
-    placeholder="Elektron pochta manzilingizni kiriting"
-  /> -->
+    <label for="description">Ta'rif:</label>
+    <textarea
+      formControlName="description"
+      id="description"
+      placeholder="Kursning ta'rifini kiriting"
+    ></textarea>
 
-  <label for="mentorId">Mentor:</label>
-  <select formControlName="mentorId" id="mentorId">
-    <option value="">Mentorni tanlang</option>
-    <option *ngFor="let mentor of mentors" [value]="mentor.id">
-      {{ mentor.fullName }}
-    </option>
-  </select>
+    <label for="price">Price:</label>
+    <input
+      formControlName="price"
+      id="price"
+      type="text"
+      placeholder="Narxni kiriting"
+    />
 
-  <!-- <label for="phone">Telefon raqami:</label>
-  <input
-    formControlName="phone"
-    id="phone"
-    type="tel"
-    placeholder="Telefon raqamingizni kiriting"
-  /> -->
+    <label for="mentorId">Mentor:</label>
+    <select formControlName="mentorId" id="mentorId">
+      <option value="">Mentorni tanlang</option>
+      <option *ngFor="let mentor of mentors" [value]="mentor.id">
+        {{ mentor.fullName }}
+      </option>
+    </select>
 
-  <label for="subtitle">Mavzu:</label>
-  <input
-    formControlName="subtitle"
-    id="subtitle"
-    type="subtitle"
-    placeholder="Mavzuni kiriting"
-  />
+    <label for="subtitle">Mavzu:</label>
+    <input
+      formControlName="subtitle"
+      id="subtitle"
+      type="subtitle"
+      placeholder="Mavzuni kiriting"
+    />
 
-  <div class="file-input-container">
-    <label for="picture">Rasm yuklang:</label>
-    <div class="custom-file-upload">
-      <input
-        formControlName="picture"
-        id="picture"
-        type="file"
-        (change)="onFileSelected($event)"
-      />
-      <button class="upload-button">
-        <i class="fas fa-upload"></i> Rasmni tanlang
-      </button>
-      <span class="file-name">{{ selectedFileName || "Rasm tanlanmagan" }}</span>
+    <div class="file-input-container">
+      <label for="picture">Rasm yuklang:</label>
+      <div class="custom-file-upload">
+        <input
+          formControlName="picture"
+          id="picture"
+          type="file"
+          (change)="onFileSelected($event)"
+        />
+        <button class="upload-button">
+          <i class="fas fa-upload"></i> Rasmni tanlang
+        </button>
+        <span class="file-name">{{
+          selectedFileName || "Rasm tanlanmagan"
+        }}</span>
+      </div>
     </div>
-  </div>
-  
-  <button type="submit">
-    {{ selectedCourse ? "Kursni yangilang" : "Yangi kurs qo'shing" }}
-  </button>
-</form>
 
+    <button type="submit" routerLink="/dashboard/lessons">
+      {{ selectedCourse ? "Kursni yangilang" : "Yangi kurs qo'shing" }}
+    </button>
+  </form>
+</div>
+
+<div class="lesson" *ngIf="action?.includes('lesson')">
+  <!-- Lesson Form -->
+
+  <h2 class="table-title">
+    {{ selectedLesson ? "Darsni o'zgartirish" : "Dars yaratish" }}
+  </h2>
+
+  <div *ngIf="isLoading && selectedLesson">Loading lessons...</div>
+  <div *ngIf="errorMessage && selectedLesson">{{ errorMessage }}</div>
+
+  <form
+    [formGroup]="lessonForm"
+    (ngSubmit)="selectedLesson ? updateLesson() : createLesson()"
+  >
+
+    <select formControlName="courseId" id="courseId">
+      <option value="">Kursni tanlang</option>
+      <option *ngFor="let course of selectCourseData" [value]="course.id">
+        {{ course.title }}
+      </option>
+    </select>
+
+    <label for="name">Dars nomi:</label>
+    <input
+      formControlName="name"
+      id="name"
+      placeholder="Dars nomini kiriting"
+    />
+
+    <label for="description">Ta'rif:</label>
+    <textarea
+      formControlName="description"
+      id="description"
+      placeholder="Darsning ta'rifini kiriting"
+    ></textarea>
+
+    <div class="file-input-container">
+      <label for="videoUrl">Video yuklang:</label>
+      <div class="custom-file-upload">
+        <input
+          formControlName="videoUrl"
+          id="videoUrl"
+          type="file"
+          (change)="onFileSelected($event)"
+        />
+        <button class="upload-button">
+          <i class="fas fa-upload"></i> Video yuklang
+        </button>
+        <span class="file-name">{{
+          selectedFileName || "Video tanlanmagan"
+        }}</span>
+      </div>
+    </div>
+
+    <button type="submit">
+      {{ selectedLesson ? "Darsni yangilang" : "Yangi dars qo'shing" }}
+    </button>
+  </form>
+</div>

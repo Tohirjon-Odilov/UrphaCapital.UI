@@ -6,6 +6,7 @@
   <table *ngIf="!isLoading && courses.length > 0" class="styled-table">
     <thead>
       <tr>
+        <th>T/R</th>
         <th>Course Name</th>
         <th>Description</th>
         <th>Subtitle</th>
@@ -15,10 +16,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="let course of courses"
-      >
-        <td>{{ course.name }}</td>
+      <tr *ngFor="let course of courses">
+        <td>{{ courses.indexOf(course) + 1 }}</td>
+        <td
+          class="course-name-link"
+          [routerLink]="['/dashboard/lessons/' + course.id]"
+        >
+          {{ course.name }}
+        </td>
         <td class="course-description">{{ course.description }}</td>
         <td class="course-description course-subtitle">
           {{ course.subtitle }}
@@ -48,9 +53,17 @@
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
   <h2 class="course-table-heading">Lesson List</h2>
+  <!-- add lesson -->
+  <button
+    class="add-lesson-button"
+    (click)="addLesson()"
+  >
+    <i class="fa fa-plus"></i>
+  </button>
   <table *ngIf="!isLoading && lessons.length > 0" class="styled-table">
     <thead>
       <tr>
+        <th>T/R</th>
         <th>Lesson Name</th>
         <th>Description</th>
         <th>Subtitle</th>
@@ -60,12 +73,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="let lesson of lessons"
-        routerLink="/dashboard/lessons/{{ lesson.id }}"
-        disabled
-      >
-        <td>{{ lesson.title }}</td>
+      <tr *ngFor="let lesson of lessons">
+        <td>{{ lessons.indexOf(lesson) + 1 }}</td>
+        <td
+          class="course-name-link"
+          routerLink="/lessons/{{ courseId }}/{{ lesson.id }}"
+        >
+          {{ lesson.title }}
+        </td>
         <td class="course-description">{{ lesson.homeworkDescription }}</td>
         <td class="course-description course-subtitle">
           {{ lesson.subtitle }}
@@ -73,10 +88,10 @@
         <!-- <td class="course-description course-price">{{ course.price }}</td> -->
         <!-- <td>{{ course.mentorId }}</td> -->
         <td>
-          <button class="edit-button" (click)="editCourse(lesson.id)">
+          <button class="edit-button" (click)="editLesson(lesson.id)">
             Edit
           </button>
-          <button class="delete-button" (click)="deleteCourse(lesson.id)">
+          <button class="delete-button" (click)="deleteLesson(lesson.id)">
             Delete
           </button>
         </td>

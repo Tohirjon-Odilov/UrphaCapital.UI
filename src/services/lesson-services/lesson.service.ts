@@ -6,36 +6,48 @@ import { Observable } from 'rxjs';
 import { ResponseModel } from '../../interfaces/common-models/responseModel';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LessonService {
-
-  constructor(private _httpClinet: HttpClient) { }
-  apiUrl = environment.apiUrl + "Lessons/";
-
+  constructor(private _httpClinet: HttpClient) {}
+  apiUrl = environment.apiUrl + 'Lessons/';
 
   getLessonVideo(id: string): Observable<Blob> {
-    return this._httpClinet.get(`https://api.urphacapital.uz/api/Lessons/getvideo?lessonId=${id}`, { responseType: 'blob' });
+    return this._httpClinet.get(
+      `https://api.urphacapital.uz/api/Lessons/getvideo?lessonId=${id}`,
+      { responseType: 'blob' }
+    );
   }
 
   getLessonById(id: string): Observable<Lesson> {
     return this._httpClinet.get<Lesson>(this.apiUrl + `${id}`);
   }
 
-  getLessonByCourseId(id: string, index: number, count: number): Observable<Lesson[]> {
-    return this._httpClinet.get<Lesson[]>(this.apiUrl + `${id}/${index}/${count}`);
+  getLessonByCourseId(
+    id: string,
+    index: number,
+    count: number
+  ): Observable<Lesson[]> {
+    return this._httpClinet.get<Lesson[]>(
+      this.apiUrl + `${id}/${index}/${count}`
+    );
   }
-
 
   deleteLesson(id: string): Observable<ResponseModel> {
     return this._httpClinet.delete<ResponseModel>(this.apiUrl + `${id}`);
   }
 
-  createLesson(data: FormData): Observable<ResponseModel> {
-    return this._httpClinet.post<ResponseModel>(`${this.apiUrl}`, data);
+  createLesson(data: FormData): Observable<any> {
+    return this._httpClinet.post<any>(`${this.apiUrl}`, data, {
+      reportProgress: true,
+      observe: 'events',
+    });
   }
 
-  updateLesson(data: FormData): Observable<ResponseModel> {
-    return this._httpClinet.put<ResponseModel>(`${this.apiUrl}`, data);
+  updateLesson(data: FormData): Observable<any> {
+    return this._httpClinet.put<any>(`${this.apiUrl}`, data, {
+      reportProgress: true,
+      observe: 'events',
+    });
   }
 }

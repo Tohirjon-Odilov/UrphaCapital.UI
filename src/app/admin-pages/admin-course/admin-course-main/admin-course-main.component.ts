@@ -28,15 +28,19 @@ export class AdminCourseMainComponent implements OnInit {
   errorMessage: string = '';
   isCourseAdmin: boolean = true;
   action: any;
+  courseId: any;
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.action = params['courseId'];
+      this.courseId = params['courseId'];
     });
 
-    this.isCourseAdmin = this.route.snapshot.routeConfig?.title === 'Admin Lesson' ? true : false;
+    this.isCourseAdmin =
+      this.route.snapshot.routeConfig?.title !== 'Admin Lesson' ? true : false;
+    // this.courseId = this.route.snapshot.queryParamMap.get('courseId');
 
-    if (this.isCourseAdmin){
+    if (this.isCourseAdmin) {
       this.courseService.getCourses(1, 90).subscribe({
         next: (res) => {
           this.courses = res;
@@ -46,7 +50,7 @@ export class AdminCourseMainComponent implements OnInit {
           console.log(err);
         },
       });
-    }else{
+    } else {
       this.lessonService.getLessonByCourseId(this.action, 1, 100).subscribe({
         next: (res) => {
           this.lessons = res;
@@ -55,7 +59,7 @@ export class AdminCourseMainComponent implements OnInit {
         error: (err) => {
           console.log(err);
         },
-      })
+      });
     }
   }
 
@@ -68,15 +72,42 @@ export class AdminCourseMainComponent implements OnInit {
   deleteCourse(id: any) {
     this.courseService.deleteCourse(id).subscribe({
       next: (res) => {
-        console.log('Kurs o\'chirildi:', res);
-        this.toastr.success('Kurs muvaffaqiyatli o\'chirildi', 'O\'chirildi');
-        this.ngOnInit();  // Kurslar ro'yxatini yangilash
+        console.log("Kurs o'chirildi:", res);
+        this.toastr.success("Kurs muvaffaqiyatli o'chirildi", "O'chirildi");
+        this.ngOnInit(); // Kurslar ro'yxatini yangilash
       },
       error: (err) => {
         console.error('Xato yuz berdi:', err);
-        this.toastr.error('Kursni o\'chirishda xato yuz berdi', 'Xato');
+        this.toastr.error("Kursni o'chirishda xato yuz berdi", 'Xato');
       },
     });
   }
-  
+
+  //= ============= Lesson ===========
+
+  addLesson() {
+    this.router.navigate(['/dashboard/create-lesson'], {
+      queryParams: { courseId: this.courseId },
+    });
+  }
+
+  editLesson(id: string) {
+    this.router.navigate(['/dashboard/update-lesson'], {
+      queryParams: { lessonId: id },
+    });
+  }
+
+  deleteLesson(id: any) {
+    this.lessonService.deleteLesson(id).subscribe({
+      next: (res) => {
+        console.log("Dars o'chirildi:", res);
+        this.toastr.success("Dars muvaffaqiyatli o'chirildi", "O'chirildi");
+        this.ngOnInit(); // Kurslar ro'yxatini yangilash
+      },
+      error: (err) => {
+        console.error('Xato yuz berdi:', err);
+        this.toastr.error("Darsni o'chirishda xato yuz berdi", 'Xato');
+      },
+    });
+  }
 }

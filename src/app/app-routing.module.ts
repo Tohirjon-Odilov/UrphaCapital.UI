@@ -84,13 +84,18 @@ const routes: Routes = [
     children: [
       //course
       {
+        path: '',
+        title: 'Admin Course',
+        component: AdminCourseMainComponent,
+      },
+      {
         path: 'courses',
-        title: 'Admin Lesson',
+        title: 'Admin Course',
         component: AdminCourseMainComponent,
       },
       {
         path: 'mentor-courses/:mentorId',
-        title: 'Dashboard',
+        title: 'Admin Mentor',
         component: AdminCourseMainComponent,
       },
       {
@@ -98,10 +103,9 @@ const routes: Routes = [
         title: 'Dashboard',
         component: CreateCourseComponent,
       },
-      // lesson
       {
         path: 'lessons/:courseId',
-        title: 'Lesson',
+        title: 'Admin Lesson',
         component: AdminCourseMainComponent,
       },
       {
@@ -109,6 +113,11 @@ const routes: Routes = [
         title: 'Admin Lesson',
         component: AdminCourseMainComponent,
       },
+      // {
+      //   path: 'lessons',
+      //   title: 'Admin Lesson',
+      //   component: AdminCourseMainComponent,
+      // }
     ],
   },
 
