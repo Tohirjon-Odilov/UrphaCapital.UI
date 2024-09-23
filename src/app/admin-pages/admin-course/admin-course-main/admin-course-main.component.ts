@@ -6,6 +6,7 @@ import { MentorAuthService } from '../../../../services/mentor-services/mentor-a
 import { query } from '@angular/animations';
 import { LessonService } from '../../../../services/lesson-services/lesson.service';
 import { ToastrService } from 'ngx-toastr';
+import { Course } from '../../../../interfaces/course-interfaces/course';
 
 @Component({
   selector: 'app-admin-course-main',
@@ -17,18 +18,20 @@ export class AdminCourseMainComponent implements OnInit {
     private courseService: CourseService,
     private route: ActivatedRoute,
     private router: Router,
-    private mentorService: MentorAuthService,
+    // private mentorService: CourseService,
     private lessonService: LessonService,
     private toastr: ToastrService
   ) {}
 
-  courses: any[] = [];
+  courses: Course[] = [];
   lessons: any[] = [];
   isLoading: boolean = false;
   errorMessage: string = '';
   isCourseAdmin: boolean = true;
   action: any;
   courseId: any;
+
+  mentorId: any = null;
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -39,6 +42,31 @@ export class AdminCourseMainComponent implements OnInit {
     this.isCourseAdmin =
       this.route.snapshot.routeConfig?.title !== 'Admin Lesson' ? true : false;
     // this.courseId = this.route.snapshot.queryParamMap.get('courseId');
+
+    this.route.queryParams.subscribe((queryParams) => {
+      this.mentorId = queryParams['mentorId'] || null;
+      // this.refresh = queryParams['refresh'] || null;
+    });
+
+    if(this.mentorId){
+      this.courseService.getCoursesByMenthorId(this.mentorId, 1, 100).subscribe({
+        next: (data) => {
+          localStorage.setItem('refreshCourse', 'true')
+          this.courses = data;
+          // this.mentorId = data.id;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+      
+      return
+    }else{
+      if(localStorage.getItem('refreshCourse') == 'true'){
+        localStorage.removeItem('refreshCourse')
+        this.ngOnInit()
+      }
+    }
 
     if (this.isCourseAdmin) {
       this.courseService.getCourses(1, 90).subscribe({
@@ -61,6 +89,12 @@ export class AdminCourseMainComponent implements OnInit {
         },
       });
     }
+  }
+
+  addCourse() {
+    this.router.navigate(['/dashboard/create-course'], {
+      queryParams: { mentorId: this.mentorId },
+    });
   }
 
   editCourse(id: string) {
@@ -111,3 +145,7 @@ export class AdminCourseMainComponent implements OnInit {
     });
   }
 }
+
+// ============= Mentor courses ============
+
+

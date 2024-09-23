@@ -61,11 +61,24 @@
     />
 
     <label for="mentorId">Mentor:</label>
+    <!-- <h3 style="color: #fff" *ngIf="mentorId">
+        {{selectedMentor}}
+      </h3> -->
+
+    <!-- <select formControlName="mentorId" id="mentorId" *ngIf="mentorId">
+        <option>
+        </option>
+      </select> -->
+
     <select formControlName="mentorId" id="mentorId">
-      <option value="">Mentorni tanlang</option>
-      <option *ngFor="let mentor of mentors" [value]="mentor.id">
-        {{ mentor.fullName }}
+      <option value="" disabled *ngIf="!mentorId">Mentorni tanlang</option>
+      <option [selected]="true" *ngIf="mentorId" value="">{{ selectedMentor }}
       </option>
+      <ng-container *ngFor="let mentor of mentors">
+        <option *ngIf="mentor.id != mentorId" [value]="mentor.id">
+          {{ mentor.fullName }}
+        </option>
+      </ng-container>
     </select>
 
     <label for="subtitle">Mavzu:</label>
@@ -94,7 +107,7 @@
       </div>
     </div>
 
-    <button type="submit" routerLink="/dashboard/lessons">
+    <button type="submit">
       {{ selectedCourse ? "Kursni yangilang" : "Yangi kurs qo'shing" }}
     </button>
   </form>
@@ -114,7 +127,6 @@
     [formGroup]="lessonForm"
     (ngSubmit)="selectedLesson ? updateLesson() : createLesson()"
   >
-
     <select formControlName="courseId" id="courseId">
       <option value="">Kursni tanlang</option>
       <option *ngFor="let course of selectCourseData" [value]="course.id">

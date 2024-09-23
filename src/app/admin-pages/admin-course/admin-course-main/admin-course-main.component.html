@@ -2,6 +2,13 @@
   <div *ngIf="isLoading" class="loading-container">Loading courses...</div>
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
+  <button
+    class="add-lesson-button"
+    (click)="addCourse()"
+  >
+    <i class="fa fa-plus"></i>
+  </button>
+
   <h2 class="course-table-heading">Courses List</h2>
   <table *ngIf="!isLoading && courses.length > 0" class="styled-table">
     <thead>

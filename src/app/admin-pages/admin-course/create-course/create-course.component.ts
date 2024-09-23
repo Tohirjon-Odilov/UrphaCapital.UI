@@ -33,6 +33,8 @@ export class CreateCourseComponent implements OnInit {
   isLoading: boolean = true;
   errorMessage: string = '';
   selectCourseData: any = null;
+  mentorId: any = null;
+  selectedMentor: string  = "";
 
   constructor(
     private fb: FormBuilder,
@@ -63,10 +65,21 @@ export class CreateCourseComponent implements OnInit {
     });
   }
 
+  ngDestroy(): void {
+    this.ngOnInit();
+  }
+
   ngOnInit(): void {
     this.mentorService.getMentorSelectList().subscribe({
       next: (data) => {
         this.mentors = data;
+        if (this.mentorId) {
+          this.mentors.forEach((mentor) => {
+            if (mentor.id == this.mentorId) {
+              this.selectedMentor = mentor.fullName;
+            }
+          })
+        }
         console.log(data);
       },
       error: (err) => {
@@ -82,6 +95,9 @@ export class CreateCourseComponent implements OnInit {
     this.route.queryParams.subscribe((queryParams) => {
       this.courseId = queryParams['courseId'] || null;
       this.lessonId = queryParams['lessonId'] || null;
+      this.mentorId = queryParams['mentorId'] || null;
+
+      // console.log(this.mentors)
 
       if (this.action === 'create-course') {
         // this.toastr.info('Yangi kurs yaratmoqda', 'Kurs yaratish');
@@ -167,7 +183,13 @@ export class CreateCourseComponent implements OnInit {
 
     formData.append('Name', this.courseForm.get('name')?.value);
     formData.append('Description', this.courseForm.get('description')?.value);
-    formData.append('MentorId', this.courseForm.get('mentorId')?.value);
+
+    if (this.mentorId && !this.courseForm.get('mentorId')?.value) {
+      formData.append('MentorId', this.mentorId.toString());
+    }else{
+      formData.append('MentorId', this.courseForm.get('mentorId')?.value);
+    }
+    
     formData.append('Subtitle', this.courseForm.get('subtitle')?.value);
     formData.append('Price', this.courseForm.get('price')?.value);
 

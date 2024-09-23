@@ -41,3 +41,35 @@ video::-webkit-media-controls-volume-slider,
 video::-webkit-media-controls-fullscreen-button {
   filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); /* Soft white shadow for better visibility */
 }
+
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4CAF50; // Yashil tugma
+  color: white;
+  border: none;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  
+  // Tugma bosilganda hover effekti
+  &:hover {
+    background-color: #45a049; // Hover rangi
+    transform: translateY(-2px);
+  }
+
+  // Tugma bosilganda aktiv holat
+  &:active {
+    background-color: #3e8e41;
+    transform: translateY(0);
+  }
+
+  // Ikonka uchun o'ngga biroz joy qoldirish
+  i {
+    margin-left: 8px;
+  }
+}
