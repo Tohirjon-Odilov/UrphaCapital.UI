@@ -18,6 +18,7 @@ import { CoursesComponent } from './pages/courses/courses.component';
 import { DashboardComponent } from './admin-pages/dashboard/dashboard.component';
 import { CreateCourseComponent } from './admin-pages/admin-course/create-course/create-course.component';
 import { AdminCourseMainComponent } from './admin-pages/admin-course/admin-course-main/admin-course-main.component';
+import { AdminMentorComponent } from './admin-pages/admin-mentor/admin-mentor.component';
 
 const routes: Routes = [
   { path: 'login', title: 'Login', component: LoginComponent },
@@ -93,16 +94,11 @@ const routes: Routes = [
         title: 'Admin Course',
         component: AdminCourseMainComponent,
       },
-      {
-        path: 'mentor-courses/:mentorId',
-        title: 'Admin Mentor',
-        component: AdminCourseMainComponent,
-      },
-      {
-        path: ':action',
-        title: 'Dashboard',
-        component: CreateCourseComponent,
-      },
+      // {
+      //   path: 'mentor-courses/:mentorId',
+      //   title: 'Admin Mentor',
+      //   component: AdminCourseMainComponent,
+      // },
       {
         path: 'lessons/:courseId',
         title: 'Admin Lesson',
@@ -118,6 +114,45 @@ const routes: Routes = [
       //   title: 'Admin Lesson',
       //   component: AdminCourseMainComponent,
       // }
+
+      // "id": 2,
+      // "name": "Ozodbek Olimjonov",
+      // "description": "7 yillik tajribaga ega mentor",
+      // "email": "salomalekum@gmail.com",
+      // "phoneNumber": "+99893475684",
+      // "picture": "/MentorsPictures/0d0aa6b2-6134-4c50-8088-108c45b266d9.jfif",
+      // "passwordHash": "sdlOLwcaqM+dobgmM0C+FByVeX7V1ernB0yj+vPRCys=",
+      // "salt": "a2eac4cf-6a47-48a7-81ec-44c8938de62a",
+      // "role": "Mentor",
+      // "courses": null
+      
+      // ============ mentor ================
+
+      {
+        path: 'mentors',
+        title: 'Mentors',
+        component: AdminMentorComponent,
+      },
+      {
+        path: 'create-mentor',
+        title: 'Admin Mentor',
+        component: AdminCourseMainComponent,
+      },
+      {
+        path: 'update-mentor',
+        title: 'Admin Mentor',
+        component: AdminCourseMainComponent,
+      },
+      {
+        path: 'mentor-courses',
+        title: 'Admin Course',
+        component: AdminCourseMainComponent,
+      },
+      {
+        path: ':action',
+        title: 'Dashboard',
+        component: CreateCourseComponent,
+      },
     ],
   },
 
