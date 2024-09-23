@@ -47,9 +47,11 @@
           <button class="edit-button" (click)="editMentor(mentor.id)">
             Edit
           </button>
-          <button class="delete-button" (click)="deleteMentor(mentor.id)">
+          <!-- <button class="delete-button" (click)="deleteMentor(mentor.id)">
             Delete
-          </button>
+            
+          </button> -->
+          <app-confirm-dialog></app-confirm-dialog>
         </td>
       </tr>
     </tbody>

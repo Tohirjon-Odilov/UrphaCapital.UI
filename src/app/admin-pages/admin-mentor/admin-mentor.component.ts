@@ -3,6 +3,8 @@ import { CourseService } from '../../../services/course-services/course.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { MentorAuthService } from '../../../services/mentor-services/mentor-auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../comoponents/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-admin-mentor',
@@ -11,12 +13,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AdminMentorComponent implements OnInit {
   constructor(
+    private dialog: MatDialog,
     private courseService: CourseService,
     private route: ActivatedRoute,
     private router: Router,
     private mentorService: MentorAuthService,
     // private lessonService: LessonService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {}
 
   mentors: any[] = [];
@@ -60,21 +63,25 @@ export class AdminMentorComponent implements OnInit {
   }
 
   deleteMentor(id: any) {
-    if (confirm("Mentor o'chirilsinmi?"))
-      this.mentorService.deleteMentor(id).subscribe({
-        next: (res) => {
-          console.log("Mentor o'chirildi:", res);
-          this.toastr.success("Mentor muvaffaqiyatli o'chirildi", "O'chirildi");
-          this.ngOnInit(); // Mentor ro'yxatini yangilash
-        },
-        error: (err) => {
-          console.error('Xato yuz berdi:', err);
-          this.toastr.error("Mentorni o'chirishda xato yuz berdi", 'Xato');
-        },
-      });
-    else{
-      this.toastr.info("Mentor o'chirilmadi", "O'chirilmadi");
-    }
+    const dialogRef = this.dialog.open(ConfirmDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.mentorService.deleteMentor(id).subscribe({
+          next: (res) => {
+            console.log("Mentor o'chirildi:", res);
+            this.toastr.success("Mentor muvaffaqiyatli o'chirildi", "O'chirildi");
+            this.ngOnInit(); // Ro'yxatni yangilash
+          },
+          error: (err) => {
+            console.error('Xato yuz berdi:', err);
+            this.toastr.error("Mentorni o'chirishda xato yuz berdi", 'Xato');
+          },
+        });
+      } else {
+        this.toastr.info("Mentor o'chirilmadi", "O'chirilmadi");
+      }
+    });
   }
 
   mentorCourses(id: any) {

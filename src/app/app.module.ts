@@ -49,6 +49,10 @@ import { AdminHomeworkComponent } from './admin-pages/admin-homework/admin-homew
 import { AdminPaymentComponent } from './admin-pages/admin-payment/admin-payment.component';
 import { AdminHelpComponent } from './admin-pages/admin-help/admin-help.component';
 import { AdminsComponent } from './admin-pages/admins/admins.component';
+import { ConfirmDialogComponent } from './comoponents/confirm-dialog/confirm-dialog.component';
+// import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+
 // import { ButtonModule } from 'primeng/button';
 // import { DialogModule } from 'primeng/dialog';
 
@@ -83,7 +87,8 @@ import { AdminsComponent } from './admin-pages/admins/admins.component';
     AdminHomeworkComponent,
     AdminPaymentComponent,
     AdminHelpComponent,
-    AdminsComponent
+    AdminsComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -112,10 +117,12 @@ import { AdminsComponent } from './admin-pages/admins/admins.component';
     MatCardModule,
     MatGridListModule,
     MatButtonModule,
+    MatDialogModule,
   ],
   providers: [
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent],
+  // entryComponents: [ConfirmDialogComponent]
 })
 export class AppModule {}

@@ -39,8 +39,8 @@ export class LessonService {
 
   createLesson(data: FormData): Observable<any> {
     return this._httpClinet.post<any>(`${this.apiUrl}`, data, {
-      reportProgress: true,
-      observe: 'events',
+      // reportProgress: true,
+      // observe: 'events',
     });
   }
 
