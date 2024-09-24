@@ -19,7 +19,7 @@ export class AdminMentorComponent implements OnInit {
     private router: Router,
     private mentorService: MentorAuthService,
     // private lessonService: LessonService,
-    private toastr: ToastrService,
+    private toastr: ToastrService
   ) {}
 
   mentors: any[] = [];
@@ -32,8 +32,8 @@ export class AdminMentorComponent implements OnInit {
 
   ngOnInit(): void {
     // this.route.params.subscribe((params) => {
-      // this.action = params['courseId'];
-      // this.courseId = params['courseId'];
+    // this.action = params['courseId'];
+    // this.courseId = params['courseId'];
     // });
 
     // this.isCourseAdmin =
@@ -62,26 +62,40 @@ export class AdminMentorComponent implements OnInit {
     });
   }
 
-  deleteMentor(id: any) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent);
+  showModal: boolean = false; // confirm componentga false jo'natib modalni ochib yopishni boshqaramiz
+  deletedId: any = null;
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.mentorService.deleteMentor(id).subscribe({
-          next: (res) => {
-            console.log("Mentor o'chirildi:", res);
-            this.toastr.success("Mentor muvaffaqiyatli o'chirildi", "O'chirildi");
-            this.ngOnInit(); // Ro'yxatni yangilash
-          },
-          error: (err) => {
-            console.error('Xato yuz berdi:', err);
-            this.toastr.error("Mentorni o'chirishda xato yuz berdi", 'Xato');
-          },
-        });
-      } else {
-        this.toastr.info("Mentor o'chirilmadi", "O'chirilmadi");
-      }
+  openModal(deletedId: any) {
+    this.showModal = true;
+    console.log('openModal: ', this.showModal);
+    this.deletedId = deletedId;
+  }
+
+  deleteMentor(id: any) {
+    console.log('deleteMentor: ', id);
+    // this.showModal = true;
+    // if (this.onConfirm(false)) {
+    this.mentorService.deleteMentor(id).subscribe({
+      next: (res) => {
+        console.log("Mentor o'chirildi:", res);
+        this.toastr.success("Mentor muvaffaqiyatli o'chirildi", "O'chirildi");
+        this.ngOnInit(); // Ro'yxatni yangilash
+      },
+
+      error: (err) => {
+        console.error('Xato yuz berdi:', err);
+        this.toastr.error("Mentorni o'chirishda xato yuz berdi", 'Xato');
+      },
     });
+  }
+
+  onConfirm(confirmed: boolean) {
+    this.showModal = false;
+    if (confirmed) {
+      this.deleteMentor(this.deletedId);
+    } else {
+      this.toastr.info("Mentor o'chirilmadi", "O'chirilmadi");
+    }
   }
 
   mentorCourses(id: any) {
@@ -89,5 +103,6 @@ export class AdminMentorComponent implements OnInit {
       queryParams: { mentorId: id },
     });
   }
-  
+
+  //
 }

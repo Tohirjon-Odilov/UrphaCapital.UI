@@ -111,11 +111,24 @@ button {
   max-width: 120px;
 }
 
+.mentor-description-1{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px; /* istalgan o'lchamdagi miqdorni o'zgartiring */
+  height: auto;
+}
+
 
 .mentor-name-link{
   cursor: pointer;
   color: #007bff !important;
   text-decoration: underline;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px; /* istalgan o'lchamdagi miqdorni o'zgartiring */
+  height: auto;
   &:hover{
     color: #0056b3 !important;
   }

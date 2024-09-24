@@ -19,6 +19,7 @@ import { DashboardComponent } from './admin-pages/dashboard/dashboard.component'
 import { CreateCourseComponent } from './admin-pages/admin-course/create-course/create-course.component';
 import { AdminCourseMainComponent } from './admin-pages/admin-course/admin-course-main/admin-course-main.component';
 import { AdminMentorComponent } from './admin-pages/admin-mentor/admin-mentor.component';
+import { CreateMentorComponent } from './admin-pages/admin-mentor/create-mentor/create-mentor.component';
 
 const routes: Routes = [
   { path: 'login', title: 'Login', component: LoginComponent },
@@ -136,7 +137,7 @@ const routes: Routes = [
       {
         path: 'create-mentor',
         title: 'Admin Mentor',
-        component: AdminCourseMainComponent,
+        component: CreateMentorComponent,
       },
       {
         path: 'update-mentor',

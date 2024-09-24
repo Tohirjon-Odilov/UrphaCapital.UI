@@ -26,7 +26,7 @@
         >
           {{ mentor.name }}
         </td>
-        <td class="mentor-description" title="{{ mentor.description }}">{{ mentor.description }}</td>
+        <td class="mentor-description-1" title="{{ mentor.description }}">{{ mentor.description }}</td>
         <td class="mentor-description mentor-subtitle" title="{{ mentor.email }}">
           {{ mentor.email }}
         </td>
@@ -47,11 +47,9 @@
           <button class="edit-button" (click)="editMentor(mentor.id)">
             Edit
           </button>
-          <button class="delete-button" (click)="deleteMentor(mentor.id)">
+          <button class="delete-button" (click)="openModal(mentor.id)">
             Delete
-            
           </button>
-          <!-- <app-confirm-dialog></app-confirm-dialog> -->
         </td>
       </tr>
     </tbody>
@@ -60,3 +58,5 @@
     No mentors available.
   </div>
 </div>
+
+<app-confirm-dialog *ngIf="showModal" (confirmed)="onConfirm($event)"></app-confirm-dialog>
