@@ -153,7 +153,7 @@ export class CreateCourseComponent implements OnInit {
         console.log(this.action);
         console.log(this.courseId);
       } else {
-        this.router.navigate(['not-found']);
+        this.router.navigate(['NotFound']);
       }
     });
 

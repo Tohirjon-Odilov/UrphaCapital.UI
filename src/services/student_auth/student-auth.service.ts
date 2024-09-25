@@ -18,7 +18,7 @@ export class StudentAuthService {
 
   apiUrl = environment.apiUrl + 'Student/';
 
-  registerStudent(stc: StudentCreate): Observable<ResponseModel> {
+  registerStudent(stc: any): Observable<ResponseModel> {
     return this._http.post<ResponseModel>(this.apiUrl, stc);
   }
 
