@@ -136,3 +136,88 @@ button {
     background-color: #0069d9;
   }
 }
+
+.form-container{
+  display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.form-label{
+  width: 500px;
+  display: flex;
+  font-size: 14px;
+  flex-direction: column;
+}
+
+.custom-select {
+  appearance: none; /* Brauzerning standart select ko'rinishini olib tashlash */
+  background-color: #333; /* Qora fon */
+  color: white; /* Oq matn */
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #555; /* Qoramtir chegara */
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  // width: 70%;
+}
+
+.custom-select:focus {
+  border-color: royalblue; /* Fokuslanganda royalblue rangida chegara */
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.5); /* Fokus effekti uchun ko'lanka */
+}
+
+.custom-select option {
+  background-color: #333; /* Tanlovlar ham qora fonli bo'lishi */
+  color: white; /* Oq matn */
+}
+
+.custom-select:hover {
+  border-color: #777; /* Hover effekti */
+}
+
+/* O'q belgisi uchun o'z uslub */
+.custom-select::after {
+  content: '▼';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: white;
+}
+
+.custom-button {
+  background-color: royalblue; /* Qora fon */
+  color: white; /* Oq matn */
+  border: 1px solid royalblue; /* Qoramtir chegara */
+  padding: 10px 20px 10px 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  width: 30%;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-button i {
+  margin-left: 8px; /* Ikonka va matn o'rtasida bo'sh joy */
+}
+
+.custom-button:focus {
+  outline: none; /* Fokuslanganida standart fokus stilini olib tashlaydi */
+  border-color: royalblue; /* Fokusda chegara royalblue bo'ladi */
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.5); /* Fokus effekti uchun soya */
+}
+
+.custom-button:active {
+  background-color: royalblue; /* Aktiv holatda royalblue fon */
+  border-color: royalblue; /* Aktiv holatda royalblue chegara */
+}

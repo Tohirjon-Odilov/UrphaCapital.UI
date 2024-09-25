@@ -17,7 +17,7 @@ export class MentorAuthService {
     return this._httpClient.get<Mentor[]>(`${this.apiUrl}${index}/${count}`)
   }
   getMentorById(id: number): Observable<Mentor> {
-    return this._httpClient.get<Mentor>(this.apiUrl + `GetMentorsById/${id}`);
+    return this._httpClient.get<Mentor>(this.apiUrl + `${id}`);
   }
 
   getMentorSelectList(): Observable<any[]> {

@@ -1,8 +1,10 @@
-<h1 mat-dialog-title>Tasdiqlash</h1>
-<div mat-dialog-content>
-  <p>Mentorni o'chirishga ishonchingiz komilmi?</p>
-</div>
-<div mat-dialog-actions align="end">
-  <button mat-button (click)="onCancel()">Bekor qilish</button>
-  <button mat-raised-button color="warn" (click)="onConfirm()">O'chirish</button>
+<div class="modal-overlay" *ngIf="showModal">
+  <div class="modal">
+    <h3 class="modal-title">Confirm Your Action</h3>
+    <p class="modal-message">Are you sure you want to proceed with this action?</p>
+    <div class="modal-button-group">
+      <button class="btn cancel-btn" (click)="cancel()">Cancel</button>
+      <button class="btn confirm-btn" (click)="confirm()">Confirm</button>
+    </div>
+  </div>
 </div>
