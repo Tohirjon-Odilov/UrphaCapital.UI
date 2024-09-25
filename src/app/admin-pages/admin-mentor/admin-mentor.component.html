@@ -2,6 +2,13 @@
   <div *ngIf="isLoading" class="loading-container">Loading mentors...</div>
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
+  <button
+  class="add-lesson-button"
+  (click)="addMentor()"
+>
+  <i class="fa fa-plus"></i>
+</button>
+
   <h2 class="mentor-table-heading">Mentors List</h2>
   <table *ngIf="!isLoading && mentors.length > 0" class="styled-table">
     <thead>

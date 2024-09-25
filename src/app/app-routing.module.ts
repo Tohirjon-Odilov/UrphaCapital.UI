@@ -142,7 +142,7 @@ const routes: Routes = [
       {
         path: 'update-mentor',
         title: 'Admin Mentor',
-        component: AdminCourseMainComponent,
+        component: CreateMentorComponent,
       },
       {
         path: 'mentor-courses',

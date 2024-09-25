@@ -56,6 +56,10 @@ export class AdminMentorComponent implements OnInit {
     // }
   }
 
+  addMentor() {
+    this.router.navigate(['/dashboard/create-mentor']);
+  }
+
   editMentor(id: string) {
     this.router.navigate(['/dashboard/update-mentor'], {
       queryParams: { mentorId: id },
@@ -88,6 +92,7 @@ export class AdminMentorComponent implements OnInit {
       },
     });
   }
+
 
   onConfirm(confirmed: boolean) {
     this.showModal = false;
