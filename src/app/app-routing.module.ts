@@ -21,6 +21,7 @@ import { AdminCourseMainComponent } from './admin-pages/admin-course/admin-cours
 import { AdminMentorComponent } from './admin-pages/admin-mentor/admin-mentor.component';
 import { CreateMentorComponent } from './admin-pages/admin-mentor/create-mentor/create-mentor.component';
 import { AdminStudentComponent } from './admin-pages/admin-student/admin-student.component';
+import { CreateStudentComponent } from './admin-pages/admin-student/create-mentor/create-student.component';
 
 const routes: Routes = [
   { path: 'login', title: 'Login', component: LoginComponent },
@@ -156,21 +157,20 @@ const routes: Routes = [
         title: 'Students',
         component: AdminStudentComponent,
       },
-      
-      {
-        path: 'create-student',
-        title: 'Students',
-        component: AdminStudentComponent,
-      },
       {
         path: 'create-student',
         title: 'Admin Student',
-        component: CreateMentorComponent,
+        component: CreateStudentComponent,
+      },
+      {
+        path: 'student-courses',
+        title: 'Students',
+        component: AdminCourseMainComponent,
       },
       {
         path: 'update-student',
         title: 'Admin Student',
-        component: CreateMentorComponent,
+        component: CreateStudentComponent,
       },
       {
         path: ':action',

@@ -35,6 +35,7 @@ export class CreateStudentComponent {
     this.route.queryParams.subscribe((queryParams) => {
       this.studentId = queryParams['studentId'] || null;
     });
+    console.log(this.studentId)
 
     if (this.studentId) {
       this.isCreated = false;
@@ -46,6 +47,7 @@ export class CreateStudentComponent {
       this.studentService.getStudentById(this.studentId).subscribe({
         next: (data) => {
           this.studentForm.patchValue(data);
+          this.studentForm.get('passwordHash')?.setValue('');
         },
         error: (err) => {
           console.log(err);
@@ -73,9 +75,9 @@ export class CreateStudentComponent {
         this.studentForm.get('passwordHash')?.value
       );
 
-      if (this.selectedFile) {
-        formData.append('picture', this.selectedFile);
-      }
+      // if (this.selectedFile) {
+      //   formData.append('picture', this.selectedFile);
+      // }
 
       this.studentService.registerStudent(formData).subscribe(
         (response) => {
@@ -112,9 +114,9 @@ export class CreateStudentComponent {
       this.studentForm.get('passwordHash')?.value
     );
 
-    if (this.selectedFile) {
-      updateStudentForm.append('picture', this.selectedFile);
-    }
+    // if (this.selectedFile) {
+    //   updateStudentForm.append('picture', this.selectedFile);
+    // }
 
     this.studentService.updateStudent(this.studentForm.value).subscribe({
       next: (res) => {

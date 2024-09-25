@@ -7,6 +7,7 @@ import { query } from '@angular/animations';
 import { LessonService } from '../../../../services/lesson-services/lesson.service';
 import { ToastrService } from 'ngx-toastr';
 import { Course } from '../../../../interfaces/course-interfaces/course';
+import { StudentAuthService } from '../../../../services/student_auth/student-auth.service';
 
 @Component({
   selector: 'app-admin-course-main',
@@ -18,9 +19,10 @@ export class AdminCourseMainComponent implements OnInit {
     private courseService: CourseService,
     private route: ActivatedRoute,
     private router: Router,
-    // private mentorService: CourseService,
+    // private courseService: MentorAuthService,
     private lessonService: LessonService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private studentService: StudentAuthService
   ) {}
 
   courses: Course[] = [];
@@ -30,8 +32,9 @@ export class AdminCourseMainComponent implements OnInit {
   isCourseAdmin: boolean = true;
   action: any;
   courseId: any;
-
   mentorId: any = null;
+  studentId: any = null;
+  courseForSelect: any[] = [];
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -46,25 +49,57 @@ export class AdminCourseMainComponent implements OnInit {
     this.route.queryParams.subscribe((queryParams) => {
       this.mentorId = queryParams['mentorId'] || null;
       // this.refresh = queryParams['refresh'] || null;
+      this.studentId = queryParams['studentId'] || null;
     });
+    console.log(this.studentId);
 
-    if(this.mentorId){
-      this.courseService.getCoursesByMenthorId(this.mentorId, 1, 100).subscribe({
+    if (this.mentorId) {
+      this.courseService
+        .getCoursesByMenthorId(this.mentorId, 1, 100)
+        .subscribe({
+          next: (data) => {
+            localStorage.setItem('refreshCourse', 'true');
+            this.courses = data;
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+
+      return;
+    } else if (this.studentId) {
+      this.courseService.getCourseByUserId(this.studentId).subscribe({
         next: (data) => {
-          localStorage.setItem('refreshCourse', 'true')
+          localStorage.setItem('refreshCourse', 'true');
           this.courses = data;
-          // this.mentorId = data.id;
         },
         error: (err) => {
           console.log(err);
         },
       });
-      
-      return
-    }else{
-      if(localStorage.getItem('refreshCourse') == 'true'){
-        localStorage.removeItem('refreshCourse')
-        this.ngOnInit()
+
+      // getAllCourses
+      this.courseService.selectCourse().subscribe({
+        /*************  ✨ Codeium Command ⭐  *************/
+        /**
+         * Callback function for when the observable completes successfully
+         * @param res The response from the server
+         */
+        /******  08f61ccf-e457-4d1f-98c1-c33bcf7b56a9  *******/
+        next: (res) => {
+          console.log(res);
+          this.courseForSelect = res;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+
+      return;
+    } else {
+      if (localStorage.getItem('refreshCourse') == 'true') {
+        localStorage.removeItem('refreshCourse');
+        this.ngOnInit();
       }
     }
 
@@ -88,6 +123,33 @@ export class AdminCourseMainComponent implements OnInit {
           console.log(err);
         },
       });
+    }
+  }
+
+  selectedCourseId: string | null = null; // Kursni tanlash uchun model
+
+  // Tugma bosilganda kurs ID sini qayta ishlovchi funksiya
+  addCourseToStudent(): void {
+    if (this.selectedCourseId) {
+      console.log('Tanlangan kurs ID:', this.selectedCourseId);
+      console.log('Tanlangan student:', this.studentId);
+      this.studentService
+        .addCourseToStudent({
+          id: this.studentId,
+          courseIds: this.selectedCourseId,
+        })
+        .subscribe({
+          next: (res) => {
+            console.log("Kurs muvaffaqiyatli qo'shildi:", res);
+            this.ngOnInit(); // Kurslar ro'yxatini yangilash
+          },
+          error: (err) => {
+            console.error('Xato yuz berdi:', err);
+          },
+        });
+      // Bu yerda tanlangan kurs bilan bog'liq funksiyalarni qo'shishingiz mumkin
+    } else {
+      console.log('Hech qanday kurs tanlanmagan.');
     }
   }
 
@@ -148,4 +210,4 @@ export class AdminCourseMainComponent implements OnInit {
 
 // ============= Mentor courses ============
 
-
+// ============= Student courses ============

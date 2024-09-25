@@ -1,15 +1,15 @@
-<div class="mentor-form-container" *ngIf="isCreated">
+<div class="student-form-container" *ngIf="isCreated">
   <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
-    <h2>Create Mentor</h2>
+    <h2>Create Student</h2>
 
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" formControlName="name" />
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" formControlName="fullName" />
     </div>
 
     <div class="form-group">
-      <label for="description">Description</label>
-      <input type="text" id="description" formControlName="description" />
+      <label for="address">Address</label>
+      <input type="text" id="address" formControlName="address" />
     </div>
 
     <div class="form-group">
@@ -27,7 +27,7 @@
       <input type="password" id="passwordHash" formControlName="passwordHash" />
     </div>
 
-    <div class="file-input-container">
+    <!-- <div class="file-input-container">
       <label for="picture">Rasm yuklang:</label>
       <div class="custom-file-upload">
         <input
@@ -43,24 +43,24 @@
           selectedFileName || "Rasm tanlanmagan"
         }}</span>
       </div>
-    </div>
+    </div> -->
 
-    <button type="submit" [disabled]="!mentorForm.valid">Create Mentor</button>
+    <button type="submit" [disabled]="!studentForm.valid">Create Student</button>
   </form>
 </div>
 
-<div class="mentor-form-container" *ngIf="!isCreated">
-  <form [formGroup]="mentorForm" (ngSubmit)="onSubmit()">
-    <h2>Update Mentor</h2>
+<div class="student-form-container" *ngIf="!isCreated">
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <h2>Update Student</h2>
 
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" formControlName="name" />
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" formControlName="fullName" />
     </div>
 
     <div class="form-group">
-      <label for="description">Description</label>
-      <input type="text" id="description" formControlName="description" />
+      <label for="address">Address</label>
+      <input type="text" id="address" formControlName="address" />
     </div>
 
     <div class="form-group">
@@ -74,15 +74,15 @@
     </div>
 
     <div class="form-group">
-      <label for="passwordHash">Password</label>
+      <label for="passwordHash">New Password</label>
       <input type="password" id="passwordHash" formControlName="passwordHash" />
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="picture">Picture</label>
       <input type="file" id="picture" (change)="onFileSelected($event)" />
-    </div>
+    </div> -->
 
-    <button type="submit" [disabled]="!mentorForm.valid">Update Mentor</button>
+    <button type="submit" [disabled]="!studentForm.valid">Update Student</button>
   </form>
 </div>
