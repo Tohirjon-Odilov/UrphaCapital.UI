@@ -22,6 +22,7 @@ import { AdminMentorComponent } from './admin-pages/admin-mentor/admin-mentor.co
 import { CreateMentorComponent } from './admin-pages/admin-mentor/create-mentor/create-mentor.component';
 import { AdminStudentComponent } from './admin-pages/admin-student/admin-student.component';
 import { CreateStudentComponent } from './admin-pages/admin-student/create-mentor/create-student.component';
+import { CreateHelpComponent } from './admin-pages/admin-help/create-help/create-help.component';
 
 const routes: Routes = [
   { path: 'login', title: 'Login', component: LoginComponent },
@@ -171,6 +172,11 @@ const routes: Routes = [
         path: 'update-student',
         title: 'Admin Student',
         component: CreateStudentComponent,
+      },
+      {
+        path: 'create-help',
+        title: 'Admin Help',
+        component: CreateHelpComponent,
       },
       {
         path: ':action',
