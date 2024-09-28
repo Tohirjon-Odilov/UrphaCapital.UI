@@ -68,7 +68,7 @@ export class AdminCourseMainComponent implements OnInit {
 
       return;
     } else if (this.studentId) {
-      this.courseService.getCourseByUserId(this.studentId).subscribe({
+      this.studentService.getMyCourse(this.studentId).subscribe({
         next: (data) => {
           localStorage.setItem('refreshCourse', 'true');
           this.courses = data;
@@ -80,12 +80,6 @@ export class AdminCourseMainComponent implements OnInit {
 
       // getAllCourses
       this.courseService.selectCourse().subscribe({
-        /*************  ✨ Codeium Command ⭐  *************/
-        /**
-         * Callback function for when the observable completes successfully
-         * @param res The response from the server
-         */
-        /******  08f61ccf-e457-4d1f-98c1-c33bcf7b56a9  *******/
         next: (res) => {
           console.log(res);
           this.courseForSelect = res;
@@ -140,6 +134,7 @@ export class AdminCourseMainComponent implements OnInit {
         })
         .subscribe({
           next: (res) => {
+            this.toastr.success("Kurs muvaffaqiyatli qo'shildi", "Qo'shildi");
             console.log("Kurs muvaffaqiyatli qo'shildi:", res);
             this.ngOnInit(); // Kurslar ro'yxatini yangilash
           },

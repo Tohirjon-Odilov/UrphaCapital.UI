@@ -54,6 +54,9 @@ import { ConfirmDialogComponent } from './comoponents/confirm-dialog/confirm-dia
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { CreateMentorComponent } from './admin-pages/admin-mentor/create-mentor/create-mentor.component';
 import { CreateStudentComponent } from './admin-pages/admin-student/create-mentor/create-student.component';
+import { AdminPaymentCreateComponent } from './admin-pages/admin-payment/admin-payment-create/admin-payment-create.component';
+import { AdminHomeworkCreateComponent } from './admin-pages/admin-homework/admin-homework-create/admin-homework-create.component';
+import { CreateHelpComponent } from './admin-pages/admin-help/create-help/create-help.component';
 
 // import { ButtonModule } from 'primeng/button';
 // import { DialogModule } from 'primeng/dialog';
@@ -93,6 +96,10 @@ import { CreateStudentComponent } from './admin-pages/admin-student/create-mento
     ConfirmDialogComponent,
     CreateMentorComponent,
     CreateStudentComponent,
+    // AdminHelpsComponent,
+    AdminPaymentCreateComponent,
+    AdminHomeworkCreateComponent,
+    CreateHelpComponent,
   ],
   imports: [
     BrowserModule,

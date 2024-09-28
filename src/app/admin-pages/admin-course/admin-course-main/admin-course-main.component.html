@@ -14,10 +14,10 @@
     <i class="fa fa-plus"></i>
   </button>
 
-  <h2 class="course-table-heading">Courses List</h2>
+  <h2 class="course-table-heading">{{studentId ? 'Student courses' : 'Courses List'}}</h2>
 
   <!-- add course -->
-  <div class="form-container">
+  <div class="form-container" *ngIf="studentId">
     <label for="courseId" class="form-label"
       >
       <p>Kursni tanlang</p>

@@ -1,0 +1,42 @@
+<div class="student-form-container" *ngIf="isCreated">
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <h2>Create Help Request</h2>
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" formControlName="title" />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="studentId">Student ID</label>
+      <input type="number" id="studentId" formControlName="studentId" />
+    </div>
+
+    <div class="form-group">
+      <label for="lessonId">Lesson ID</label>
+      <input type="text" id="lessonId" formControlName="lessonId" />
+    </div>
+
+    <div class="file-input-container">
+      <label for="file">Choose File</label>
+      <div class="custom-file-upload">
+        <input
+          formControlName="file"
+          id="file"
+          type="file"
+          (change)="onFileSelected($event)"
+        />
+        <span class="file-name">{{
+          selectedFileName || "No file selected"
+        }}</span>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!studentForm.valid || !file">Submit Request</button>
+  </form>
+</div>

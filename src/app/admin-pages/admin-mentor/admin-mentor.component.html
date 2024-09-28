@@ -27,8 +27,7 @@
       <tr *ngFor="let mentor of mentors">
         <td>{{ mentors.indexOf(mentor) + 1 }}</td>
         <td
-          class="mentor-name-link"
-          [routerLink]="['/dashboard/lessons/' + mentor.id]"
+          class=""
           title="{{ mentor.name }}"
         >
           {{ mentor.name }}
