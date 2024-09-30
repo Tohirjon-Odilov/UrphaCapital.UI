@@ -99,3 +99,15 @@
     <app-footer></app-footer>
   </main>
 </div>
+
+<div class="floating-button" (click)="openForm()">
+   <i class="fa fa-comment"></i>
+</div>
+
+<!-- Modal (Forma) -->
+<div class="modal" [class.show]="isFormOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeForm()">&times;</span>
+    <app-request-to-admin></app-request-to-admin>
+  </div>
+</div>
