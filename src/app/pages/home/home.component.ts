@@ -88,5 +88,18 @@ export class HomeComponent implements OnInit {
   trackByMentorId(index: number, mentor: any) {
     return mentor.id;
   }
+
+  isFormOpen = false;
+
+  // Forma ochilishi
+  openForm(): void {
+    this.isFormOpen = true;
+  }
+
+  // Formani yopish
+  closeForm(): void {
+    this.isFormOpen = false;
+  }
   
 }
+

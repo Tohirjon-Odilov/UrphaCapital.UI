@@ -28,10 +28,13 @@ export class AdminAuthService {
   updateAdmin(data: AdminUpdate): Observable<ResponseModel> {
     return this._httpClient.put<ResponseModel>(`${this.apiUrl}`, data);
   }
-  loginAdmin(data: LoginModel): Observable<string> {
+  loginAdmin(data: any): Observable<string> {
     return this._httpClient.post<string>(`${this.apiUrl}`, data);
   }
   getAdmins(index: number, count: number): Observable<Admin[]> {
     return this._httpClient.get<Admin[]>(`${this.apiUrl}${index}/${count}`);
+  }
+  requestToAdmin(data: any): Observable<ResponseModel> {  
+    return this._httpClient.post<ResponseModel>(`${this.apiUrl}request-to-admin`, data);
   }
 }
