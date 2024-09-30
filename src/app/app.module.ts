@@ -59,6 +59,7 @@ import { AdminHomeworkCreateComponent } from './admin-pages/admin-homework/admin
 import { CreateHelpComponent } from './admin-pages/admin-help/create-help/create-help.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { RequestToAdminComponent } from './pages/request-to-admin/request-to-admin.component';
+import { UserGalleryComponent } from './pages/user-gallery/user-gallery.component';
 
 // import { ButtonModule } from 'primeng/button';
 // import { DialogModule } from 'primeng/dialog';
@@ -104,6 +105,7 @@ import { RequestToAdminComponent } from './pages/request-to-admin/request-to-adm
     CreateHelpComponent,
     FooterComponent,
     RequestToAdminComponent,
+    UserGalleryComponent,
   ],
   imports: [
     BrowserModule,
