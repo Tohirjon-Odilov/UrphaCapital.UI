@@ -57,6 +57,7 @@ import { CreateStudentComponent } from './admin-pages/admin-student/create-mento
 import { AdminPaymentCreateComponent } from './admin-pages/admin-payment/admin-payment-create/admin-payment-create.component';
 import { AdminHomeworkCreateComponent } from './admin-pages/admin-homework/admin-homework-create/admin-homework-create.component';
 import { CreateHelpComponent } from './admin-pages/admin-help/create-help/create-help.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 // import { ButtonModule } from 'primeng/button';
 // import { DialogModule } from 'primeng/dialog';
@@ -100,6 +101,7 @@ import { CreateHelpComponent } from './admin-pages/admin-help/create-help/create
     AdminPaymentCreateComponent,
     AdminHomeworkCreateComponent,
     CreateHelpComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
