@@ -1,4 +1,4 @@
 export const environment = {
-    apiUrl: "https://api.urphacapital.uz/api/",
+    apiUrl: "https://app.urphacapital.uz/api/",
     production: false
 };
