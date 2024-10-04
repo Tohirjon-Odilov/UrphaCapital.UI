@@ -1,25 +1,100 @@
+<app-navbar></app-navbar>
+
 <section class="profile-section">
   <div>
-    <app-go-back></app-go-back>
-  <div class="container">
-    <div class="profile-card">
-      <div class="profile-header">
-        <img src="/assets/profile-placeholder.png" alt="Profile Avatar" class="profile-avatar" />
-        <h2>{{ user.fullName }}</h2>
-        <p>{{ user.email }}</p>
-        <button (click)="editProfile()" class="edit-btn">Profildagi ma'lumotlarni o'zgartirish</button>
-      </div>
+    <div class="container">
+      <app-go-back></app-go-back>
+      <div class="wrapper">
+        <div class="profile-card">
+          <div class="profile-header">
+            <img
+              src="{{ 'https://api.urphacapital.uz/' + user.img }}"
+              alt="Profile Avatar"
+              class="profile-avatar"
+            />
+            <h2>{{ user.fullName }}</h2>
+            <p>{{ user.email }}</p>
+            <button (click)="openModal()">
+              Profile ma'lumotlarini o'zgartirish
+            </button>
+          </div>
 
-      <div class="profile-details">
-        <h3>Shaxsiy ma'lumotlar</h3>
-        <ul>
-          <li><strong>Ism:</strong> {{ user.fullName }}</li>
-          <li><strong>Email:</strong> {{ user.email }}</li>
-          <li><strong>Telefon:</strong> {{ user.phoneNumber }}</li>
-          <li><strong>Manzil:</strong> {{ user.address }}</li>
-        </ul>
+          <div class="profile-details">
+            <h3>Shaxsiy ma'lumotlar</h3>
+            <ul>
+              <li><strong>Ism:</strong> {{ user.fullName }}</li>
+              <li><strong>Email:</strong> {{ user.email }}</li>
+              <li><strong>Telefon:</strong> {{ user.phoneNumber }}</li>
+              <li><strong>Manzil:</strong> {{ user.address }}</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </div>
 </section>
+
+<!-- modal -->
+<div class="modal-container">
+  <!-- Modal Backdrop -->
+  <div class="modal-backdrop" *ngIf="visible">
+    <!-- Modal Content -->
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Foydalanuvchi ma'lumotlari</h2>
+        <button class="close-button" (click)="closeModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <!-- Name -->
+          <div class="form-group">
+            <label for="fullName">Ismingiz</label>
+            <input
+              id="fullName"
+              formControlName="fullName"
+              type="text"
+              placeholder="Ismingizni kiriting"
+              class="form-control"
+            />
+          </div>
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              formControlName="email"
+              type="email"
+              placeholder="Emailingizni kiriting"
+              class="form-control"
+            />
+          </div>
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phoneNumber">Telefon</label>
+            <input
+              id="phoneNumber"
+              formControlName="phoneNumber"
+              type="text"
+              placeholder="Telefon raqamingizni kiriting"
+              class="form-control"
+            />
+          </div>
+          <!-- Address -->
+          <div class="form-group">
+            <label for="address">Manzil</label>
+            <input
+              id="address"
+              formControlName="address"
+              type="text"
+              placeholder="Manzilni to'g'ri kiriting"
+              class="form-control"
+            />
+          </div>
+          <!-- Submit Button -->
+          <button type="submit" class="submit-button">Saqlash</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

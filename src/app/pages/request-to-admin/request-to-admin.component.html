@@ -1,0 +1,22 @@
+<div class="request-form">
+  <h2>So'rov qoldirishingiz mumkin.</h2>
+  <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Ismingiz</label>
+      <input type="text" id="name" formControlName="name" placeholder="Ismingizni kiriting" />
+      <div *ngIf="submitted && requestForm.controls['name'].invalid">
+        <small class="text-danger">Ism majburiy</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Telefon raqamingiz</label>
+      <input type="tel" id="phone" formControlName="phone" placeholder="Telefon raqamingizni kiriting" />
+      <div *ngIf="submitted && requestForm.controls['phone'].invalid">
+        <small class="text-danger">Telefon raqami majburiy</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit">So'rov Qoldirish</button>
+    </div>
+  </form>
+</div>

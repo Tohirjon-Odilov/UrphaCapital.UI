@@ -1,15 +1,10 @@
 <div class="background" >
   <div class="video-background-intro">
     <div class="bg">
-      <!-- <video autoplay loop muted playsinline> -->
-        <!-- <source src="assets/video11.ogv" type="video/ogg" /> -->
-        <!-- <source src="assets/video11.webm" type="video/webm" /> -->
-        <!-- <source src="assets/video11.mp4"> -->
-        <!-- <source src="assets/video11.gif" type="video/gif" /> -->
-        <!-- <source src="assets/video11.m4v" type="video/mp4" /> -->
-
-        <!-- Your browser does not support the video tag. -->
-      <!-- </video> -->
+      <video autoplay loop [muted]="'muted'" playsinline>
+        <source src="assets/video11.mp4">
+        Your browser does not support the video tag.
+      </video>
 
     </div>
   </div>
@@ -59,7 +54,7 @@
           <div ngxSlickItem *ngFor="let card of courses" class="card">
             <h2 class="card-title">{{ card.name }}</h2>
             <img src="{{ 'https://api.urphacapital.uz/' +card.picture }}" alt="Card image" />
-            <p>{{ card.description }}</p>
+            <!-- <p>{{ card.description }}</p> -->
             <p>{{card.subtitle}}</p>
             <button [routerLink]="['course-info', card.id]">{{ card.price }}</button>  
           </div>
@@ -69,7 +64,10 @@
     <section class="direction-section">
       <!-- <img src="/assets/statistika.png" width="100%" alt=""> -->
       <div class="video-background" width="100%">
-        <video [muted]="'muted'" src="assets/video22.mp4" autoplay loop></video>
+        <video autoplay loop [muted]="'muted'" playsinline>
+          <source src="assets/video22.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </section>
     <app-morquee></app-morquee>
@@ -96,7 +94,24 @@
       </div>
     </section>
     
+    <app-morquee></app-morquee>
+
+    <app-user-gallery></app-user-gallery>
     
     <app-morquee></app-morquee>
+
+    <app-footer></app-footer>
   </main>
+</div>
+
+<div class="floating-button" (click)="openForm()">
+   <i class="fa fa-comment"></i>
+</div>
+
+<!-- Modal (Forma) -->
+<div class="modal" [class.show]="isFormOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeForm()">&times;</span>
+    <app-request-to-admin></app-request-to-admin>
+  </div>
 </div>

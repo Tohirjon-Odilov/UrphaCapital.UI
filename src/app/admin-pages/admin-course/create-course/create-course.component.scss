@@ -1,0 +1,134 @@
+.table-title{
+  margin: 20px 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 34px;
+  text-align: center;
+}
+
+/* Dark theme styling for the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #2d2d2d;  /* Dark background */
+  color: #e0e0e0;  /* Light text for better readability */
+}
+
+th, td {
+  border: 1px solid #444;  /* Border with dark color */
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #3a3a3a;  /* Slightly darker header */
+  color: #ffffff;  /* White text for header */
+  font-weight: bold;
+}
+
+td {
+  background-color: #343434;  /* Lighter background for alternating rows */
+  color: #e0e0e0;  /* Light text for rows */
+}
+
+button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;  /* Blue button color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;  /* Darker blue on hover */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2b2b;  /* Dark background for the form */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);  /* Subtle shadow */
+}
+
+label {
+  margin: 5px 0;
+  color: #cccccc;  /* Light text for labels */
+}
+
+input, textarea, select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #2d2d2d;  /* Dark input background */
+  color: #e0e0e0;  /* Light text color */
+}
+
+input::placeholder, textarea::placeholder {
+  color: #777;  /* Placeholder text color */
+}
+
+input:focus, textarea:focus {
+  border-color: #007bff;  /* Blue border on focus */
+  outline: none;
+}
+
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 8px;
+  color: #ddd;
+  font-weight: 600;
+}
+
+.custom-file-upload {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+input[type="file"] {
+  display: block; /* Hide the default input */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 157px;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-button {
+  display: inline-block;
+  background-color: #4e5d6c;  /* Dark background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button i {
+  margin-right: 8px; /* Space for icon */
+}
+
+.upload-button:hover {
+  background-color: #3b4856;
+}
+
+.file-name {
+  margin-left: 15px;
+  color: #ccc;
+  font-style: italic;
+}

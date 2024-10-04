@@ -1,0 +1,143 @@
+<div class="courses" *ngIf="isCourseAdmin && courses">
+  <div *ngIf="isLoading" class="loading-container">Loading courses...</div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <button *ngIf="!studentId" class="add-lesson-button" (click)="addCourse()">
+    <i class="fa fa-plus"></i>
+  </button>
+
+  <button
+    *ngIf="studentId"
+    class="add-lesson-button"
+    (click)="addCourseToStudent()"
+  >
+    <i class="fa fa-plus"></i>
+  </button>
+
+  <h2 class="course-table-heading">{{studentId ? 'Student courses' : 'Courses List'}}</h2>
+
+  <!-- add course -->
+  <div class="form-container" *ngIf="studentId">
+    <label for="courseId" class="form-label"
+      >
+      <p>Kursni tanlang</p>
+      <select
+        id="courseId"
+        class="custom-select"
+        [(ngModel)]="selectedCourseId"
+      >
+        <option selected value="" disabled>Kursni tanlang</option>
+        <option *ngFor="let course of courseForSelect" [value]="course.id">
+          {{ course.title }}
+        </option>
+      </select>
+    </label>
+
+    <label for="add-course" class="form-label">
+      <p>Tanlangan kursni qo'shish</p>
+      <button
+        id="add-course"
+        class="custom-button"
+        (click)="addCourseToStudent()"
+      >
+        <i class="fa fa-plus"></i> Qo'shish
+      </button>
+    </label>
+  </div>
+
+  <table *ngIf="!isLoading && courses.length > 0" class="styled-table">
+    <thead>
+      <tr>
+        <th>T/R</th>
+        <th>Course Name</th>
+        <th>Description</th>
+        <th>Subtitle</th>
+        <th>Price</th>
+        <th>Mentor ID</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ courses.indexOf(course) + 1 }}</td>
+        <td
+          class="course-name-link"
+          [routerLink]="['/dashboard/lessons/' + course.id]"
+        >
+          {{ course.name }}
+        </td>
+        <td class="course-description">{{ course.description }}</td>
+        <td class="course-description course-subtitle">
+          {{ course.subtitle }}
+        </td>
+        <td class="course-description course-price">{{ course.price }}</td>
+        <td>{{ course.mentorId }}</td>
+        <td>
+          <button class="edit-button" (click)="editCourse(course.id)">
+            Edit
+          </button>
+          <button class="delete-button" (click)="deleteCourse(course.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!isLoading && courses.length === 0" class="no-data-message">
+    No courses available.
+  </div>
+</div>
+
+<!-- /////////////////////////////////////////////////////// -->
+
+<div class="lessons" *ngIf="!isCourseAdmin && lessons">
+  <div *ngIf="isLoading" class="loading-container">Loading lesson...</div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <h2 class="course-table-heading">Lesson List</h2>
+  <!-- add lesson -->
+  <button class="add-lesson-button" (click)="addLesson()">
+    <i class="fa fa-plus"></i>
+  </button>
+  <table *ngIf="!isLoading && lessons.length > 0" class="styled-table">
+    <thead>
+      <tr>
+        <th>T/R</th>
+        <th>Lesson Name</th>
+        <th>Description</th>
+        <th>Subtitle</th>
+        <!-- <th>Price</th> -->
+        <!-- <th>Mentor ID</th> -->
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lesson of lessons">
+        <td>{{ lessons.indexOf(lesson) + 1 }}</td>
+        <td
+          class="course-name-link"
+          routerLink="/lessons/{{ courseId }}/{{ lesson.id }}"
+        >
+          {{ lesson.title }}
+        </td>
+        <td class="course-description">{{ lesson.homeworkDescription }}</td>
+        <td class="course-description course-subtitle">
+          {{ lesson.subtitle }}
+        </td>
+        <!-- <td class="course-description course-price">{{ course.price }}</td> -->
+        <!-- <td>{{ course.mentorId }}</td> -->
+        <td>
+          <button class="edit-button" (click)="editLesson(lesson.id)">
+            Edit
+          </button>
+          <button class="delete-button" (click)="deleteLesson(lesson.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!isLoading && lessons.length === 0" class="no-data-message">
+    No lessons available.
+  </div>
+</div>

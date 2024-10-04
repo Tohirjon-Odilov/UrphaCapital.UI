@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CourseService } from '../../../services/course-services/course.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { jwtDecode } from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
+import { StudentAuthService } from '../../../services/student_auth/student-auth.service';
 
 @Component({
   selector: 'app-courses',
@@ -14,9 +16,13 @@ export class CoursesComponent {
   cols: number = 0;
   userId: any
 
+
+
   constructor(
     private courseService: CourseService,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private toastr: ToastrService,
+    private studetnCourse: StudentAuthService
   ) {
 
     this.userId = jwtDecode(localStorage.getItem('accessToken')!);
@@ -24,6 +30,9 @@ export class CoursesComponent {
     
     this.courseService.getCourses(1, 50).subscribe({
       next: (data) => {
+        if(data == null ) {
+          location.reload();
+        }
         this.courses = data;
         console.log(data);  
       },
@@ -62,7 +71,7 @@ export class CoursesComponent {
   }
 
   getMyCourses(userId: any){
-    this.courseService.getCourseByUserId(userId).subscribe({
+    this.studetnCourse.getMyCourse(userId).subscribe({
       next: (data) => {
         this.myCourses = data;
         console.log(data);

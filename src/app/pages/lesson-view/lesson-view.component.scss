@@ -1,0 +1,75 @@
+.lesson-view-section {
+  background-color: transparent; /* Dark theme for better viewing experience */
+  color: #fff; /* White text for better contrast */
+  padding: 40px 0; /* Padding for spacing around the section */
+}
+
+.container {
+  max-width: 800px; /* Limiting max width for better focus */
+  margin: 0 auto; /* Centering the container */
+  padding: 20px; /* Padding inside the container */
+}
+
+.lesson-view {
+  background-color: #282828; /* Slightly lighter than the section background */
+  border-radius: 8px; /* Rounded corners for modern look */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Shadow for 3D effect */
+  padding: 20px; /* Padding inside the lesson view for spacing */
+}
+
+.lesson-view h2 {
+  font-size: 24px; /* Large text for the lesson title */
+  margin-bottom: 20px; /* Space below the title */
+}
+
+video {
+  width: 100%; /* Responsive width */
+  // max-width: 600px; /* Maximum width of the video */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Slightly rounded corners for the video */
+  background-color: #000; /* Black background for non-loaded areas */
+}
+
+/* Enhancing the video controls for better visibility */
+video::-webkit-media-controls {
+  color: #fff; /* White color for controls text/icons */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for controls */
+}
+
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-volume-slider,
+video::-webkit-media-controls-fullscreen-button {
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); /* Soft white shadow for better visibility */
+}
+
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4CAF50; // Yashil tugma
+  color: white;
+  border: none;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  
+  // Tugma bosilganda hover effekti
+  &:hover {
+    background-color: #45a049; // Hover rangi
+    transform: translateY(-2px);
+  }
+
+  // Tugma bosilganda aktiv holat
+  &:active {
+    background-color: #3e8e41;
+    transform: translateY(0);
+  }
+
+  // Ikonka uchun o'ngga biroz joy qoldirish
+  i {
+    margin-left: 8px;
+  }
+}

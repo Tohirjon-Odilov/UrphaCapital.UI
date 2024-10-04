@@ -1,3 +1,4 @@
+// import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
@@ -25,6 +26,10 @@ export class CourseService {
     return this._httpClinet.get<Course[]>(`${this.apiUrl}GetAllByMentorId/${mentorId}/${index}/${count}`);
   }
 
+  selectCourse(): Observable<any> {
+    return this._httpClinet.get<any>(`${environment.apiUrl}Select/get-courses`);
+  }
+
 
   deleteCourse(id: string): Observable<ResponseModel> {
     return this._httpClinet.delete<ResponseModel>(this.apiUrl + `${id}`);
@@ -42,7 +47,5 @@ export class CourseService {
     return this._httpClinet.get<Course[]>(`${this.apiUrl}GetById/${userId}`);
   }
 
-  getMyCourse(userId: string): Observable<Course[]> {
-    return this._httpClinet.get<Course[]>(`${this.apiUrl}GetMyCourse/${userId}`);
-  }
+
 }

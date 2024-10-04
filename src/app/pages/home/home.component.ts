@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
     private _mentorService: MentorAuthService,
   ) { }
 
+
+
   hoveredMentor: number | null = null;
   courses!: Course[];
   teachers: any;
@@ -50,53 +52,6 @@ export class HomeComponent implements OnInit {
       }
     ]
   };
-  
-
-  cards = [
-    {
-      title: '15+ ONLINE',
-      img: '/assets/card.png',
-      description:
-        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy',
-    },
-    {
-      title: '15+ ONLINE',
-      img: '/assets/card.png',
-      description:
-        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajribaoyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajribaoyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajribaoyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy',
-    },
-    {
-      title: '15+ ONLINE',
-      img: '/assets/card.png',
-      description:
-        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy',
-    },
-    {
-      title: '15+ ONLINE',
-      img: '/assets/card.png',
-      description:
-        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy',
-    },
-    {
-      title: '15+ ONLINE',
-      img: '/assets/card.png',
-      description:
-        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy',
-    },
-    {
-      title: '15+ ONLINE',
-      img: '/assets/card.png',
-      description:
-        '15 oyda 15 000$ 180 ta video darslik Kunlik signal Savdo g’oyalar Daromad Tajriba',
-      price: '399 000 so’m/oy',
-    },
-    // Boshqa kartalar...
-  ];
 
   ngOnInit(): void {
     this.getAllCourses();
@@ -108,6 +63,9 @@ export class HomeComponent implements OnInit {
   getAllCourses() {
     this._courseService.getCourses(1, 10).subscribe((data) => {
       console.log(data);
+      if(data == null ) {
+        location.reload();
+      }
       this.courses = data;
     });
   }
@@ -130,5 +88,18 @@ export class HomeComponent implements OnInit {
   trackByMentorId(index: number, mentor: any) {
     return mentor.id;
   }
+
+  isFormOpen = false;
+
+  // Forma ochilishi
+  openForm(): void {
+    this.isFormOpen = true;
+  }
+
+  // Formani yopish
+  closeForm(): void {
+    this.isFormOpen = false;
+  }
   
 }
+

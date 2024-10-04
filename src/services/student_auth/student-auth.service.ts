@@ -8,6 +8,7 @@ import { jwtDecode } from 'jwt-decode';
 import { ToastrService } from 'ngx-toastr';
 import { StudentUpdate } from '../../interfaces/student-interfaces/student-update';
 import { StudentCreate } from '../../interfaces/student-interfaces/student-create';
+import { Course } from '../../interfaces/course-interfaces/course';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class StudentAuthService {
 
   apiUrl = environment.apiUrl + 'Student/';
 
-  registerStudent(stc: StudentCreate): Observable<ResponseModel> {
+  registerStudent(stc: any): Observable<ResponseModel> {
     return this._http.post<ResponseModel>(this.apiUrl, stc);
   }
 
@@ -27,6 +28,15 @@ export class StudentAuthService {
 
   getStudents(index: number, count: number): Observable<Student[]> {
     return this._http.get<Student[]>(`${this.apiUrl}${index}/${count}`);
+  }
+
+
+  getMyCourse(userId: string): Observable<Course[]> {
+    return this._http.get<Course[]>(`${this.apiUrl}get-my-courses/${userId}`);
+  }
+
+  addCourseToStudent(data: any): Observable<ResponseModel> {
+    return this._http.put<ResponseModel>(`${this.apiUrl}add-course?StudentId=${data.id}&CourseId=${data.courseIds}`, {});
   }
 
   getStudentById(id: string): Observable<Student> {
@@ -66,7 +76,7 @@ export class StudentAuthService {
     }
   }
 
-  updateStudent(data: StudentUpdate):Observable<ResponseModel>{
+  updateStudent(data: any):Observable<ResponseModel>{
     return this._http.put<ResponseModel>(this.apiUrl, data);
   }
 }

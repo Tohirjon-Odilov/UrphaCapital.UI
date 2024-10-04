@@ -1,0 +1,68 @@
+<div class="mentors" *ngIf="mentors">
+  <div *ngIf="isLoading" class="loading-container">Loading mentors...</div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <button
+  class="add-lesson-button"
+  (click)="addMentor()"
+>
+  <i class="fa fa-plus"></i>
+</button>
+
+  <h2 class="mentor-table-heading">Mentors List</h2>
+  <table *ngIf="!isLoading && mentors.length > 0" class="styled-table">
+    <thead>
+      <tr>
+        <th>T/R</th>
+        <th>Mentor Name</th>
+        <th>Description</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Picture</th>
+        <th>Mentor's Courses</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mentor of mentors">
+        <td>{{ mentors.indexOf(mentor) + 1 }}</td>
+        <td
+          class=""
+          title="{{ mentor.name }}"
+        >
+          {{ mentor.name }}
+        </td>
+        <td class="mentor-description-1" title="{{ mentor.description }}">{{ mentor.description }}</td>
+        <td class="mentor-description mentor-subtitle" title="{{ mentor.email }}">
+          {{ mentor.email }}
+        </td>
+        <td class="mentor-description mentor-price" title="{{ mentor.phoneNumber }}">
+          {{ mentor.phoneNumber }}
+        </td>
+        <td>
+          <a [href]="['https://api.urphacapital.uz/' + mentor.picture]" target="blank">
+            <img
+              [src]="['https://api.urphacapital.uz/' + mentor.picture]"
+              alt="Mentor's picture"
+              class="mentor-picture circle"
+            />
+          </a>
+        </td>
+        <td (click)="mentorCourses(mentor.id)"><a href="javascript:void(0)">Courses</a></td>
+        <td>
+          <button class="edit-button" (click)="editMentor(mentor.id)">
+            Edit
+          </button>
+          <button class="delete-button" (click)="openModal(mentor.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!isLoading && mentors.length === 0" class="no-data-message">
+    No mentors available.
+  </div>
+</div>
+
+<app-confirm-dialog *ngIf="showModal" (confirmed)="onConfirm($event)"></app-confirm-dialog>

@@ -32,6 +32,37 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { DashboardComponent } from './admin-pages/dashboard/dashboard.component';
+import { SearchComponent } from './comoponents/search/search.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CreateCourseComponent } from './admin-pages/admin-course/create-course/create-course.component';
+import { AdminCourseMainComponent } from './admin-pages/admin-course/admin-course-main/admin-course-main.component';
+import { AdminMentorComponent } from './admin-pages/admin-mentor/admin-mentor.component';
+import { AdminStudentComponent } from './admin-pages/admin-student/admin-student.component';
+import { AdminHomeworkComponent } from './admin-pages/admin-homework/admin-homework.component';
+import { AdminPaymentComponent } from './admin-pages/admin-payment/admin-payment.component';
+import { AdminHelpComponent } from './admin-pages/admin-help/admin-help.component';
+import { AdminsComponent } from './admin-pages/admins/admins.component';
+import { ConfirmDialogComponent } from './comoponents/confirm-dialog/confirm-dialog.component';
+// import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { CreateMentorComponent } from './admin-pages/admin-mentor/create-mentor/create-mentor.component';
+import { CreateStudentComponent } from './admin-pages/admin-student/create-mentor/create-student.component';
+import { AdminPaymentCreateComponent } from './admin-pages/admin-payment/admin-payment-create/admin-payment-create.component';
+import { AdminHomeworkCreateComponent } from './admin-pages/admin-homework/admin-homework-create/admin-homework-create.component';
+import { CreateHelpComponent } from './admin-pages/admin-help/create-help/create-help.component';
+import { FooterComponent } from './pages/footer/footer.component';
+import { RequestToAdminComponent } from './pages/request-to-admin/request-to-admin.component';
+import { UserGalleryComponent } from './pages/user-gallery/user-gallery.component';
+
+// import { ButtonModule } from 'primeng/button';
+// import { DialogModule } from 'primeng/dialog';
 
 
 // import { SwiperModule } from 'swiper/angular';
@@ -54,7 +85,27 @@ import { MatButtonModule } from '@angular/material/button';
     WrapperComponent,
     RegisterComponent,
     ProfileComponent,
-    CoursesComponent
+    CoursesComponent,
+    DashboardComponent,
+    SearchComponent,
+    CreateCourseComponent,
+    AdminCourseMainComponent,
+    AdminMentorComponent,
+    AdminStudentComponent,
+    AdminHomeworkComponent,
+    AdminPaymentComponent,
+    AdminHelpComponent,
+    AdminsComponent,
+    ConfirmDialogComponent,
+    CreateMentorComponent,
+    CreateStudentComponent,
+    // AdminHelpsComponent,
+    AdminPaymentCreateComponent,
+    AdminHomeworkCreateComponent,
+    CreateHelpComponent,
+    FooterComponent,
+    RequestToAdminComponent,
+    UserGalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +118,13 @@ import { MatButtonModule } from '@angular/material/button';
     VgOverlayPlayModule,
     VgBufferingModule,
     ReactiveFormsModule,
+    DialogModule,
+    ButtonModule,
     BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatAutocompleteModule,
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-top-right',
@@ -77,10 +134,12 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatGridListModule,
     MatButtonModule,
+    MatDialogModule,
   ],
   providers: [
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent],
+  // entryComponents: [ConfirmDialogComponent]
 })
 export class AppModule {}

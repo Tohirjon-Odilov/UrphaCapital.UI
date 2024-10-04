@@ -1,0 +1,82 @@
+<div class="students" *ngIf="students">
+  <div *ngIf="isLoading" class="loading-container">Loading students...</div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <button class="add-lesson-button" (click)="addStudent()">
+    <i class="fa fa-plus"></i>
+  </button>
+
+  <h2 class="student-table-heading">Students List</h2>
+  <table *ngIf="!isLoading && students.length > 0" class="styled-table">
+    <thead>
+      <tr>
+        <th>T/R</th>
+        <th>Student Name</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <!-- <th>Picture</th> -->
+        <th>Student's Courses</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ students.indexOf(student) + 1 }}</td>
+        <td
+          class="student-name-link"
+          [routerLink]="['/dashboard/lessons/' + student.id]"
+          title="{{ student.name }}"
+        >
+          {{ student.fullName }}
+        </td>
+        <td class="student-description-1" title="{{ student.description }}">
+          {{ student.address }}
+        </td>
+        <td
+          class="student-description student-subtitle"
+          title="{{ student.email }}"
+        >
+          {{ student.email }}
+        </td>
+        <td
+          class="student-description student-price"
+          title="{{ student.phoneNumber }}"
+        >
+          {{ student.phoneNumber }}
+        </td>
+        <!-- <td>
+          <a
+            [href]="['https://api.urphacapital.uz/' + student.picture]"
+            target="blank"
+          >
+            <img
+              [src]="['https://api.urphacapital.uz/' + student.picture]"
+              alt="Student's picture"
+              class="student-picture circle"
+            />
+          </a>
+        </td> -->
+        <td (click)="studentCourses(student.id)">
+          <a href="javascript:void(0)">Courses</a>
+        </td>
+        <td>
+          <button class="edit-button" (click)="editStudent(student.id)">
+            Edit
+          </button>
+          <button class="delete-button" (click)="openModal(student.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!isLoading && students.length === 0" class="no-data-message">
+    No students available.
+  </div>
+</div>
+
+<app-confirm-dialog
+  *ngIf="showModal"
+  (confirmed)="onConfirm($event)"
+></app-confirm-dialog>

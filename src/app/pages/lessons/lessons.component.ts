@@ -12,19 +12,36 @@ import { Course } from '../../../interfaces/course-interfaces/course';
 })
 export class LessonsComponent implements OnInit {
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
-      this.courseId = params.get('courseId');
-    });
-    this.getCourse();
-    this.getLessons();
   }
 
+
+  
   constructor(
     private _lessonService: LessonService,
     private _courseSerivice: CourseService,
     private _router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.route.paramMap.subscribe((params) => {
+      this.courseId = params.get('courseId');
+    });
+    this.getCourse();
+    // this.getLessons();
+    this._lessonService
+      .getLessonByCourseId(this.courseId!, 1, 100)
+      .subscribe({
+        next: (data) => {
+          if(data == null ) {
+            location.reload();
+          }
+          this.lessons = data;
+          console.log(data);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+  }
 
   courseId?: string | null = '';
   lessonId?: string | null = '';
@@ -45,7 +62,7 @@ export class LessonsComponent implements OnInit {
 
   getLessons() {
     this._lessonService
-      .getLessonByCourseId(this.courseId!, 1, 10)
+      .getLessonByCourseId(this.courseId!, 1, 100)
       .subscribe({
         next: (data) => {
           this.lessons = data;
@@ -60,4 +77,9 @@ export class LessonsComponent implements OnInit {
   forwardToLessonDetails(id: string) {
     this._router.navigateByUrl(`/lessons/${this.courseId}/${id}`);
   }
+
+  trackLesson(index: any, lesson: any) {
+    return lesson.id;
+  }
+  
 }

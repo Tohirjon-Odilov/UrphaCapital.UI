@@ -5,7 +5,7 @@
 <div class="course-list">
   <h2>Mening Kurslarim</h2>
   <mat-grid-list *ngIf="myCourses.length; else noCourses" [cols]="cols" rowHeight="450px" gutterSize="10px">
-    <mat-grid-tile *ngFor="let course of courses" class="course-card">
+    <mat-grid-tile *ngFor="let course of myCourses" class="course-card">
       <mat-card>
         <img mat-card-image [src]="'https://api.urphacapital.uz' + course.picture" alt="{{course.name}}">
         <mat-card-header>
@@ -13,10 +13,10 @@
         </mat-card-header>
         <mat-card-content>
           <p class="description">{{ course.subtitle }}</p>
-          <p>Price: {{course.price}}</p>
+          <p>Price: <!-- {{course.price}} --> To'langan</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary">View Details</button>
+          <button mat-raised-button color="primary" [routerLink]="'/lessons/'+course.id">Kirish</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
