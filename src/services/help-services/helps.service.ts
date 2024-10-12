@@ -14,7 +14,8 @@ export class HelpsService {
   constructor(
     private http: HttpClient
   ) { }
-
+  // there is an issue in both the backend and frontend
+  
   createHelp(data: any): Observable<any> {
     return this.http.post<any>(`${environment.apiUrl}Help`, data);
   }
