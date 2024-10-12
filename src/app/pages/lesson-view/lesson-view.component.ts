@@ -3,6 +3,8 @@ import { LessonService } from '../../../services/lesson-services/lesson.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Lesson } from '../../../interfaces/lesson-interfaces/lesson';
 import { DomSanitizer } from '@angular/platform-browser';
+import { HomeworkService } from '../../../services/homework-services/homework.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-lesson-view',
@@ -11,15 +13,28 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class LessonViewComponent implements OnInit {
   lessonId?: string | null = "";
-  lesson?: any;
+  lesson?: Lesson;
   videoUrl: any;
+  homeworkForm: FormGroup;
 
   constructor(
     private _lessonService: LessonService,
+    private _homeworkServices: HomeworkService,
+    private fb: FormBuilder,
     private _router: Router,
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer
-  ) {}
+  ) {
+
+    this.homeworkForm = this.fb.group({
+      title: [''],
+      fILE: [''],
+      description: [''],
+      studentId: [0],
+      mentorId: [0],
+    });
+  }
+
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.lessonId = params.get('lessonId');
@@ -54,5 +69,37 @@ export class LessonViewComponent implements OnInit {
         }
       );
     }
+  }
+
+
+
+  uploadHomework() {
+    if (this.homeworkForm.invalid) {
+      // Handle form validation errors
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('title', this.homeworkForm.get('title')?.value);
+    formData.append('file', this.homeworkForm.get('file')?.value);
+    formData.append('description', this.homeworkForm.get('description')?.value);
+    formData.append('studentId', "bu yerga studentni userni id si beriladi");
+    
+    if (this.lesson && this.lesson.course && this.lesson.course.mentorId) {
+      formData.append('mentorId', this.lesson.course.mentorId.toString());
+    } else {
+      alert('Mentor ID is missing');
+    }
+
+    this._homeworkServices.createHomework(formData).subscribe({
+      next: (response) => {
+        alert('Homework uploaded successfully');
+      },
+      error: (err) => {
+        alert('Error uploading homework');
+        console.error(err);
+      }
+    });
   }
 }
