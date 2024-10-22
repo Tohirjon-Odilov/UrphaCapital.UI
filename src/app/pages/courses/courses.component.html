@@ -7,7 +7,7 @@
   <mat-grid-list *ngIf="myCourses.length; else noCourses" [cols]="cols" rowHeight="450px" gutterSize="10px">
     <mat-grid-tile *ngFor="let course of myCourses" class="course-card">
       <mat-card>
-        <img mat-card-image [src]="'https://api.urphacapital.uz' + course.picture" alt="{{course.name}}">
+        <img mat-card-image [src]="'https://app.urphacapital.uz' + course.picture" alt="{{course.name}}">
         <mat-card-header>
           <mat-card-title>{{ course.name }}</mat-card-title>
         </mat-card-header>
@@ -35,7 +35,7 @@
   <mat-grid-list [cols]="cols" rowHeight="450px" gutterSize="10px">
     <mat-grid-tile *ngFor="let course of courses" class="course-card">
       <mat-card>
-        <img mat-card-image [src]="'https://api.urphacapital.uz' + course.picture" alt="{{course.name}}">
+        <img mat-card-image [src]="'https://app.urphacapital.uz' + course.picture" alt="{{course.name}}">
         <mat-card-header>
           <mat-card-title>{{ course.name }}</mat-card-title>
         </mat-card-header>

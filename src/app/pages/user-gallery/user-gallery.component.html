@@ -1,15 +1,21 @@
-<div class="gallery">
-  <div class="gallery-header">
-    <h2>Oxirgi natijalar</h2>
-  </div>
+<section class="gallery-section">
 
-  <div class="gallery-grid">
-    <div *ngFor="let image of recentImages" class="gallery-item">
-      <img [src]="image.url" [alt]="image.title" class="gallery-image" />
-      <div class="gallery-info">
-        <h3>{{ image.title }}</h3>
-        <p>{{ image.description }}</p>
+  <div class="container">
+    <div class="gallery">
+      <div class="gallery-header">
+        <h2>Oxirgi natijalar</h2>
+      </div>
+      
+      <div class="gallery-grid">
+        <div *ngFor="let image of recentImages" class="gallery-item">
+          <img [src]="image.url" [alt]="image.title" class="gallery-image" />
+          <div class="gallery-info">
+            <h3>{{ image.title }}</h3>
+            <p>{{ image.description }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  
+</section>

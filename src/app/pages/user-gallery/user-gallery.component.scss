@@ -1,9 +1,13 @@
+.gallery-section{
+  background: linear-gradient(333deg, rgb(0, 0, 0) 6%, rgb(14, 45, 18) 51%, rgb(18, 60, 12) 72%, rgb(6, 6, 6) 100%);
+  padding-bottom: 30px;
+}
+
 .gallery {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
-  background: linear-gradient(333deg, rgb(0, 0, 0) 6%, rgb(14, 45, 18) 51%, rgb(18, 60, 12) 72%, rgb(6, 6, 6) 100%);
 
 
   .gallery-header {

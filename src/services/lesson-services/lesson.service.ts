@@ -14,7 +14,7 @@ export class LessonService {
 
   getLessonVideo(id: string): Observable<Blob> {
     return this._httpClinet.get(
-      `https://api.urphacapital.uz/api/Lessons/getvideo?lessonId=${id}`,
+      `https://app.urphacapital.uz/api/Lessons/getvideo?lessonId=${id}`,
       { responseType: 'blob' }
     );
   }
