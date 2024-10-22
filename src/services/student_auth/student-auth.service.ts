@@ -44,7 +44,7 @@ export class StudentAuthService {
   }
 
   loginStudent(data: FormData): Observable<any> {
-    return this._http.post<any>(this.apiUrl + 'Login', data);
+    return this._http.post<any>(environment.apiUrl +'authController/'+ 'login', data);
   }
 
   isAuthenticated(): boolean {
