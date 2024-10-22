@@ -73,26 +73,33 @@
     <app-morquee></app-morquee>
     <section class="about-section" id="about">
       <div class="container">
-        <div class="about">
-          <h2>Mentorlar</h2>
-          <ul>
-            <li *ngFor="let mentor of mentors; trackBy: trackByMentorId" class="mentor-card">
-              <div class="mentor-content">
-                <!-- Rasm va sarlavha blokini hoverda yashiramiz -->
-                <div class="mentor-info">
-                  <img [src]="'https://app.urphacapital.uz/' + mentor.picture" width="400" alt="" />
-                  <h3>{{ mentor.name }}</h3>
-                </div>
-                <!-- Description hover paytida ko'rinadi -->
-                <div class="mentor-description">
-                  <p>{{ mentor.description }}</p>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let mentor of mentors">
+              <div class="mentor-card">
+                <div class="mentor-content">
+                  <div class="mentor-info">
+                    <img [src]="'https://app.urphacapital.uz/' +mentor.picture" alt="" />
+                    <h3>{{ mentor.name }}</h3>
+                  </div>
+                  <div class="mentor-description">
+                    <p>{{ mentor.description }}</p>
+                  </div>
                 </div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
+    
+          <!-- If we need pagination -->
+          <!-- <div class="swiper-pagination"></div> -->
+    
+          <!-- If we need navigation buttons -->
+          <!-- <div class="swiper-button-prev"></div> -->
+          <!-- <div class="swiper-button-next"></div> -->
         </div>
       </div>
     </section>
+    
     
     <app-morquee></app-morquee>
 

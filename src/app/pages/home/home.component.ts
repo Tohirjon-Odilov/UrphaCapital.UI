@@ -3,6 +3,7 @@ import { CourseService } from '../../../services/course-services/course.service'
 import { MentorAuthService } from '../../../services/mentor-services/mentor-auth.service';
 import { Mentor } from '../../../interfaces/mentor-interfaces/mentor';
 import { Course } from '../../../interfaces/course-interfaces/course';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'app-home',
@@ -56,6 +57,39 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCourses();
     this.getAllMentors();
+
+    // Swiper config
+    new Swiper('.swiper', {
+      slidesPerView: 4, // Bir vaqtning o'zida ko'rsatiladigan slaydlar soni
+      spaceBetween: 15,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        // Mobil qurilmalar uchun sozlamalar
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+      },
+    });
   }
 
   mentors?: Mentor[];
