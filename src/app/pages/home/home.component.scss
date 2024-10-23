@@ -3,7 +3,7 @@
   // background-repeat: no-repeat;
   // background-size: cover;
   // background-position: center;
-  height: 1000px;
+  // height: 1000px;
   * {
     color: white;
   }
@@ -16,46 +16,55 @@
   //   left: 0;
   //   z-index: -1;
   // }
-
   .video-background-intro {
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    top: 0;
-    left: 0;
+    position: relative; /* Absolute o'rniga relative qilish orqali container ichida qoldiramiz */
     width: 100%;
-    height: 1150px;
+    height: 100vh; /* Foydalanuvchi ekran balandligiga teng */
     z-index: -1;
     overflow: hidden;
     background-size: cover;
-
-    .bg {
-      position: absolute;
-      top: -275px;
-      left: -500px;
-      width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+  }
+  
+  .video-background-intro .bg {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .video-background-intro video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw; /* Ekranning 100% kengligi */
+    height: 100vh; /* Ekranning 100% balandligi */
+    object-fit: cover; /* Videoni butun ekranga joylashtirish uchun */
+    transform: translate(-50%, -50%);
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Mobil qurilmalar uchun media query */
+  @media (max-width: 768px) {
+    .video-background-intro {
+      // height: 100vh; /* Mobil ekranlarga moslashish */
     }
-
-    .video-background video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 1000px;
-      height: 100%;
-      overflow: hidden;
-      object-fit: cover;
-      transform: translate(-50%, -50%);
-    }
-
-    .content {
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      color: white; /* Yaxshi ko'rinish uchun kontentning rangini o'zgartirish */
-      text-align: center;
-      padding: 20px;
+  
+    .video-background-intro video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover; /* Mobil qurilmalarda videoni kesish */
     }
   }
+  
 }
 
 .intro-section {
@@ -717,8 +726,8 @@
 @media screen and (max-width: 500px) {
   .background {
     .video-background-intro {
-      top: -190px !important;
-      left: -534px !important;
+      // top: 660px !important;
+      // left: -534px !important;
       overflow: visible !important;
     }
   }

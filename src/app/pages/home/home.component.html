@@ -1,13 +1,4 @@
 <div class="background" >
-  <div class="video-background-intro">
-    <div class="bg">
-      <video autoplay loop [muted]="'muted'" playsinline>
-        <source src="assets/video11.mp4">
-        Your browser does not support the video tag.
-      </video>
-
-    </div>
-  </div>
   <app-navbar></app-navbar>
   <main class="site-main">
     <section class="intro-section">
@@ -16,6 +7,15 @@
           <img src="/assets/intro-2.png" width="600" alt="" />
           <h1>Urpha Capital Akademiyasi</h1>
           <button (click)="scrollToElement('cards')">Kursga yozilish</button>
+        </div>
+      </div>
+      <div class="video-background-intro">
+        <div class="bg">
+          <video autoplay loop [muted]="'muted'" playsinline>
+            <source src="assets/video11.mp4">
+            Your browser does not support the video tag.
+          </video>
+    
         </div>
       </div>
     </section>
