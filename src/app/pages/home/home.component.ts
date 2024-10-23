@@ -61,6 +61,10 @@ export class HomeComponent implements OnInit {
     // Swiper config
     new Swiper('.swiper', {
       slidesPerView: 4, // Bir vaqtning o'zida ko'rsatiladigan slaydlar soni
+      autoplay: {
+        delay: 2000, // Time between slides (in milliseconds)
+        disableOnInteraction: false, // Ensures autoplay continues after user interaction
+      },
       spaceBetween: 15,
       pagination: {
         el: '.swiper-pagination',

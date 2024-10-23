@@ -16,8 +16,6 @@ export class CoursesComponent {
   cols: number = 0;
   userId: any
 
-
-
   constructor(
     private courseService: CourseService,
     private breakpointObserver: BreakpointObserver,

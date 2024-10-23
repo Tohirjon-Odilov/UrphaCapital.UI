@@ -31,4 +31,17 @@ export class CourseInfoComponent implements OnInit {
     });
   }
 
+  buyCourse(id: any, price: any) {
+    this.courseService.buyCourse(id, price).subscribe({
+      next: (data) => {
+        window.location.href = data;
+        // this.toastr.success(data.message);
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    })
+  }
+
 }
