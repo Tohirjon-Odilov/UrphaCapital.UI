@@ -1,12 +1,13 @@
 /* Umumiy fon */
 .background {
   background-color: #1a1a1a; /* To'q fon rangi */
-  padding: 60px 0;
+  // padding: 60px 0;
   min-height: 100vh; /* Butun ekran bo'ylab bo'lsin */
   color: #ffffff; /* Oq matn rangi */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 0;
 }
 
 /* Kurs ma'lumotlari bo'limi */
@@ -15,7 +16,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 }
 
