@@ -1,0 +1,43 @@
+<div class="create-result-form">
+  <h2>Yangi Ma'lumot Qo'shish</h2>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        [ngClass]="{ 'is-invalid': isSubmitted && createForm.controls['title'].errors }"
+        placeholder="Enter title"
+      />
+      <div *ngIf="isSubmitted && createForm.controls['title'].errors" class="invalid-feedback">
+        <div *ngIf="createForm.controls['title'].errors['required']">Title is required</div>
+        <div *ngIf="createForm.controls['title'].errors['minlength']">Minimum 3 characters required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        [ngClass]="{ 'is-invalid': isSubmitted && createForm.controls['description'].errors }"
+        placeholder="Enter description"
+      ></textarea>
+      <div *ngIf="isSubmitted && createForm.controls['description'].errors" class="invalid-feedback">
+        <div *ngIf="createForm.controls['description'].errors['required']">Description is required</div>
+        <div *ngIf="createForm.controls['description'].errors['minlength']">Minimum 5 characters required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="picture">Choose Image</label>
+      <input id="picture" type="file" (change)="onFileSelected($event)" />
+      <div *ngIf="isSubmitted && createForm.controls['picture'].errors" class="invalid-feedback">
+        <div *ngIf="createForm.controls['picture'].errors['required']">Image is required</div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="createForm.invalid">Create</button>
+  </form>
+</div>

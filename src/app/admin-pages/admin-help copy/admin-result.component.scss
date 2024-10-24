@@ -1,0 +1,64 @@
+.result-table-container {
+  margin: 20px;
+  overflow-x: auto;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #002f4b; /* Dark blue background */
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.result-table th,
+.result-table td {
+  padding: 12px 20px;
+  text-align: left;
+  // border-bottom: 1px solid #004f7b; /* Slightly lighter blue border between rows */
+}
+
+.result-table th {
+  background-color: #002b41; /* Darker header */
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.result-table tr:nth-child(even) {
+  background-color: #00131d; /* Even rows slightly lighter blue */
+}
+
+.result-table tr:hover {
+  background-color: #005f8b3c; /* Hover effect for rows */
+  // transform: scale(1.02); /* Slight zoom on hover */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.result-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.result-table tr:hover .result-image {
+  transform: scale(1.1); /* Image zoom on row hover */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.table-row {
+  animation: fadeIn 0.5s ease;
+}

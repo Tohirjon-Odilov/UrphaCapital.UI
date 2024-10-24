@@ -1,0 +1,118 @@
+.create-result-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #2d2d2d; /* Qoraroq fon */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  color: #e0e0e0; /* Yorqinroq tekst uchun to'rs rang */
+  margin-top: 80px;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff; /* Sarlavha oq rangda */
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #cccccc; /* Yorqinroq sarlavha */
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #555; /* Input ramka uchun qoraroq rang */
+      font-size: 16px;
+      color: #e0e0e0; /* Input matni uchun to‘qroq rang */
+      background-color: #343434; /* Input foni */
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #777; /* Placeholder matni uchun rang */
+    }
+
+    input[type="file"] {
+      display: block; /* Fayl tanlash inputi */
+      position: relative;
+      background-color: #2d2d2d; /* Fayl tanlash uchun qoraroq fon */
+      color: #e0e0e0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #007bff; /* Fokusta bo'lganda ko'k ramka */
+      outline: none;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Tugma uchun ko'k fon */
+    border: none;
+    color: #ffffff; /* Yorqinroq tugma matni */
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3; /* Hover qilinganda tugma uchun qoraroq ko'k */
+      color: #ffffff;
+    }
+  }
+
+  .file-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    .custom-file-upload {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: #4e5d6c; /* Dark background */
+      color: #ffffff;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #3b4856; /* Hover qilinganda qoraroq rang */
+      }
+
+      input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .file-name {
+        margin-left: 15px;
+        color: #cccccc; /* Fayl nomi uchun to'rs rang */
+        font-style: italic;
+      }
+    }
+  }
+}

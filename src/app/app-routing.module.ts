@@ -23,6 +23,8 @@ import { CreateMentorComponent } from './admin-pages/admin-mentor/create-mentor/
 import { AdminStudentComponent } from './admin-pages/admin-student/admin-student.component';
 import { CreateStudentComponent } from './admin-pages/admin-student/create-mentor/create-student.component';
 import { CreateHelpComponent } from './admin-pages/admin-help/create-help/create-help.component';
+import { CreateResultComponent } from './admin-pages/admin-help copy/create-result/create-result.component';
+import { AdminResultComponent } from './admin-pages/admin-help copy/admin-result.component';
 
 const routes: Routes = [
   { path: 'login', title: 'Login', component: LoginComponent },
@@ -177,6 +179,16 @@ const routes: Routes = [
         path: 'create-help',
         title: 'Admin Help',
         component: CreateHelpComponent,
+      },
+      {
+        path: 'get-results',
+        title: 'All Result',
+        component: AdminResultComponent,
+      },
+      {
+        path: 'create-result',
+        title: 'Create Result',
+        component: CreateResultComponent,
       },
       {
         path: ':action',

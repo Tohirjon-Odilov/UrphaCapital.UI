@@ -60,6 +60,8 @@ import { CreateHelpComponent } from './admin-pages/admin-help/create-help/create
 import { FooterComponent } from './pages/footer/footer.component';
 import { RequestToAdminComponent } from './pages/request-to-admin/request-to-admin.component';
 import { UserGalleryComponent } from './pages/user-gallery/user-gallery.component';
+import { AdminResultComponent } from './admin-pages/admin-help copy/admin-result.component';
+import { CreateResultComponent } from './admin-pages/admin-help copy/create-result/create-result.component';
 
 // import { ButtonModule } from 'primeng/button';
 // import { DialogModule } from 'primeng/dialog';
@@ -99,13 +101,14 @@ import { UserGalleryComponent } from './pages/user-gallery/user-gallery.componen
     ConfirmDialogComponent,
     CreateMentorComponent,
     CreateStudentComponent,
-    // AdminHelpsComponent,
     AdminPaymentCreateComponent,
     AdminHomeworkCreateComponent,
     CreateHelpComponent,
     FooterComponent,
     RequestToAdminComponent,
     UserGalleryComponent,
+    AdminResultComponent,
+    CreateResultComponent
   ],
   imports: [
     BrowserModule,
