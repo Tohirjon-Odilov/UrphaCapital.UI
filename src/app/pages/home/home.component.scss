@@ -486,7 +486,7 @@
 .site-main {
   @media only screen and (max-width: 650px) {
     .intro-section {
-      margin: 100px 0;
+      margin: 200px 0 100px;
       img {
         width: 350px;
         margin-bottom: 30px;
@@ -504,7 +504,6 @@
 
     .education-section {
       padding: 100px 0;
-      margin: 100px 0;
 
       .education {
         padding: 100px;
