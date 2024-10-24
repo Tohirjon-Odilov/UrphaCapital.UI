@@ -1,6 +1,13 @@
 .site-header{
   padding: 20px 0;
   border-bottom: 1px solid white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  z-index: 10000;
+  // filter: blur();
+  backdrop-filter: blur(105px);
   .site-logo{
     display: flex;
     justify-content: space-between;
