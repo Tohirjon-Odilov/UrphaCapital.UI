@@ -38,8 +38,10 @@ export class CourseInfoComponent implements OnInit {
         // this.toastr.success(data.message);
         console.log(data);
       },
+
       error: (err) => {
-        console.log(err);
+        window.location.href = err.error.text;
+        console.log(err.error.text);
       },
     })
   }
