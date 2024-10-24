@@ -7,8 +7,8 @@
       </div>
       
       <div class="gallery-grid">
-        <div *ngFor="let image of recentImages" class="gallery-item">
-          <img [src]="image.url" [alt]="image.title" class="gallery-image" />
+        <div *ngFor="let image of images.slice(0, 4)" class="gallery-item">
+          <img [src]="'https://app.urphacapital.uz'+image.pictureUrl" [alt]="image.title" class="gallery-image" />
           <div class="gallery-info">
             <h3>{{ image.title }}</h3>
             <p>{{ image.description }}</p>

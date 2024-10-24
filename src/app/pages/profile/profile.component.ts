@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.user = res;
-        this.user.img = '/MentorsPictures/834ad32a-0375-4424-9ead-e25d47f1a894.jpg';
+        // this.user.img = 'MentorsPictures/834ad32a-0375-4424-9ead-e25d47f1a894.jpg';
       },
       error: (err) => {
         this.toastr.error("Userni olish xatolik!", 'Xatolik');

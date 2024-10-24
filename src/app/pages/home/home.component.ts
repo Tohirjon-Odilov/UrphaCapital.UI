@@ -4,26 +4,19 @@ import { MentorAuthService } from '../../../services/mentor-services/mentor-auth
 import { Mentor } from '../../../interfaces/mentor-interfaces/mentor';
 import { Course } from '../../../interfaces/course-interfaces/course';
 import Swiper from 'swiper';
+import { ResultService } from '../../../services/result-services/result.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(
-    private _courseService: CourseService,
-    private _mentorService: MentorAuthService,
-  ) { }
+  courses: Course[] = [];
+  mentors?: Mentor[];
 
-
-
-  hoveredMentor: number | null = null;
-  courses!: Course[];
-  teachers: any;
-
-  slideConfig = {
-    slidesToShow: 5,  // Desktopda 5 ta slayd ko'rsatiladi
+  slideConfig: any = {
+    slidesToShow: 5,
     slidesToScroll: 1,
     dots: true,
     infinite: true,
@@ -31,35 +24,44 @@ export class HomeComponent implements OnInit {
     autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 1024,  // 1024px va kichik ekranlarda 3 ta slayd
+        breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+          infinite: true,
+        },
       },
       {
-        breakpoint: 768,  // 768px va kichik ekranlarda 2 ta slayd
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+          infinite: true,
+        },
       },
       {
-        breakpoint: 450,  // 450px va kichik ekranlarda 1 ta slayd
+        breakpoint: 450,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+    ],
   };
+
+  constructor(
+    private _courseService: CourseService,
+    private _mentorService: MentorAuthService,
+    private _resultService: ResultService
+  ) {}
 
   ngOnInit(): void {
     this.getAllCourses();
     this.getAllMentors();
 
-    // Swiper config
-    new Swiper('.swiper', {
+     // Swiper config
+     new Swiper('.swiper', {
       slidesPerView: 4, // Bir vaqtning o'zida ko'rsatiladigan slaydlar soni
       autoplay: {
         delay: 2000, // Time between slides (in milliseconds)
@@ -94,37 +96,40 @@ export class HomeComponent implements OnInit {
         },
       },
     });
+    
   }
-
-  mentors?: Mentor[];
 
   getAllCourses() {
     this._courseService.getCourses(1, 10).subscribe((data) => {
-      console.log(data);
-      if(data == null ) {
+      if (data === null) {
         location.reload();
       }
       this.courses = data;
+
+      // Slayd konfiguratsiyasini ma'lumot olingandan so'ng yangilaymiz
+      this.updateSlideConfig();
     });
+  }
+
+  updateSlideConfig() {
+    this.slideConfig.slidesToShow = Math.min(5, this.courses.length);
+    this.slideConfig.infinite = this.courses.length > 5;
+    this.slideConfig.responsive[0].settings.slidesToShow = Math.min(
+      3,
+      this.courses.length
+    );
+    this.slideConfig.responsive[0].settings.infinite = this.courses.length > 3;
+    this.slideConfig.responsive[1].settings.slidesToShow = Math.min(
+      2,
+      this.courses.length
+    );
+    this.slideConfig.responsive[1].settings.infinite = this.courses.length > 2;
   }
 
   getAllMentors() {
     this._mentorService.getMentors(1, 10).subscribe((data) => {
       this.mentors = data;
-      console.log(data);
     });
-  }
-
-  scrollToElement(elementId: string) {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      // this.menuVisible = false; // IDga o'tgandan so'ng menyuni yopish
-    }
-  }
-
-  trackByMentorId(index: number, mentor: any) {
-    return mentor.id;
   }
 
   isFormOpen = false;
@@ -138,6 +143,13 @@ export class HomeComponent implements OnInit {
   closeForm(): void {
     this.isFormOpen = false;
   }
+
+  scrollToElement(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      // this.menuVisible = false; // IDga o'tgandan so'ng menyuni yopish
+    }
+  }
   
 }
-
