@@ -1,5 +1,5 @@
 .courses{
-  margin-top: 160px;
+  margin-top: 120px;
   *{
     color: white;
   }
@@ -7,7 +7,7 @@
 
 .course-list {
   margin: 0px;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 mat-card {
@@ -42,8 +42,9 @@ mat-card {
 
 
 mat-card img {
-  height: 200px;
-  object-fit: cover;
+  // height: 200px;
+  width: 100%;
+  // object-fit: cover;
 }
 
 .no-course{
