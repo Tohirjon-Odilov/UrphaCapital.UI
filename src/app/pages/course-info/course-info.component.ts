@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../../../services/course-services/course.service';
 import { ActivatedRoute } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-course-info',
@@ -17,8 +18,11 @@ export class CourseInfoComponent implements OnInit {
 
   course: any;
   courseParamId: string = this.route.snapshot.paramMap.get('courseId')!;
+  userId: any;
 
   ngOnInit() {
+    this.userId = jwtDecode(localStorage.getItem('accessToken')!);
+    this.userId = this.userId['UserId']
     console.log(this.courseParamId)
     this.courseService.getCourseById(this.courseParamId).subscribe({
       next: (data) => {
@@ -31,8 +35,10 @@ export class CourseInfoComponent implements OnInit {
     });
   }
 
-  buyCourse(id: any, price: any) {
-    this.courseService.buyCourse(id, price).subscribe({
+  buyCourse(id: any, price: any, userid: any) {
+    console.log(this.userId)
+    // return;
+    this.courseService.buyCourse(id, price, userid).subscribe({
       next: (data) => {
         window.location.href = data;
         // this.toastr.success(data.message);

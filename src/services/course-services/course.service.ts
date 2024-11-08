@@ -47,7 +47,9 @@ export class CourseService {
     return this._httpClinet.get<Course[]>(`${this.apiUrl}GetById/${userId}`);
   }
 
-  buyCourse(id: any, price: any) {
-    return this._httpClinet.get<any>(`${environment.apiUrl}clickUrlGeneration/generate-click-link?orderId=${id}&amount=${price}`);
+  buyCourse(id: any, price: any, userid: any) {
+    return this._httpClinet.get<any>(`${environment.apiUrl}clickUrlGeneration/generate-click-link?studentId=3&orderId=${id}&amount=${price}`);
   }
 }
+
+//https://app.urphacapital.uz/api/clickUrlGeneration/generate-click-link?studentId=3&orderId=1&amount=1000'
