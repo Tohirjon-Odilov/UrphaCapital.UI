@@ -5,7 +5,7 @@
     <div class="lesson-view">
       <h2>{{ lesson?.title }}</h2>
       <video
-        [src]="'https://app.urphacapital.uz/'+lesson?.video"
+        [src]="videoUrl"
         width="600"
         height="350"
         controls
@@ -13,10 +13,10 @@
         oncontextmenu="return false;"
       ></video>
       <!-- vazifa yuklash -->
-    <button class="upload-btn">
-      Vazifa yuklash
-      <i class="fa fa-upload"></i>
-    </button>
+      <button class="upload-btn">
+        Vazifa yuklash
+        <i class="fa fa-upload"></i>
+      </button>
     </div>
   </div>
 </section>

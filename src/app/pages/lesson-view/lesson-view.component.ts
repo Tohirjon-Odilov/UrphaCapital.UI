@@ -25,10 +25,9 @@ export class LessonViewComponent implements OnInit {
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer
   ) {
-
     this.homeworkForm = this.fb.group({
       title: [''],
-      fILE: [''],
+      file: [''],
       description: [''],
       studentId: [0],
       mentorId: [0],
@@ -40,7 +39,7 @@ export class LessonViewComponent implements OnInit {
       this.lessonId = params.get('lessonId');
     });
     this.getLessonById();
-    // this.getVideo();
+    this.getVideo();
   }
 
   getLessonById() {
@@ -58,11 +57,6 @@ export class LessonViewComponent implements OnInit {
         (videoStream) => {
           const url = window.URL.createObjectURL(videoStream);
           this.videoUrl = this.sanitizer.bypassSecurityTrustUrl(url);
-
-          setTimeout(() => {
-            const videoElement = document.querySelector('video');
-            videoElement?.addEventListener('contextmenu', (e) => e.preventDefault());
-          }, 1000);
         },
         (error) => {
           console.error('Error fetching video:', error);
@@ -71,11 +65,8 @@ export class LessonViewComponent implements OnInit {
     }
   }
 
-
-
   uploadHomework() {
     if (this.homeworkForm.invalid) {
-      // Handle form validation errors
       alert('Please fill in all required fields');
       return;
     }
@@ -84,8 +75,8 @@ export class LessonViewComponent implements OnInit {
     formData.append('title', this.homeworkForm.get('title')?.value);
     formData.append('file', this.homeworkForm.get('file')?.value);
     formData.append('description', this.homeworkForm.get('description')?.value);
-    formData.append('studentId', "bu yerga studentni userni id si beriladi");
-    
+    formData.append('studentId', 'Provide the student ID here');
+
     if (this.lesson && this.lesson.course && this.lesson.course.mentorId) {
       formData.append('mentorId', this.lesson.course.mentorId.toString());
     } else {
