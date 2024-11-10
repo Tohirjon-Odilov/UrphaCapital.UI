@@ -18,7 +18,12 @@ export class MorqueeAnnoucmentComponent {
     private annoucementService: AnnouncementServicesService
   ){
     annoucementService.getTitle().subscribe(response => {
-      this.annoucement = response.title;
+      if(response && response.length > 0){
+        this.annoucement = response[0].title;
+      }
+      if(!response){
+        this.closeAnnouncement();
+      }
     });
   }
 }

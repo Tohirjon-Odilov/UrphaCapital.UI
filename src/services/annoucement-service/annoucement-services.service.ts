@@ -10,13 +10,18 @@ interface Announcement {
   providedIn: 'root'
 })
 export class AnnouncementServicesService {
-  private apiUrl = 'https://app.urphacapital.uz/api/Announcement/2';
+  private apiUrl = 'https://app.urphacapital.uz/api/Announcement';
 
   constructor(private http: HttpClient) {}
 
-  getTitle(): Observable<{ title: string }> {
+  getTitle(): Observable<any> {
     return this.http.get<Announcement>(this.apiUrl).pipe(
-      map(response => ({ title: response.title }))
+      map(
+        (response) => {
+          console.log(response)
+          return response;
+        }
+      )
     );
   }
 }
