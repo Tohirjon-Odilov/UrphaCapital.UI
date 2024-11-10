@@ -149,7 +149,7 @@
 }
 
 .cards-section {
-  padding: 150px 0;
+  padding: 150px 10px;
   background: rgb(16, 54, 21);
   background: linear-gradient(
     292deg,
@@ -545,9 +545,21 @@
       }
     }
 
-    // .cards-section {
-    //   display: none;
-    // }
+    .cards-section {
+      .card{
+        background-size: auto;
+        padding: 30px 10px;
+
+        img{
+          max-width: none;
+        }
+      }
+
+      .slick-next{
+        right: -15px !important;
+      }
+    }
+
 
     .about-section {
       background: linear-gradient(

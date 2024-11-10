@@ -63,6 +63,7 @@ import { UserGalleryComponent } from './pages/user-gallery/user-gallery.componen
 import { AdminResultComponent } from './admin-pages/admin-help copy/admin-result.component';
 import { CreateResultComponent } from './admin-pages/admin-help copy/create-result/create-result.component';
 import { MorqueeAnnoucmentComponent } from './comoponents/morquee-annoucment/morquee-annoucment.component';
+import { IdeasComponent } from './comoponents/ideas/ideas.component';
 
 
 // import { ButtonModule } from 'primeng/button';
@@ -111,7 +112,8 @@ import { MorqueeAnnoucmentComponent } from './comoponents/morquee-annoucment/mor
     UserGalleryComponent,
     AdminResultComponent,
     CreateResultComponent,
-    MorqueeAnnoucmentComponent
+    MorqueeAnnoucmentComponent,
+    IdeasComponent
   ],
   imports: [
     BrowserModule,
