@@ -25,6 +25,7 @@ import { CreateStudentComponent } from './admin-pages/admin-student/create-mento
 import { CreateHelpComponent } from './admin-pages/admin-help/create-help/create-help.component';
 import { CreateResultComponent } from './admin-pages/admin-help copy/create-result/create-result.component';
 import { AdminResultComponent } from './admin-pages/admin-help copy/admin-result.component';
+import { IdeasComponent } from './comoponents/ideas/ideas.component';
 
 const routes: Routes = [
   { path: 'login', title: 'Login', component: LoginComponent },
@@ -78,6 +79,11 @@ const routes: Routes = [
     title: 'Courses',
     component: CoursesComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'ideas',
+    title: 'Ideas',
+    component: IdeasComponent,
   },
   {
     path: 'profile',
