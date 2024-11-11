@@ -1,5 +1,5 @@
 .courses{
-  margin-top: 120px;
+  margin-top: 160px;
   *{
     color: white;
   }
@@ -50,4 +50,15 @@ mat-card img {
 .no-course{
   text-align: center;
   margin: 50px 0;
+}
+
+.course-card .fixed-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+mat-card-content {
+  flex-grow: 1;
 }

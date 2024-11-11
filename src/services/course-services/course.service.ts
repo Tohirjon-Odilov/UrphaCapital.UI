@@ -48,7 +48,8 @@ export class CourseService {
   }
 
   buyCourse(id: any, price: any, userid: any) {
-    return this._httpClinet.get<any>(`${environment.apiUrl}clickUrlGeneration/generate-click-link?studentId=3&orderId=${id}&amount=${price}`);
+    console.log(userid)
+    return this._httpClinet.get<any>(`${environment.apiUrl}clickUrlGeneration/generate-click-link?studentId=${userid}&orderId=${id}&amount=${price}`);
   }
 }
 
