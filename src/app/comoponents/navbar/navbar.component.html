@@ -1,4 +1,5 @@
-<header class="site-header">
+<app-morquee-annoucment></app-morquee-annoucment>
+<header class="site-header" [ngClass]="{'announcement': !isAnnouncement}">
   <div class="header">
     <div class="container">
       <div class="site-logo">
@@ -28,6 +29,11 @@
           <li>
             <a href="javascript:void(0)" (click)="scrollToElement('mentor')"
               >Mentorlar</a
+            >
+          </li>
+          <li>
+            <a href="javascript:void(0)" [routerLink]="'/ideas'"
+              >Ideas</a
             >
           </li>
           <li *ngIf="!token">

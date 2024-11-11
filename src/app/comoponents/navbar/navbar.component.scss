@@ -1,8 +1,12 @@
+.announcement{
+  top: 0px !important;
+}
+
 .site-header{
   padding: 20px 0;
   border-bottom: 1px solid white;
   position: fixed;
-  top: 0;
+  top: 33px;
   width: 100%;
 
   z-index: 10000;

@@ -149,7 +149,7 @@
 }
 
 .cards-section {
-  padding: 150px 0;
+  padding: 150px 10px;
   background: rgb(16, 54, 21);
   background: linear-gradient(
     292deg,
@@ -181,7 +181,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 30px;
+    padding: 30 10px;
     width: 260px;
     height: 470px;
     border-radius: 10px;
@@ -200,7 +200,6 @@
       // padding: 20px 0;
       margin-bottom: 10px;
       width: 100%;
-      max-width: 170px;
       height: 100px;
     }
 
@@ -545,9 +544,21 @@
       }
     }
 
-    // .cards-section {
-    //   display: none;
-    // }
+    .cards-section {
+      .card{
+        background-size: auto;
+        padding: 30px 10px;
+
+        img{
+          max-width: none;
+        }
+      }
+
+      .slick-next{
+        right: -15px !important;
+      }
+    }
+
 
     .about-section {
       background: linear-gradient(

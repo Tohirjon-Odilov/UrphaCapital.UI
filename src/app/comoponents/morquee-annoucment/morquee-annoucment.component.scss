@@ -1,0 +1,55 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+  position: fixed;
+  top: 0;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  background-color: #FFD700; /* Oltin fon rangi */
+  align-items: center;
+  z-index: 1000; /* Navbar tepasida bo'lishi uchun */
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee-content span {
+  display: inline-block;
+  padding-right: 100px; /* Matnlar orasidagi bo'shliq */
+  color: #0057e7; /* Qoramtir ko'k rang */
+  font-size: 20px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #ff0000; /* Qizil rang */
+  font-size: 20px;
+  margin-left: auto;
+  cursor: pointer;
+  padding: 0 10px;
+} 
+
+.close-btn {
+  position: absolute; /* Absolute joylashuvi */
+  right: 10px; /* E'lonning o'ng chetida */
+  background: none;
+  top: 0;
+  border: none;
+  color: #ff0000; /* Qizil rang */
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
