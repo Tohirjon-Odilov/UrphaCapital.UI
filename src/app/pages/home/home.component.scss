@@ -596,19 +596,18 @@
             // transition: transform 0.3s ease;
             // cursor: pointer;
 
-            &:hover {
-              transform: scale(1.05);
-            }
+            // &:hover {
+            //   transform: scale(1.05);
+            // }
 
             .mentor-info {
               text-align: center;
 
-            //   img {
-            //     border-radius: 5px;
-            //     width: 100%;
-            // // max-width: 330px;
-            //     height: auto;
-            //   }
+              img {
+                border-radius: 5px;
+                width: 100%;
+                height: auto;
+              }
 
               h3 {
                 font-size: 18px;
